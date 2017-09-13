@@ -35,17 +35,17 @@ No parameters required.
 #### Request Body
 
 	{
-  		"email": string,
-  		"name": string,
-  		"password": string
+  	  "email": string,
+  	  "name": string,
+  	  "password": string
 	}
 	
 #### Response
 If successful, returns a JSON Web Token:
 
 	{
-  		"jwt": string,
-  		"refresh_token": string
+  	  "jwt": string,
+  	  "refresh_token": string
 	}
 	
 ---
@@ -70,8 +70,8 @@ No body required.
 If successful, returns a JSON user:
 
 	{
-  		"email": string,
-  		"name": string
+  	  "email": string,
+  	  "name": string
 	}
 
 ---
@@ -90,16 +90,16 @@ No parameters required.
 #### Request Body
 
 	{
-  		"email": string,
-  		"name": string
+  	  "email": string,
+  	  "name": string
 	}
 
 #### Response
 If successful, returns a JSON Web Token:
 
 	{
-  		"jwt": string,
-  		"refresh_token": string
+  	  "jwt": string,
+  	  "refresh_token": string
 	}
 	
 ---
@@ -118,7 +118,7 @@ No parameters required.
 
 #### Request Body
 	{
-  		"refresh_token": string
+  	  "refresh_token": string
 	}
 
 #### Response
@@ -140,14 +140,14 @@ No parameters required.
 
 #### Request Body
 	{
-  		"refresh_token": string
+  	  "refresh_token": string
 	}
 
 #### Response
 If successful, returns a JSON Web Token:
 
 	{
-  		"jwt": string
+  	  "jwt": string
 	}
 
 ---
@@ -167,25 +167,25 @@ No parameters required.
 #### Request Body
 
 	{
-  		"completed": string (yyyy-MM-dd),
-  		"description": string | null,
-  		"due": date string (yyyy-MM-dd),
-  		"status": string (open | completed),
- 		"title": string <required>
+  	  "completed": string (yyyy-MM-dd),
+  	  "description": string | null,
+  	  "due": date string (yyyy-MM-dd),
+  	  "status": string (open | completed),
+ 	  "title": string <required>
 	}
 	
 #### Response
 If successful, returns JSON task:
 
 	{
-  		"completed": string (yyyy-MM-dd),
-  		"created": string (yyyy-MM-dd'T'hh:mm:ss),
-  		"description": string,
-  		"due": string (yyyy-MM-dd),
-  		"id": number,
-  		"modified": string (yyyy-MM-dd'T'hh:mm:ss),
-  		"status": string (open | completed),
-  		"title": string
+  	  "completed": string (yyyy-MM-dd),
+  	  "created": string (yyyy-MM-dd'T'hh:mm:ss),
+  	  "description": string,
+  	  "due": string (yyyy-MM-dd),
+  	  "id": number,
+  	  "modified": string (yyyy-MM-dd'T'hh:mm:ss),
+  	  "status": string (open | completed),
+  	  "title": string
 	}
 
 ---
@@ -209,23 +209,23 @@ No body required
 If successful, returns an array of tasks:
 
 	[{
-  		"completed": string (yyyy-MM-dd),
-  		"created": string (yyyy-MM-dd'T'hh:mm:ss),
-  		"description": string,
-  		"due": string (yyyy-MM-dd),
-  		"id": number,
-  		"modified": string (yyyy-MM-dd'T'hh:mm:ss),
-  		"status": string (open | completed),
-  		"title": string
+  	   "completed": string (yyyy-MM-dd),
+  	   "created": string (yyyy-MM-dd'T'hh:mm:ss),
+  	   "description": string,
+  	   "due": string (yyyy-MM-dd),
+  	   "id": number,
+  	   "modified": string (yyyy-MM-dd'T'hh:mm:ss),
+  	   "status": string (open | completed),
+  	   "title": string
 	}, {
-  		"completed": string (yyyy-MM-dd),
-  		"created": string (yyyy-MM-dd'T'hh:mm:ss),
-  		"description": string,
-  		"due": string (yyyy-MM-dd),
-  		"id": number,
-  		"modified": string (yyyy-MM-dd'T'hh:mm:ss),
-  		"status": string (open | completed),
-  		"title": string
+  	     "completed": string (yyyy-MM-dd),
+  	     "created": string (yyyy-MM-dd'T'hh:mm:ss),
+  	     "description": string,
+  	     "due": string (yyyy-MM-dd),
+  	     "id": number,
+  	     "modified": string (yyyy-MM-dd'T'hh:mm:ss),
+  	     "status": string (open | completed),
+  	     "title": string
 	},...
 	]
 
@@ -246,25 +246,25 @@ No parameters required.
 #### Request Body
 
 	{
-  		"completed": string (yyyy-MM-dd),
-  		"description": string | null,
-  		"due": date string (yyyy-MM-dd),
-  		"status": string (open | completed),
- 		"title": string <required>
+  	  "completed": string (yyyy-MM-dd),
+  	  "description": string | null,
+  	  "due": date string (yyyy-MM-dd),
+  	  "status": string (open | completed),
+ 	  "title": string <required>
 	}
 	
 #### Response
 If successful, returns JSON task:
 
 	{
-  		"completed": string (yyyy-MM-dd),
-  		"created": string (yyyy-MM-dd'T'hh:mm:ss),
-  		"description": string,
-  		"due": string (yyyy-MM-dd),
-  		"id": number,
-  		"modified": string (yyyy-MM-dd'T'hh:mm:ss),
-  		"status": string (open | completed),
-  		"title": string
+  	  "completed": string (yyyy-MM-dd),
+  	  "created": string (yyyy-MM-dd'T'hh:mm:ss),
+  	  "description": string,
+  	  "due": string (yyyy-MM-dd),
+  	  "id": number,
+  	  "modified": string (yyyy-MM-dd'T'hh:mm:ss),
+  	  "status": string (open | completed),
+  	  "title": string
 	}
 
 ---
@@ -286,7 +286,3 @@ No body required.
 	
 #### Response
 No response, if successful.
-
-
-
-
