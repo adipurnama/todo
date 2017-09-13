@@ -1,0 +1,735 @@
+Initialized native services in: /Users/johndev/.gradle/native
+The client will now receive all logging from the daemon (pid: 4373). The daemon log file: /Users/johndev/.gradle/daemon/4.1/daemon-4373.out.log
+Starting 12th build in daemon [uptime: 37 mins 18.577 secs, performance: 100%, no major garbage collections]
+Using 8 worker leases.
+Creating new cache for fileHashes, path /Users/johndev/Documents/workspace-sts-3.9.0.RELEASE/task/.gradle/4.1/fileHashes/fileHashes.bin, access org.gradle.cache.internal.DefaultCacheAccess@42a7b1ca
+Creating new cache for plugin-use-metadata, path /Users/johndev/.gradle/caches/4.1/plugin-resolution/plugin-use-metadata.bin, access org.gradle.cache.internal.DefaultCacheAccess@46b6131f
+Creating new cache for client-status, path /Users/johndev/.gradle/caches/4.1/plugin-resolution/client-status.bin, access org.gradle.cache.internal.DefaultCacheAccess@46b6131f
+Starting Build
+Settings evaluated using settings file '/master/settings.gradle'.
+Projects loaded. Root project using build file '/Users/johndev/Documents/workspace-sts-3.9.0.RELEASE/task/build.gradle'.
+Included projects: [root project 'task']
+Evaluating root project 'task' using build file '/Users/johndev/Documents/workspace-sts-3.9.0.RELEASE/task/build.gradle'.
+Creating new cache for metadata-1.1/results, path /Users/johndev/.gradle/caches/transforms-1/metadata-1.1/results.bin, access org.gradle.cache.internal.DefaultCacheAccess@5b8491a0
+Creating new cache for metadata-2.23/module-metadata, path /Users/johndev/.gradle/caches/modules-2/metadata-2.23/module-metadata.bin, access org.gradle.cache.internal.DefaultCacheAccess@71476eb3
+Creating new cache for metadata-2.23/artifact-at-repository, path /Users/johndev/.gradle/caches/modules-2/metadata-2.23/artifact-at-repository.bin, access org.gradle.cache.internal.DefaultCacheAccess@71476eb3
+Applying dependency management to configuration 'apiElements' in project 'task'
+Applying dependency management to configuration 'archives' in project 'task'
+Applying dependency management to configuration 'compile' in project 'task'
+Applying dependency management to configuration 'compileClasspath' in project 'task'
+Applying dependency management to configuration 'compileOnly' in project 'task'
+Applying dependency management to configuration 'default' in project 'task'
+Applying dependency management to configuration 'implementation' in project 'task'
+Applying dependency management to configuration 'runtime' in project 'task'
+Applying dependency management to configuration 'runtimeClasspath' in project 'task'
+Applying dependency management to configuration 'runtimeElements' in project 'task'
+Applying dependency management to configuration 'runtimeOnly' in project 'task'
+Applying dependency management to configuration 'testCompile' in project 'task'
+Applying dependency management to configuration 'testCompileClasspath' in project 'task'
+Applying dependency management to configuration 'testCompileOnly' in project 'task'
+Applying dependency management to configuration 'testImplementation' in project 'task'
+Applying dependency management to configuration 'testRuntime' in project 'task'
+Applying dependency management to configuration 'testRuntimeClasspath' in project 'task'
+Applying dependency management to configuration 'testRuntimeOnly' in project 'task'
+Configuring agent
+All projects evaluated.
+Selected primary task 'build' from project :
+Creating new cache for annotation-processors, path /Users/johndev/Documents/workspace-sts-3.9.0.RELEASE/task/.gradle/4.1/fileContent/annotation-processors.bin, access org.gradle.cache.internal.DefaultCacheAccess@71cf3860
+Tasks to be executed: [task ':compileJava', task ':processResources', task ':classes', task ':findMainClass', task ':jar', task ':bootRepackage', task ':assemble', task ':compileTestJava', task ':processTestResources', task ':testClasses', task ':test', task ':check', task ':build']
+Creating new cache for resourceHashesCache, path /Users/johndev/Documents/workspace-sts-3.9.0.RELEASE/task/.gradle/4.1/fileHashes/resourceHashesCache.bin, access org.gradle.cache.internal.DefaultCacheAccess@42a7b1ca
+Creating new cache for fileSnapshots, path /Users/johndev/Documents/workspace-sts-3.9.0.RELEASE/task/.gradle/4.1/taskHistory/fileSnapshots.bin, access org.gradle.cache.internal.DefaultCacheAccess@ba09f99
+Creating new cache for taskHistory, path /Users/johndev/Documents/workspace-sts-3.9.0.RELEASE/task/.gradle/4.1/taskHistory/taskHistory.bin, access org.gradle.cache.internal.DefaultCacheAccess@ba09f99
+:compileJava (Thread[Task worker for ':',5,main]) started.
+:compileJava
+Putting task artifact state for task ':compileJava' into context took 0.0 secs.
+Resolving dependency management for configuration 'compileClasspath' of project 'task'
+Resolving dependency management for configuration 'compileOnly' of project 'task'
+Resolving dependency management for configuration 'implementation' of project 'task'
+Resolving dependency management for configuration 'compile' of project 'task'
+Resolving global dependency management for project 'task'
+Excluding [xml-apis:xml-apis]
+Skipping task ':compileJava' as it is up-to-date (took 0.35 secs).
+:compileJava UP-TO-DATE
+:compileJava (Thread[Task worker for ':',5,main]) completed. Took 0.351 secs.
+:processResources (Thread[Task worker for ':',5,main]) started.
+:processResources
+Putting task artifact state for task ':processResources' into context took 0.0 secs.
+Skipping task ':processResources' as it is up-to-date (took 0.001 secs).
+:processResources UP-TO-DATE
+:processResources (Thread[Task worker for ':',5,main]) completed. Took 0.002 secs.
+:classes (Thread[Task worker for ':',5,main]) started.
+:classes
+Skipping task ':classes' as it has no actions.
+:classes UP-TO-DATE
+:classes (Thread[Task worker for ':',5,main]) completed. Took 0.0 secs.
+:findMainClass (Thread[Task worker for ':',5,main]) started.
+:findMainClass
+Putting task artifact state for task ':findMainClass' into context took 0.0 secs.
+Executing task ':findMainClass' (up-to-date check took 0.0 secs) due to:
+  Task has not declared any outputs.
+Computed main class: com.rodaxsoft.task.TaskApplication
+Found main: com.rodaxsoft.task.TaskApplication
+:findMainClass (Thread[Task worker for ':',5,main]) completed. Took 0.004 secs.
+:jar (Thread[Task worker for ':',5,main]) started.
+:jar
+Putting task artifact state for task ':jar' into context took 0.0 secs.
+Executing task ':jar' (up-to-date check took 1.45 secs) due to:
+  Output property 'archivePath' file /Users/johndev/Documents/workspace-sts-3.9.0.RELEASE/task/build/libs/task-0.0.1-SNAPSHOT.jar has changed.
+:jar (Thread[Task worker for ':',5,main]) completed. Took 1.466 secs.
+:bootRepackage (Thread[Task worker for ':',5,main]) started.
+:bootRepackage
+Putting task artifact state for task ':bootRepackage' into context took 0.0 secs.
+Executing task ':bootRepackage' (up-to-date check took 0.0 secs) due to:
+  Task has not declared any outputs.
+Setting mainClass: com.rodaxsoft.task.TaskApplication
+Resolving dependency management for configuration 'runtime' of project 'task'
+Excluding []
+:bootRepackage (Thread[Task worker for ':',5,main]) completed. Took 0.188 secs.
+:assemble (Thread[Task worker for ':',5,main]) started.
+:assemble
+Skipping task ':assemble' as it has no actions.
+:assemble (Thread[Task worker for ':',5,main]) completed. Took 0.0 secs.
+:compileTestJava (Thread[Task worker for ':',5,main]) started.
+:compileTestJava
+Putting task artifact state for task ':compileTestJava' into context took 0.0 secs.
+Resolving dependency management for configuration 'testCompileClasspath' of project 'task'
+Resolving dependency management for configuration 'testCompileOnly' of project 'task'
+Resolving dependency management for configuration 'testImplementation' of project 'task'
+Resolving dependency management for configuration 'testCompile' of project 'task'
+Excluding []
+Executing task ':compileTestJava' (up-to-date check took 0.088 secs) due to:
+  Input property 'source' file /Users/johndev/Documents/workspace-sts-3.9.0.RELEASE/task/src/test/java/com/rodaxsoft/task/test/data/TaskRepositoryTest.java has changed.
+Compiling with JDK Java compiler API.
+:compileTestJava (Thread[Task worker for ':',5,main]) completed. Took 0.602 secs.
+:processTestResources (Thread[Task worker for ':',5,main]) started.
+:processTestResources
+Putting task artifact state for task ':processTestResources' into context took 0.0 secs.
+file or directory '/Users/johndev/Documents/workspace-sts-3.9.0.RELEASE/task/src/test/resources', not found
+Skipping task ':processTestResources' as it has no source files and no previous output files.
+:processTestResources NO-SOURCE
+:processTestResources (Thread[Task worker for ':',5,main]) completed. Took 0.001 secs.
+:testClasses (Thread[Task worker for ':',5,main]) started.
+:testClasses
+Skipping task ':testClasses' as it has no actions.
+:testClasses (Thread[Task worker for ':',5,main]) completed. Took 0.0 secs.
+:test (Thread[Task worker for ':',5,main]) started.
+:test
+Putting task artifact state for task ':test' into context took 0.0 secs.
+Resolving dependency management for configuration 'testRuntimeClasspath' of project 'task'
+Resolving dependency management for configuration 'testRuntimeOnly' of project 'task'
+Resolving dependency management for configuration 'runtimeOnly' of project 'task'
+Resolving dependency management for configuration 'testRuntime' of project 'task'
+Excluding []
+Executing task ':test' (up-to-date check took 1.756 secs) due to:
+  Task has failed previously.
+Starting process 'Gradle Test Executor 9'. Working directory: /Users/johndev/Documents/workspace-sts-3.9.0.RELEASE/task Command: /Library/Java/JavaVirtualMachines/jdk1.8.0_111.jdk/Contents/Home/bin/java -Djava.security.manager=worker.org.gradle.process.internal.worker.child.BootstrapSecurityManager -Dorg.gradle.native=false -Dfile.encoding=UTF-8 -Duser.country=US -Duser.language=en -Duser.variant -ea -cp /Users/johndev/.gradle/caches/4.1/workerMain/gradle-worker.jar worker.org.gradle.process.internal.worker.GradleWorkerMain 'Gradle Test Executor 9'
+Successfully started process 'Gradle Test Executor 9'
+Gradle Test Executor 9 started executing tests.
+
+com.rodaxsoft.task.test.data.TaskDAOTest > testCreate STANDARD_OUT
+    {
+      "completed" : null,
+      "created" : "2017-09-12T10:49:19",
+      "description" : "description of Test task 1 ",
+      "due" : "2017-10-31",
+      "id" : 1,
+      "modified" : null,
+      "status" : "open",
+      "title" : "Test Task 1"
+    }
+    TaskDAO [completed=null, created=Tue Sep 12 03:49:19 PDT 2017, description=description of Test task 1 , due=Mon Oct 30 17:00:00 PDT 2017, id=1, modified=null, status=open, title=Test Task 1]
+
+com.rodaxsoft.task.test.data.TaskDAOTest > testUpdate STANDARD_OUT
+    {
+      "completed" : "2017-09-12",
+      "created" : "2017-09-12T10:49:19",
+      "description" : "description of Test task 1 ",
+      "due" : "2017-10-31",
+      "id" : 1,
+      "modified" : "2017-09-12T10:49:19",
+      "status" : "completed",
+      "title" : "Test Task 1"
+    }
+    TaskDAO [completed=Mon Sep 11 17:00:00 PDT 2017, created=Tue Sep 12 03:49:19 PDT 2017, description=description of Test task 1 , due=Mon Oct 30 17:00:00 PDT 2017, id=1, modified=Tue Sep 12 03:49:19 PDT 2017, status=completed, title=Test Task 1]
+
+com.rodaxsoft.task.test.data.TaskRepositoryTest STANDARD_OUT
+    15:49:19.922 [Test worker] DEBUG org.springframework.test.context.junit4.SpringJUnit4ClassRunner - SpringJUnit4ClassRunner constructor called with [class com.rodaxsoft.task.test.data.TaskRepositoryTest]
+    15:49:19.927 [Test worker] DEBUG org.springframework.test.context.BootstrapUtils - Instantiating CacheAwareContextLoaderDelegate from class [org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate]
+    15:49:19.932 [Test worker] DEBUG org.springframework.test.context.BootstrapUtils - Instantiating BootstrapContext using constructor [public org.springframework.test.context.support.DefaultBootstrapContext(java.lang.Class,org.springframework.test.context.CacheAwareContextLoaderDelegate)]
+    15:49:19.951 [Test worker] DEBUG org.springframework.test.context.BootstrapUtils - Instantiating TestContextBootstrapper for test class [com.rodaxsoft.task.test.data.TaskRepositoryTest] from class [org.springframework.boot.test.context.SpringBootTestContextBootstrapper]
+    15:49:19.969 [Test worker] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper - Neither @ContextConfiguration nor @ContextHierarchy found for test class [com.rodaxsoft.task.test.data.TaskRepositoryTest], using SpringBootContextLoader
+    15:49:19.973 [Test worker] DEBUG org.springframework.test.context.support.AbstractContextLoader - Did not detect default resource location for test class [com.rodaxsoft.task.test.data.TaskRepositoryTest]: class path resource [com/rodaxsoft/task/test/data/TaskRepositoryTest-context.xml] does not exist
+    15:49:19.974 [Test worker] DEBUG org.springframework.test.context.support.AbstractContextLoader - Did not detect default resource location for test class [com.rodaxsoft.task.test.data.TaskRepositoryTest]: class path resource [com/rodaxsoft/task/test/data/TaskRepositoryTestContext.groovy] does not exist
+    15:49:19.974 [Test worker] INFO org.springframework.test.context.support.AbstractContextLoader - Could not detect default resource locations for test class [com.rodaxsoft.task.test.data.TaskRepositoryTest]: no resource found for suffixes {-context.xml, Context.groovy}.
+    15:49:19.975 [Test worker] INFO org.springframework.test.context.support.AnnotationConfigContextLoaderUtils - Could not detect default configuration classes for test class [com.rodaxsoft.task.test.data.TaskRepositoryTest]: TaskRepositoryTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+    15:49:20.045 [Test worker] DEBUG org.springframework.test.context.support.ActiveProfilesUtils - Could not find an 'annotation declaring class' for annotation type [org.springframework.test.context.ActiveProfiles] and class [com.rodaxsoft.task.test.data.TaskRepositoryTest]
+    15:49:20.052 [Test worker] DEBUG org.springframework.core.env.StandardEnvironment - Adding [systemProperties] PropertySource with lowest search precedence
+    15:49:20.053 [Test worker] DEBUG org.springframework.core.env.StandardEnvironment - Adding [systemEnvironment] PropertySource with lowest search precedence
+    15:49:20.053 [Test worker] DEBUG org.springframework.core.env.StandardEnvironment - Initialized StandardEnvironment with PropertySources [systemProperties,systemEnvironment]
+    15:49:20.062 [Test worker] DEBUG org.springframework.core.io.support.PathMatchingResourcePatternResolver - Resolved classpath location [com/rodaxsoft/task/test/data/] to resources [URL [file:/Users/johndev/Documents/workspace-sts-3.9.0.RELEASE/task/build/classes/java/test/com/rodaxsoft/task/test/data/]]
+    15:49:20.063 [Test worker] DEBUG org.springframework.core.io.support.PathMatchingResourcePatternResolver - Looking for matching resources in directory tree [/Users/johndev/Documents/workspace-sts-3.9.0.RELEASE/task/build/classes/java/test/com/rodaxsoft/task/test/data]
+    15:49:20.063 [Test worker] DEBUG org.springframework.core.io.support.PathMatchingResourcePatternResolver - Searching directory [/Users/johndev/Documents/workspace-sts-3.9.0.RELEASE/task/build/classes/java/test/com/rodaxsoft/task/test/data] for files matching pattern [/Users/johndev/Documents/workspace-sts-3.9.0.RELEASE/task/build/classes/java/test/com/rodaxsoft/task/test/data/*.class]
+    15:49:20.066 [Test worker] DEBUG org.springframework.core.io.support.PathMatchingResourcePatternResolver - Resolved location pattern [classpath*:com/rodaxsoft/task/test/data/*.class] to resources [file [/Users/johndev/Documents/workspace-sts-3.9.0.RELEASE/task/build/classes/java/test/com/rodaxsoft/task/test/data/TaskDAOTest.class], file [/Users/johndev/Documents/workspace-sts-3.9.0.RELEASE/task/build/classes/java/test/com/rodaxsoft/task/test/data/TaskRepositoryTest.class]]
+    15:49:20.084 [Test worker] DEBUG org.springframework.core.io.support.PathMatchingResourcePatternResolver - Resolved classpath location [com/rodaxsoft/task/test/] to resources [URL [file:/Users/johndev/Documents/workspace-sts-3.9.0.RELEASE/task/build/classes/java/test/com/rodaxsoft/task/test/]]
+    15:49:20.084 [Test worker] DEBUG org.springframework.core.io.support.PathMatchingResourcePatternResolver - Looking for matching resources in directory tree [/Users/johndev/Documents/workspace-sts-3.9.0.RELEASE/task/build/classes/java/test/com/rodaxsoft/task/test]
+    15:49:20.084 [Test worker] DEBUG org.springframework.core.io.support.PathMatchingResourcePatternResolver - Searching directory [/Users/johndev/Documents/workspace-sts-3.9.0.RELEASE/task/build/classes/java/test/com/rodaxsoft/task/test] for files matching pattern [/Users/johndev/Documents/workspace-sts-3.9.0.RELEASE/task/build/classes/java/test/com/rodaxsoft/task/test/*.class]
+    15:49:20.086 [Test worker] DEBUG org.springframework.core.io.support.PathMatchingResourcePatternResolver - Resolved location pattern [classpath*:com/rodaxsoft/task/test/*.class] to resources [file [/Users/johndev/Documents/workspace-sts-3.9.0.RELEASE/task/build/classes/java/test/com/rodaxsoft/task/test/JWTUtilTest.class], file [/Users/johndev/Documents/workspace-sts-3.9.0.RELEASE/task/build/classes/java/test/com/rodaxsoft/task/test/TaskApplicationTests.class], file [/Users/johndev/Documents/workspace-sts-3.9.0.RELEASE/task/build/classes/java/test/com/rodaxsoft/task/test/TaskTestUtil.class], file [/Users/johndev/Documents/workspace-sts-3.9.0.RELEASE/task/build/classes/java/test/com/rodaxsoft/task/test/UploadableTestTask.class]]
+    15:49:20.090 [Test worker] DEBUG org.springframework.core.io.support.PathMatchingResourcePatternResolver - Resolved classpath location [com/rodaxsoft/task/] to resources [URL [file:/Users/johndev/Documents/workspace-sts-3.9.0.RELEASE/task/build/classes/java/test/com/rodaxsoft/task/], URL [file:/Users/johndev/Documents/workspace-sts-3.9.0.RELEASE/task/build/classes/java/main/com/rodaxsoft/task/]]
+    15:49:20.090 [Test worker] DEBUG org.springframework.core.io.support.PathMatchingResourcePatternResolver - Looking for matching resources in directory tree [/Users/johndev/Documents/workspace-sts-3.9.0.RELEASE/task/build/classes/java/test/com/rodaxsoft/task]
+    15:49:20.090 [Test worker] DEBUG org.springframework.core.io.support.PathMatchingResourcePatternResolver - Searching directory [/Users/johndev/Documents/workspace-sts-3.9.0.RELEASE/task/build/classes/java/test/com/rodaxsoft/task] for files matching pattern [/Users/johndev/Documents/workspace-sts-3.9.0.RELEASE/task/build/classes/java/test/com/rodaxsoft/task/*.class]
+    15:49:20.091 [Test worker] DEBUG org.springframework.core.io.support.PathMatchingResourcePatternResolver - Looking for matching resources in directory tree [/Users/johndev/Documents/workspace-sts-3.9.0.RELEASE/task/build/classes/java/main/com/rodaxsoft/task]
+    15:49:20.091 [Test worker] DEBUG org.springframework.core.io.support.PathMatchingResourcePatternResolver - Searching directory [/Users/johndev/Documents/workspace-sts-3.9.0.RELEASE/task/build/classes/java/main/com/rodaxsoft/task] for files matching pattern [/Users/johndev/Documents/workspace-sts-3.9.0.RELEASE/task/build/classes/java/main/com/rodaxsoft/task/*.class]
+    15:49:20.092 [Test worker] DEBUG org.springframework.core.io.support.PathMatchingResourcePatternResolver - Resolved location pattern [classpath*:com/rodaxsoft/task/*.class] to resources [file [/Users/johndev/Documents/workspace-sts-3.9.0.RELEASE/task/build/classes/java/main/com/rodaxsoft/task/TaskApplication.class]]
+    15:49:20.113 [Test worker] DEBUG org.springframework.context.annotation.ClassPathScanningCandidateComponentProvider - Identified candidate component class: file [/Users/johndev/Documents/workspace-sts-3.9.0.RELEASE/task/build/classes/java/main/com/rodaxsoft/task/TaskApplication.class]
+    15:49:20.114 [Test worker] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper - Found @SpringBootConfiguration com.rodaxsoft.task.TaskApplication for test class com.rodaxsoft.task.test.data.TaskRepositoryTest
+    15:49:20.117 [Test worker] DEBUG org.springframework.boot.test.context.SpringBootTestContextBootstrapper - @TestExecutionListeners is not present for class [com.rodaxsoft.task.test.data.TaskRepositoryTest]: using defaults.
+    15:49:20.120 [Test worker] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper - Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener, org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener]
+    15:49:20.139 [Test worker] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper - Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@66b54440, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@3f11ede5, org.springframework.boot.test.autoconfigure.SpringBootDependencyInjectionTestExecutionListener@4ef73193, org.springframework.test.context.support.DirtiesContextTestExecutionListener@29d3ebee, org.springframework.test.context.transaction.TransactionalTestExecutionListener@65082dd0, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@55c68a51, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener@22ca52d3, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener@147041ff, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener@30b2880c, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener@51470849, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener@216b8478, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener@37825613]
+    15:49:20.141 [Test worker] DEBUG org.springframework.test.annotation.ProfileValueUtils - Retrieved @ProfileValueSourceConfiguration [null] for test class [com.rodaxsoft.task.test.data.TaskRepositoryTest]
+    15:49:20.141 [Test worker] DEBUG org.springframework.test.annotation.ProfileValueUtils - Retrieved ProfileValueSource type [class org.springframework.test.annotation.SystemProfileValueSource] for class [com.rodaxsoft.task.test.data.TaskRepositoryTest]
+    15:49:20.141 [Test worker] DEBUG org.springframework.test.annotation.ProfileValueUtils - Retrieved @ProfileValueSourceConfiguration [null] for test class [com.rodaxsoft.task.test.data.TaskRepositoryTest]
+    15:49:20.142 [Test worker] DEBUG org.springframework.test.annotation.ProfileValueUtils - Retrieved ProfileValueSource type [class org.springframework.test.annotation.SystemProfileValueSource] for class [com.rodaxsoft.task.test.data.TaskRepositoryTest]
+    15:49:20.145 [Test worker] DEBUG org.springframework.test.context.support.AbstractDirtiesContextTestExecutionListener - Before test class: context [DefaultTestContext@1ad0b795 testClass = TaskRepositoryTest, testInstance = [null], testMethod = [null], testException = [null], mergedContextConfiguration = [MergedContextConfiguration@3b9a2d69 testClass = TaskRepositoryTest, locations = '{}', classes = '{class com.rodaxsoft.task.TaskApplication}', contextInitializerClasses = '[]', activeProfiles = '{}', propertySourceLocations = '{}', propertySourceProperties = '{org.springframework.boot.test.context.SpringBootTestContextBootstrapper=true}', contextCustomizers = set[org.springframework.boot.test.autoconfigure.OverrideAutoConfigurationContextCustomizerFactory$DisableAutoConfigurationContextCustomizer@1f5502df, org.springframework.boot.test.autoconfigure.filter.TypeExcludeFiltersContextCustomizer@351584c0, org.springframework.boot.test.autoconfigure.properties.PropertyMappingContextCustomizer@35763f1c, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverContextCustomizerFactory$Customizer@473c93e9, [ImportsContextCustomizer@666b28f3 key = [org.springframework.boot.autoconfigure.cache.CacheAutoConfiguration, org.springframework.boot.autoconfigure.data.jpa.JpaRepositoriesAutoConfiguration, org.springframework.boot.autoconfigure.flyway.FlywayAutoConfiguration, org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration, org.springframework.boot.autoconfigure.jdbc.DataSourceTransactionManagerAutoConfiguration, org.springframework.boot.autoconfigure.jdbc.JdbcTemplateAutoConfiguration, org.springframework.boot.autoconfigure.liquibase.LiquibaseAutoConfiguration, org.springframework.boot.autoconfigure.orm.jpa.HibernateJpaAutoConfiguration, org.springframework.boot.autoconfigure.transaction.TransactionAutoConfiguration, org.springframework.boot.test.autoconfigure.jdbc.TestDatabaseAutoConfiguration, org.springframework.boot.test.autoconfigure.orm.jpa.TestEntityManagerAutoConfiguration]], org.springframework.boot.test.context.filter.ExcludeFilterContextCustomizer@355b276e, org.springframework.boot.test.json.DuplicateJsonObjectContextCustomizerFactory$DuplicateJsonObjectContextCustomizer@65688945, org.springframework.boot.test.mock.mockito.MockitoContextCustomizer@0], contextLoader = 'org.springframework.boot.test.context.SpringBootContextLoader', parent = [null]]], class annotated with @DirtiesContext [false] with mode [null].
+    15:49:20.146 [Test worker] DEBUG org.springframework.test.annotation.ProfileValueUtils - Retrieved @ProfileValueSourceConfiguration [null] for test class [com.rodaxsoft.task.test.data.TaskRepositoryTest]
+    15:49:20.146 [Test worker] DEBUG org.springframework.test.annotation.ProfileValueUtils - Retrieved ProfileValueSource type [class org.springframework.test.annotation.SystemProfileValueSource] for class [com.rodaxsoft.task.test.data.TaskRepositoryTest]
+    15:49:20.148 [Test worker] DEBUG org.springframework.test.context.support.DependencyInjectionTestExecutionListener - Performing dependency injection for test context [[DefaultTestContext@1ad0b795 testClass = TaskRepositoryTest, testInstance = com.rodaxsoft.task.test.data.TaskRepositoryTest@312b4455, testMethod = [null], testException = [null], mergedContextConfiguration = [MergedContextConfiguration@3b9a2d69 testClass = TaskRepositoryTest, locations = '{}', classes = '{class com.rodaxsoft.task.TaskApplication}', contextInitializerClasses = '[]', activeProfiles = '{}', propertySourceLocations = '{}', propertySourceProperties = '{org.springframework.boot.test.context.SpringBootTestContextBootstrapper=true}', contextCustomizers = set[org.springframework.boot.test.autoconfigure.OverrideAutoConfigurationContextCustomizerFactory$DisableAutoConfigurationContextCustomizer@1f5502df, org.springframework.boot.test.autoconfigure.filter.TypeExcludeFiltersContextCustomizer@351584c0, org.springframework.boot.test.autoconfigure.properties.PropertyMappingContextCustomizer@35763f1c, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverContextCustomizerFactory$Customizer@473c93e9, [ImportsContextCustomizer@666b28f3 key = [org.springframework.boot.autoconfigure.cache.CacheAutoConfiguration, org.springframework.boot.autoconfigure.data.jpa.JpaRepositoriesAutoConfiguration, org.springframework.boot.autoconfigure.flyway.FlywayAutoConfiguration, org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration, org.springframework.boot.autoconfigure.jdbc.DataSourceTransactionManagerAutoConfiguration, org.springframework.boot.autoconfigure.jdbc.JdbcTemplateAutoConfiguration, org.springframework.boot.autoconfigure.liquibase.LiquibaseAutoConfiguration, org.springframework.boot.autoconfigure.orm.jpa.HibernateJpaAutoConfiguration, org.springframework.boot.autoconfigure.transaction.TransactionAutoConfiguration, org.springframework.boot.test.autoconfigure.jdbc.TestDatabaseAutoConfiguration, org.springframework.boot.test.autoconfigure.orm.jpa.TestEntityManagerAutoConfiguration]], org.springframework.boot.test.context.filter.ExcludeFilterContextCustomizer@355b276e, org.springframework.boot.test.json.DuplicateJsonObjectContextCustomizerFactory$DuplicateJsonObjectContextCustomizer@65688945, org.springframework.boot.test.mock.mockito.MockitoContextCustomizer@0], contextLoader = 'org.springframework.boot.test.context.SpringBootContextLoader', parent = [null]]]].
+    15:49:20.200 [Test worker] DEBUG org.springframework.core.env.StandardEnvironment - Adding [systemProperties] PropertySource with lowest search precedence
+    15:49:20.200 [Test worker] DEBUG org.springframework.core.env.StandardEnvironment - Adding [systemEnvironment] PropertySource with lowest search precedence
+    15:49:20.200 [Test worker] DEBUG org.springframework.core.env.StandardEnvironment - Initialized StandardEnvironment with PropertySources [systemProperties,systemEnvironment]
+    15:49:20.202 [Test worker] DEBUG org.springframework.core.env.MutablePropertySources - Adding [inline] PropertySource with highest search precedence
+    15:49:20.206 [Test worker] DEBUG org.springframework.test.context.support.TestPropertySourceUtils - Adding inlined properties to environment: {spring.jmx.enabled=false, org.springframework.boot.test.context.SpringBootTestContextBootstrapper=true, server.port=-1}
+    15:49:20.207 [Test worker] DEBUG org.springframework.core.env.StandardEnvironment - Adding [Inlined Test Properties] PropertySource with highest search precedence
+
+      .   ____          _            __ _ _
+     /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+    ( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+     \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+      '  |____| .__|_| |_|_| |_\__, | / / / /
+     =========|_|==============|___/=/_/_/_/
+     :: Spring Boot ::        (v1.5.6.RELEASE)
+
+    2017-09-12 15:49:20.738  INFO 4614 --- [    Test worker] c.r.task.test.data.TaskRepositoryTest    : Starting TaskRepositoryTest on rodax-mini.local with PID 4614 (started by johndev in /Users/johndev/Documents/workspace-sts-3.9.0.RELEASE/task)
+    2017-09-12 15:49:20.739  INFO 4614 --- [    Test worker] c.r.task.test.data.TaskRepositoryTest    : No active profile set, falling back to default profiles: default
+    2017-09-12 15:49:20.767  INFO 4614 --- [    Test worker] s.c.a.AnnotationConfigApplicationContext : Refreshing org.springframework.context.annotation.AnnotationConfigApplicationContext@6784c4d7: startup date [Tue Sep 12 15:49:20 PDT 2017]; root of context hierarchy
+    2017-09-12 15:49:21.308  INFO 4614 --- [    Test worker] beddedDataSourceBeanFactoryPostProcessor : Replacing 'dataSource' DataSource bean with embedded version
+    2017-09-12 15:49:21.309  INFO 4614 --- [    Test worker] o.s.b.f.s.DefaultListableBeanFactory     : Overriding bean definition for bean 'dataSource' with a different definition: replacing [Root bean: class [null]; scope=; abstract=false; lazyInit=false; autowireMode=3; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=org.springframework.boot.autoconfigure.jdbc.DataSourceConfiguration$Tomcat; factoryMethodName=dataSource; initMethodName=null; destroyMethodName=(inferred); defined in class path resource [org/springframework/boot/autoconfigure/jdbc/DataSourceConfiguration$Tomcat.class]] with [Root bean: class [org.springframework.boot.test.autoconfigure.jdbc.TestDatabaseAutoConfiguration$EmbeddedDataSourceFactoryBean]; scope=; abstract=false; lazyInit=false; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=null; destroyMethodName=null]
+    2017-09-12 15:49:21.310  WARN 4614 --- [    Test worker] o.s.c.a.ConfigurationClassPostProcessor  : Cannot enhance @Configuration bean definition 'embeddedDataSourceBeanFactoryPostProcessor' since its singleton instance has been created too early. The typical cause is a non-static @Bean method with a BeanDefinitionRegistryPostProcessor return type: Consider declaring such methods as 'static'.
+    2017-09-12 15:49:21.532  INFO 4614 --- [    Test worker] o.s.j.d.e.EmbeddedDatabaseFactory        : Starting embedded database: url='jdbc:hsqldb:mem:2e00ffa3-6d4d-49ff-9bf7-4e855eee22d0', username='sa'
+    2017-09-12 15:49:22.222  INFO 4614 --- [    Test worker] j.LocalContainerEntityManagerFactoryBean : Building JPA container EntityManagerFactory for persistence unit 'default'
+    2017-09-12 15:49:22.250  INFO 4614 --- [    Test worker] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [
+    	name: default
+    	...]
+    2017-09-12 15:49:22.392  INFO 4614 --- [    Test worker] org.hibernate.Version                    : HHH000412: Hibernate Core {5.0.12.Final}
+    2017-09-12 15:49:22.396  INFO 4614 --- [    Test worker] org.hibernate.cfg.Environment            : HHH000206: hibernate.properties not found
+    2017-09-12 15:49:22.399  INFO 4614 --- [    Test worker] org.hibernate.cfg.Environment            : HHH000021: Bytecode provider name : javassist
+    2017-09-12 15:49:22.467  INFO 4614 --- [    Test worker] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.0.1.Final}
+    2017-09-12 15:49:22.640  INFO 4614 --- [    Test worker] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.HSQLDialect
+    2017-09-12 15:49:23.303  INFO 4614 --- [    Test worker] org.hibernate.tool.hbm2ddl.SchemaExport  : HHH000227: Running hbm2ddl schema export
+    Hibernate: drop table application_user if exists
+    Hibernate: drop table taskdao if exists
+    Hibernate: create table application_user (id bigint generated by default as identity (start with 1), email varchar(255), name varchar(255), password varchar(255), primary key (id))
+    Hibernate: create table taskdao (id bigint generated by default as identity (start with 1), completed timestamp, created timestamp, description varchar(255), due timestamp, modified timestamp, status integer, title varchar(255), user_id bigint, primary key (id))
+    2017-09-12 15:49:23.307  INFO 4614 --- [    Test worker] org.hibernate.tool.hbm2ddl.SchemaExport  : HHH000230: Schema export complete
+    2017-09-12 15:49:23.345  INFO 4614 --- [    Test worker] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+    2017-09-12 15:49:23.808  INFO 4614 --- [    Test worker] c.r.task.test.data.TaskRepositoryTest    : Started TaskRepositoryTest in 3.598 seconds (JVM running for 4.888)
+
+com.rodaxsoft.task.test.data.TaskRepositoryTest > testGetTasks STANDARD_OUT
+    2017-09-12 15:49:23.853  INFO 4614 --- [    Test worker] o.s.t.c.transaction.TransactionContext   : Began transaction (1) for test context [DefaultTestContext@1ad0b795 testClass = TaskRepositoryTest, testInstance = com.rodaxsoft.task.test.data.TaskRepositoryTest@312b4455, testMethod = testGetTasks@TaskRepositoryTest, testException = [null], mergedContextConfiguration = [MergedContextConfiguration@3b9a2d69 testClass = TaskRepositoryTest, locations = '{}', classes = '{class com.rodaxsoft.task.TaskApplication}', contextInitializerClasses = '[]', activeProfiles = '{}', propertySourceLocations = '{}', propertySourceProperties = '{org.springframework.boot.test.context.SpringBootTestContextBootstrapper=true}', contextCustomizers = set[org.springframework.boot.test.autoconfigure.OverrideAutoConfigurationContextCustomizerFactory$DisableAutoConfigurationContextCustomizer@1f5502df, org.springframework.boot.test.autoconfigure.filter.TypeExcludeFiltersContextCustomizer@351584c0, org.springframework.boot.test.autoconfigure.properties.PropertyMappingContextCustomizer@35763f1c, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverContextCustomizerFactory$Customizer@473c93e9, [ImportsContextCustomizer@666b28f3 key = [org.springframework.boot.autoconfigure.cache.CacheAutoConfiguration, org.springframework.boot.autoconfigure.data.jpa.JpaRepositoriesAutoConfiguration, org.springframework.boot.autoconfigure.flyway.FlywayAutoConfiguration, org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration, org.springframework.boot.autoconfigure.jdbc.DataSourceTransactionManagerAutoConfiguration, org.springframework.boot.autoconfigure.jdbc.JdbcTemplateAutoConfiguration, org.springframework.boot.autoconfigure.liquibase.LiquibaseAutoConfiguration, org.springframework.boot.autoconfigure.orm.jpa.HibernateJpaAutoConfiguration, org.springframework.boot.autoconfigure.transaction.TransactionAutoConfiguration, org.springframework.boot.test.autoconfigure.jdbc.TestDatabaseAutoConfiguration, org.springframework.boot.test.autoconfigure.orm.jpa.TestEntityManagerAutoConfiguration]], org.springframework.boot.test.context.filter.ExcludeFilterContextCustomizer@355b276e, org.springframework.boot.test.json.DuplicateJsonObjectContextCustomizerFactory$DuplicateJsonObjectContextCustomizer@65688945, org.springframework.boot.test.mock.mockito.MockitoContextCustomizer@0], contextLoader = 'org.springframework.boot.test.context.SpringBootContextLoader', parent = [null]]]; transaction manager [org.springframework.orm.jpa.JpaTransactionManager@6e36cc52]; rollback [true]
+    Hibernate: insert into taskdao (id, completed, created, description, due, modified, status, title, user_id) values (default, ?, ?, ?, ?, ?, ?, ?, ?)
+    2017-09-12 15:49:23.931  INFO 4614 --- [    Test worker] o.h.h.i.QueryTranslatorFactoryInitiator  : HHH000397: Using ASTQueryTranslatorFactory
+    Hibernate: select taskdao0_.id as id1_1_, taskdao0_.completed as complete2_1_, taskdao0_.created as created3_1_, taskdao0_.description as descript4_1_, taskdao0_.due as due5_1_, taskdao0_.modified as modified6_1_, taskdao0_.status as status7_1_, taskdao0_.title as title8_1_, taskdao0_.user_id as user_id9_1_ from taskdao taskdao0_
+    [ {
+      "completed" : null,
+      "created" : "2017-09-12T10:49:23",
+      "description" : "Description of Test task 1 ",
+      "due" : "2017-10-31",
+      "id" : 1,
+      "modified" : null,
+      "status" : "open",
+      "title" : "Test Task 1"
+    } ]
+    Hibernate: select taskdao0_.id as id1_1_, taskdao0_.completed as complete2_1_, taskdao0_.created as created3_1_, taskdao0_.description as descript4_1_, taskdao0_.due as due5_1_, taskdao0_.modified as modified6_1_, taskdao0_.status as status7_1_, taskdao0_.title as title8_1_, taskdao0_.user_id as user_id9_1_ from taskdao taskdao0_
+    2017-09-12 15:49:24.079  INFO 4614 --- [    Test worker] o.s.t.c.transaction.TransactionContext   : Rolled back transaction for test context [DefaultTestContext@1ad0b795 testClass = TaskRepositoryTest, testInstance = com.rodaxsoft.task.test.data.TaskRepositoryTest@312b4455, testMethod = testGetTasks@TaskRepositoryTest, testException = [null], mergedContextConfiguration = [MergedContextConfiguration@3b9a2d69 testClass = TaskRepositoryTest, locations = '{}', classes = '{class com.rodaxsoft.task.TaskApplication}', contextInitializerClasses = '[]', activeProfiles = '{}', propertySourceLocations = '{}', propertySourceProperties = '{org.springframework.boot.test.context.SpringBootTestContextBootstrapper=true}', contextCustomizers = set[org.springframework.boot.test.autoconfigure.OverrideAutoConfigurationContextCustomizerFactory$DisableAutoConfigurationContextCustomizer@1f5502df, org.springframework.boot.test.autoconfigure.filter.TypeExcludeFiltersContextCustomizer@351584c0, org.springframework.boot.test.autoconfigure.properties.PropertyMappingContextCustomizer@35763f1c, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverContextCustomizerFactory$Customizer@473c93e9, [ImportsContextCustomizer@666b28f3 key = [org.springframework.boot.autoconfigure.cache.CacheAutoConfiguration, org.springframework.boot.autoconfigure.data.jpa.JpaRepositoriesAutoConfiguration, org.springframework.boot.autoconfigure.flyway.FlywayAutoConfiguration, org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration, org.springframework.boot.autoconfigure.jdbc.DataSourceTransactionManagerAutoConfiguration, org.springframework.boot.autoconfigure.jdbc.JdbcTemplateAutoConfiguration, org.springframework.boot.autoconfigure.liquibase.LiquibaseAutoConfiguration, org.springframework.boot.autoconfigure.orm.jpa.HibernateJpaAutoConfiguration, org.springframework.boot.autoconfigure.transaction.TransactionAutoConfiguration, org.springframework.boot.test.autoconfigure.jdbc.TestDatabaseAutoConfiguration, org.springframework.boot.test.autoconfigure.orm.jpa.TestEntityManagerAutoConfiguration]], org.springframework.boot.test.context.filter.ExcludeFilterContextCustomizer@355b276e, org.springframework.boot.test.json.DuplicateJsonObjectContextCustomizerFactory$DuplicateJsonObjectContextCustomizer@65688945, org.springframework.boot.test.mock.mockito.MockitoContextCustomizer@0], contextLoader = 'org.springframework.boot.test.context.SpringBootContextLoader', parent = [null]]].
+
+com.rodaxsoft.task.test.data.TaskRepositoryTest > testSaveTask STANDARD_OUT
+    2017-09-12 15:49:24.082  INFO 4614 --- [    Test worker] o.s.t.c.transaction.TransactionContext   : Began transaction (1) for test context [DefaultTestContext@1ad0b795 testClass = TaskRepositoryTest, testInstance = com.rodaxsoft.task.test.data.TaskRepositoryTest@34cf24fa, testMethod = testSaveTask@TaskRepositoryTest, testException = [null], mergedContextConfiguration = [MergedContextConfiguration@3b9a2d69 testClass = TaskRepositoryTest, locations = '{}', classes = '{class com.rodaxsoft.task.TaskApplication}', contextInitializerClasses = '[]', activeProfiles = '{}', propertySourceLocations = '{}', propertySourceProperties = '{org.springframework.boot.test.context.SpringBootTestContextBootstrapper=true}', contextCustomizers = set[org.springframework.boot.test.autoconfigure.OverrideAutoConfigurationContextCustomizerFactory$DisableAutoConfigurationContextCustomizer@1f5502df, org.springframework.boot.test.autoconfigure.filter.TypeExcludeFiltersContextCustomizer@351584c0, org.springframework.boot.test.autoconfigure.properties.PropertyMappingContextCustomizer@35763f1c, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverContextCustomizerFactory$Customizer@473c93e9, [ImportsContextCustomizer@666b28f3 key = [org.springframework.boot.autoconfigure.cache.CacheAutoConfiguration, org.springframework.boot.autoconfigure.data.jpa.JpaRepositoriesAutoConfiguration, org.springframework.boot.autoconfigure.flyway.FlywayAutoConfiguration, org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration, org.springframework.boot.autoconfigure.jdbc.DataSourceTransactionManagerAutoConfiguration, org.springframework.boot.autoconfigure.jdbc.JdbcTemplateAutoConfiguration, org.springframework.boot.autoconfigure.liquibase.LiquibaseAutoConfiguration, org.springframework.boot.autoconfigure.orm.jpa.HibernateJpaAutoConfiguration, org.springframework.boot.autoconfigure.transaction.TransactionAutoConfiguration, org.springframework.boot.test.autoconfigure.jdbc.TestDatabaseAutoConfiguration, org.springframework.boot.test.autoconfigure.orm.jpa.TestEntityManagerAutoConfiguration]], org.springframework.boot.test.context.filter.ExcludeFilterContextCustomizer@355b276e, org.springframework.boot.test.json.DuplicateJsonObjectContextCustomizerFactory$DuplicateJsonObjectContextCustomizer@65688945, org.springframework.boot.test.mock.mockito.MockitoContextCustomizer@0], contextLoader = 'org.springframework.boot.test.context.SpringBootContextLoader', parent = [null]]]; transaction manager [org.springframework.orm.jpa.JpaTransactionManager@6e36cc52]; rollback [true]
+    Hibernate: insert into taskdao (id, completed, created, description, due, modified, status, title, user_id) values (default, ?, ?, ?, ?, ?, ?, ?, ?)
+
+    TaskDAO [completed=null, created=Tue Sep 12 15:49:24 PDT 2017, description=Description of Test task 1 , due=Tue Oct 31 00:00:00 PDT 2017, id=2, modified=null, status=open, title=Test Task 1]
+
+    {
+      "completed" : null,
+      "created" : "2017-09-12T10:49:24",
+      "description" : "Description of Test task 1 ",
+      "due" : "2017-10-31",
+      "id" : 2,
+      "modified" : null,
+      "status" : "open",
+      "title" : "Test Task 1"
+    }
+    Hibernate: select taskdao0_.id as id1_1_, taskdao0_.completed as complete2_1_, taskdao0_.created as created3_1_, taskdao0_.description as descript4_1_, taskdao0_.due as due5_1_, taskdao0_.modified as modified6_1_, taskdao0_.status as status7_1_, taskdao0_.title as title8_1_, taskdao0_.user_id as user_id9_1_ from taskdao taskdao0_
+    2017-09-12 15:49:24.097  INFO 4614 --- [    Test worker] o.s.t.c.transaction.TransactionContext   : Rolled back transaction for test context [DefaultTestContext@1ad0b795 testClass = TaskRepositoryTest, testInstance = com.rodaxsoft.task.test.data.TaskRepositoryTest@34cf24fa, testMethod = testSaveTask@TaskRepositoryTest, testException = [null], mergedContextConfiguration = [MergedContextConfiguration@3b9a2d69 testClass = TaskRepositoryTest, locations = '{}', classes = '{class com.rodaxsoft.task.TaskApplication}', contextInitializerClasses = '[]', activeProfiles = '{}', propertySourceLocations = '{}', propertySourceProperties = '{org.springframework.boot.test.context.SpringBootTestContextBootstrapper=true}', contextCustomizers = set[org.springframework.boot.test.autoconfigure.OverrideAutoConfigurationContextCustomizerFactory$DisableAutoConfigurationContextCustomizer@1f5502df, org.springframework.boot.test.autoconfigure.filter.TypeExcludeFiltersContextCustomizer@351584c0, org.springframework.boot.test.autoconfigure.properties.PropertyMappingContextCustomizer@35763f1c, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverContextCustomizerFactory$Customizer@473c93e9, [ImportsContextCustomizer@666b28f3 key = [org.springframework.boot.autoconfigure.cache.CacheAutoConfiguration, org.springframework.boot.autoconfigure.data.jpa.JpaRepositoriesAutoConfiguration, org.springframework.boot.autoconfigure.flyway.FlywayAutoConfiguration, org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration, org.springframework.boot.autoconfigure.jdbc.DataSourceTransactionManagerAutoConfiguration, org.springframework.boot.autoconfigure.jdbc.JdbcTemplateAutoConfiguration, org.springframework.boot.autoconfigure.liquibase.LiquibaseAutoConfiguration, org.springframework.boot.autoconfigure.orm.jpa.HibernateJpaAutoConfiguration, org.springframework.boot.autoconfigure.transaction.TransactionAutoConfiguration, org.springframework.boot.test.autoconfigure.jdbc.TestDatabaseAutoConfiguration, org.springframework.boot.test.autoconfigure.orm.jpa.TestEntityManagerAutoConfiguration]], org.springframework.boot.test.context.filter.ExcludeFilterContextCustomizer@355b276e, org.springframework.boot.test.json.DuplicateJsonObjectContextCustomizerFactory$DuplicateJsonObjectContextCustomizer@65688945, org.springframework.boot.test.mock.mockito.MockitoContextCustomizer@0], contextLoader = 'org.springframework.boot.test.context.SpringBootContextLoader', parent = [null]]].
+
+com.rodaxsoft.task.test.data.TaskRepositoryTest > testUpdateTask STANDARD_OUT
+    2017-09-12 15:49:24.100  INFO 4614 --- [    Test worker] o.s.t.c.transaction.TransactionContext   : Began transaction (1) for test context [DefaultTestContext@1ad0b795 testClass = TaskRepositoryTest, testInstance = com.rodaxsoft.task.test.data.TaskRepositoryTest@ca6e94, testMethod = testUpdateTask@TaskRepositoryTest, testException = [null], mergedContextConfiguration = [MergedContextConfiguration@3b9a2d69 testClass = TaskRepositoryTest, locations = '{}', classes = '{class com.rodaxsoft.task.TaskApplication}', contextInitializerClasses = '[]', activeProfiles = '{}', propertySourceLocations = '{}', propertySourceProperties = '{org.springframework.boot.test.context.SpringBootTestContextBootstrapper=true}', contextCustomizers = set[org.springframework.boot.test.autoconfigure.OverrideAutoConfigurationContextCustomizerFactory$DisableAutoConfigurationContextCustomizer@1f5502df, org.springframework.boot.test.autoconfigure.filter.TypeExcludeFiltersContextCustomizer@351584c0, org.springframework.boot.test.autoconfigure.properties.PropertyMappingContextCustomizer@35763f1c, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverContextCustomizerFactory$Customizer@473c93e9, [ImportsContextCustomizer@666b28f3 key = [org.springframework.boot.autoconfigure.cache.CacheAutoConfiguration, org.springframework.boot.autoconfigure.data.jpa.JpaRepositoriesAutoConfiguration, org.springframework.boot.autoconfigure.flyway.FlywayAutoConfiguration, org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration, org.springframework.boot.autoconfigure.jdbc.DataSourceTransactionManagerAutoConfiguration, org.springframework.boot.autoconfigure.jdbc.JdbcTemplateAutoConfiguration, org.springframework.boot.autoconfigure.liquibase.LiquibaseAutoConfiguration, org.springframework.boot.autoconfigure.orm.jpa.HibernateJpaAutoConfiguration, org.springframework.boot.autoconfigure.transaction.TransactionAutoConfiguration, org.springframework.boot.test.autoconfigure.jdbc.TestDatabaseAutoConfiguration, org.springframework.boot.test.autoconfigure.orm.jpa.TestEntityManagerAutoConfiguration]], org.springframework.boot.test.context.filter.ExcludeFilterContextCustomizer@355b276e, org.springframework.boot.test.json.DuplicateJsonObjectContextCustomizerFactory$DuplicateJsonObjectContextCustomizer@65688945, org.springframework.boot.test.mock.mockito.MockitoContextCustomizer@0], contextLoader = 'org.springframework.boot.test.context.SpringBootContextLoader', parent = [null]]]; transaction manager [org.springframework.orm.jpa.JpaTransactionManager@6e36cc52]; rollback [true]
+    Hibernate: insert into taskdao (id, completed, created, description, due, modified, status, title, user_id) values (default, ?, ?, ?, ?, ?, ?, ?, ?)
+    {
+      "completed" : null,
+      "created" : "2017-09-12T10:49:24",
+      "description" : "An all new description",
+      "due" : "2017-10-31",
+      "id" : 3,
+      "modified" : null,
+      "status" : "open",
+      "title" : "The title has changed"
+    }
+    Hibernate: update taskdao set completed=?, created=?, description=?, due=?, modified=?, status=?, title=?, user_id=? where id=?
+    Hibernate: select taskdao0_.id as id1_1_, taskdao0_.completed as complete2_1_, taskdao0_.created as created3_1_, taskdao0_.description as descript4_1_, taskdao0_.due as due5_1_, taskdao0_.modified as modified6_1_, taskdao0_.status as status7_1_, taskdao0_.title as title8_1_, taskdao0_.user_id as user_id9_1_ from taskdao taskdao0_
+    2017-09-12 15:49:24.131  INFO 4614 --- [    Test worker] o.s.t.c.transaction.TransactionContext   : Rolled back transaction for test context [DefaultTestContext@1ad0b795 testClass = TaskRepositoryTest, testInstance = com.rodaxsoft.task.test.data.TaskRepositoryTest@ca6e94, testMethod = testUpdateTask@TaskRepositoryTest, testException = [null], mergedContextConfiguration = [MergedContextConfiguration@3b9a2d69 testClass = TaskRepositoryTest, locations = '{}', classes = '{class com.rodaxsoft.task.TaskApplication}', contextInitializerClasses = '[]', activeProfiles = '{}', propertySourceLocations = '{}', propertySourceProperties = '{org.springframework.boot.test.context.SpringBootTestContextBootstrapper=true}', contextCustomizers = set[org.springframework.boot.test.autoconfigure.OverrideAutoConfigurationContextCustomizerFactory$DisableAutoConfigurationContextCustomizer@1f5502df, org.springframework.boot.test.autoconfigure.filter.TypeExcludeFiltersContextCustomizer@351584c0, org.springframework.boot.test.autoconfigure.properties.PropertyMappingContextCustomizer@35763f1c, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverContextCustomizerFactory$Customizer@473c93e9, [ImportsContextCustomizer@666b28f3 key = [org.springframework.boot.autoconfigure.cache.CacheAutoConfiguration, org.springframework.boot.autoconfigure.data.jpa.JpaRepositoriesAutoConfiguration, org.springframework.boot.autoconfigure.flyway.FlywayAutoConfiguration, org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration, org.springframework.boot.autoconfigure.jdbc.DataSourceTransactionManagerAutoConfiguration, org.springframework.boot.autoconfigure.jdbc.JdbcTemplateAutoConfiguration, org.springframework.boot.autoconfigure.liquibase.LiquibaseAutoConfiguration, org.springframework.boot.autoconfigure.orm.jpa.HibernateJpaAutoConfiguration, org.springframework.boot.autoconfigure.transaction.TransactionAutoConfiguration, org.springframework.boot.test.autoconfigure.jdbc.TestDatabaseAutoConfiguration, org.springframework.boot.test.autoconfigure.orm.jpa.TestEntityManagerAutoConfiguration]], org.springframework.boot.test.context.filter.ExcludeFilterContextCustomizer@355b276e, org.springframework.boot.test.json.DuplicateJsonObjectContextCustomizerFactory$DuplicateJsonObjectContextCustomizer@65688945, org.springframework.boot.test.mock.mockito.MockitoContextCustomizer@0], contextLoader = 'org.springframework.boot.test.context.SpringBootContextLoader', parent = [null]]].
+
+com.rodaxsoft.task.test.JWTUtilTest STANDARD_OUT
+    2017-09-12 15:49:24.138  INFO 4614 --- [    Test worker] o.s.t.c.s.DefaultTestContextBootstrapper : Neither @ContextConfiguration nor @ContextHierarchy found for test class [com.rodaxsoft.task.test.JWTUtilTest], using DelegatingSmartContextLoader
+    2017-09-12 15:49:24.139  INFO 4614 --- [    Test worker] o.s.t.c.support.AbstractContextLoader    : Could not detect default resource locations for test class [com.rodaxsoft.task.test.JWTUtilTest]: no resource found for suffixes {-context.xml}.
+    2017-09-12 15:49:24.139  INFO 4614 --- [    Test worker] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [com.rodaxsoft.task.test.JWTUtilTest]: JWTUtilTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+    2017-09-12 15:49:24.147  INFO 4614 --- [    Test worker] o.s.t.c.s.DefaultTestContextBootstrapper : Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener, org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener]
+    2017-09-12 15:49:24.148  INFO 4614 --- [    Test worker] o.s.t.c.s.DefaultTestContextBootstrapper : Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@74b9e9ae, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@16cd5238, org.springframework.test.context.support.DependencyInjectionTestExecutionListener@19f7dc8f, org.springframework.test.context.support.DirtiesContextTestExecutionListener@41095257, org.springframework.test.context.transaction.TransactionalTestExecutionListener@7ac62741, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@666f6b3, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener@21524154, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener@2a4234c3, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener@6175f2e5, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener@50974316, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener@637cf0b1, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener@58232431]
+    2017-09-12 15:49:24.151  INFO 4614 --- [    Test worker] o.s.c.support.GenericApplicationContext  : Refreshing org.springframework.context.support.GenericApplicationContext@160f170a: startup date [Tue Sep 12 15:49:24 PDT 2017]; root of context hierarchy
+
+com.rodaxsoft.task.test.rest.TaskControllerTest STANDARD_OUT
+    2017-09-12 15:49:24.505  INFO 4614 --- [    Test worker] .b.t.c.SpringBootTestContextBootstrapper : Neither @ContextConfiguration nor @ContextHierarchy found for test class [com.rodaxsoft.task.test.rest.TaskControllerTest], using SpringBootContextLoader
+    2017-09-12 15:49:24.505  INFO 4614 --- [    Test worker] o.s.t.c.support.AbstractContextLoader    : Could not detect default resource locations for test class [com.rodaxsoft.task.test.rest.TaskControllerTest]: no resource found for suffixes {-context.xml, Context.groovy}.
+    2017-09-12 15:49:24.520  INFO 4614 --- [    Test worker] .b.t.c.SpringBootTestContextBootstrapper : Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener, org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener]
+    2017-09-12 15:49:24.523  INFO 4614 --- [    Test worker] .b.t.c.SpringBootTestContextBootstrapper : Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@472aea9, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@718cdacd, org.springframework.boot.test.autoconfigure.SpringBootDependencyInjectionTestExecutionListener@277aeb00, org.springframework.test.context.support.DirtiesContextTestExecutionListener@35c7a063, org.springframework.test.context.transaction.TransactionalTestExecutionListener@24515794, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@339cbb61, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener@434e64f9, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener@4b02104b, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener@65411348, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener@3350eb32, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener@309280d, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener@5852e06f]
+
+      .   ____          _            __ _ _
+     /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+    ( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+     \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+      '  |____| .__|_| |_|_| |_\__, | / / / /
+     =========|_|==============|___/=/_/_/_/
+     :: Spring Boot ::        (v1.5.6.RELEASE)
+
+    2017-09-12 15:49:24.582  INFO 4614 --- [    Test worker] c.r.task.test.rest.TaskControllerTest    : Starting TaskControllerTest on rodax-mini.local with PID 4614 (started by johndev in /Users/johndev/Documents/workspace-sts-3.9.0.RELEASE/task)
+    2017-09-12 15:49:24.582  INFO 4614 --- [    Test worker] c.r.task.test.rest.TaskControllerTest    : No active profile set, falling back to default profiles: default
+    2017-09-12 15:49:24.585  INFO 4614 --- [    Test worker] ationConfigEmbeddedWebApplicationContext : Refreshing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@51a872b3: startup date [Tue Sep 12 15:49:24 PDT 2017]; root of context hierarchy
+    2017-09-12 15:49:25.618  INFO 4614 --- [    Test worker] s.b.c.e.t.TomcatEmbeddedServletContainer : Tomcat initialized with port(s): 0 (http)
+    2017-09-12 15:49:25.635  INFO 4614 --- [    Test worker] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+    2017-09-12 15:49:25.637  INFO 4614 --- [    Test worker] org.apache.catalina.core.StandardEngine  : Starting Servlet Engine: Apache Tomcat/8.5.16
+    2017-09-12 15:49:25.761  INFO 4614 --- [ost-startStop-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+    2017-09-12 15:49:25.761  INFO 4614 --- [ost-startStop-1] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 1176 ms
+    2017-09-12 15:49:25.951  INFO 4614 --- [ost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'characterEncodingFilter' to: [/*]
+    2017-09-12 15:49:25.952  INFO 4614 --- [ost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+    2017-09-12 15:49:25.952  INFO 4614 --- [ost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'httpPutFormContentFilter' to: [/*]
+    2017-09-12 15:49:25.953  INFO 4614 --- [ost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'requestContextFilter' to: [/*]
+    2017-09-12 15:49:25.954  INFO 4614 --- [ost-startStop-1] .s.DelegatingFilterProxyRegistrationBean : Mapping filter: 'springSecurityFilterChain' to: [/*]
+    2017-09-12 15:49:25.954  INFO 4614 --- [ost-startStop-1] o.s.b.w.servlet.ServletRegistrationBean  : Mapping servlet: 'dispatcherServlet' to [/]
+    2017-09-12 15:49:26.234  INFO 4614 --- [    Test worker] j.LocalContainerEntityManagerFactoryBean : Building JPA container EntityManagerFactory for persistence unit 'default'
+    2017-09-12 15:49:26.235  INFO 4614 --- [    Test worker] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [
+    	name: default
+    	...]
+    2017-09-12 15:49:26.242  INFO 4614 --- [    Test worker] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.HSQLDialect
+    2017-09-12 15:49:26.270  INFO 4614 --- [    Test worker] org.hibernate.tool.hbm2ddl.SchemaExport  : HHH000227: Running hbm2ddl schema export
+    2017-09-12 15:49:26.277  INFO 4614 --- [    Test worker] org.hibernate.tool.hbm2ddl.SchemaExport  : HHH000230: Schema export complete
+    2017-09-12 15:49:26.279  WARN 4614 --- [    Test worker] o.h.j.i.EntityManagerFactoryRegistry     : HHH000436: Entity manager factory name (default) is already registered.  If entity manager will be clustered or passivated, specify a unique value for property 'hibernate.ejb.entitymanager_factory_name'
+    2017-09-12 15:49:26.279  INFO 4614 --- [    Test worker] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+    2017-09-12 15:49:27.043  INFO 4614 --- [    Test worker] o.s.s.web.DefaultSecurityFilterChain     : Creating filter chain: org.springframework.security.web.util.matcher.AnyRequestMatcher@1, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@48d1d9fb, org.springframework.security.web.context.SecurityContextPersistenceFilter@6fae4066, org.springframework.security.web.header.HeaderWriterFilter@1af18ade, org.springframework.web.filter.CorsFilter@7657c5fe, org.springframework.security.web.authentication.logout.LogoutFilter@648638d8, com.rodaxsoft.task.security.JWTAuthenticationFilter@37a98ecb, com.rodaxsoft.task.security.JWTAuthorizationFilter@5c08c56a, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@308b4e77, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@12cf0384, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@1ad0d111, org.springframework.security.web.session.SessionManagementFilter@7a158c08, org.springframework.security.web.access.ExceptionTranslationFilter@72805dd8, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@17261010]
+    2017-09-12 15:49:27.091  INFO 4614 --- [    Test worker] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring FrameworkServlet ''
+    2017-09-12 15:49:27.091  INFO 4614 --- [    Test worker] o.s.t.web.servlet.TestDispatcherServlet  : FrameworkServlet '': initialization started
+    2017-09-12 15:49:27.174  INFO 4614 --- [    Test worker] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/tasks],methods=[POST],produces=[application/json;charset=UTF-8]}" onto public com.rodaxsoft.task.data.TaskDAO com.rodaxsoft.task.rest.TaskController.createTask(com.rodaxsoft.task.data.TaskDAO,org.springframework.validation.BindingResult,java.lang.String)
+    2017-09-12 15:49:27.176  INFO 4614 --- [    Test worker] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/tasks],methods=[GET],produces=[application/json;charset=UTF-8]}" onto public java.util.List<com.rodaxsoft.task.data.TaskDAO> com.rodaxsoft.task.rest.TaskController.getTasks(java.lang.String)
+    2017-09-12 15:49:27.176  INFO 4614 --- [    Test worker] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/tasks/{id}],methods=[DELETE],produces=[text/plain]}" onto public java.lang.String com.rodaxsoft.task.rest.TaskController.deleteTask(java.lang.Long)
+    2017-09-12 15:49:27.176  INFO 4614 --- [    Test worker] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/tasks/{id}],methods=[PUT]}" onto public com.rodaxsoft.task.data.TaskDAO com.rodaxsoft.task.rest.TaskController.updateTask(java.lang.Long,com.rodaxsoft.task.data.TaskDAO,org.springframework.validation.BindingResult)
+    2017-09-12 15:49:27.179  INFO 4614 --- [    Test worker] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/access-tokens],methods=[POST],produces=[application/json;charset=UTF-8]}" onto public com.rodaxsoft.task.security.JSONWebToken com.rodaxsoft.task.rest.UserController.login(com.rodaxsoft.task.domain.ApplicationUser,org.springframework.validation.BindingResult)
+    2017-09-12 15:49:27.179  INFO 4614 --- [    Test worker] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/access-tokens],methods=[DELETE],produces=[text/plain]}" onto public java.lang.String com.rodaxsoft.task.rest.UserController.logout(com.rodaxsoft.task.security.JWTToken,java.lang.String,javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+    2017-09-12 15:49:27.180  INFO 4614 --- [    Test worker] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/users],methods=[POST],produces=[application/json;charset=UTF-8]}" onto public com.rodaxsoft.task.security.JSONWebToken com.rodaxsoft.task.rest.UserController.signUp(com.rodaxsoft.task.domain.ApplicationUser,org.springframework.validation.BindingResult)
+    2017-09-12 15:49:27.180  INFO 4614 --- [    Test worker] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/me],methods=[GET],produces=[application/json;charset=UTF-8]}" onto public com.rodaxsoft.task.domain.Profile com.rodaxsoft.task.rest.UserController.getProfile(java.lang.String)
+    2017-09-12 15:49:27.181  INFO 4614 --- [    Test worker] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/access-tokens/refresh],methods=[POST],produces=[application/json;charset=UTF-8]}" onto public java.util.Map<java.lang.String, java.lang.String> com.rodaxsoft.task.rest.UserController.refreshAccessToken(com.rodaxsoft.task.security.JWTToken,java.lang.String,javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+    2017-09-12 15:49:27.185  INFO 4614 --- [    Test worker] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+    2017-09-12 15:49:27.185  INFO 4614 --- [    Test worker] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+    2017-09-12 15:49:27.221  INFO 4614 --- [    Test worker] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+    2017-09-12 15:49:27.222  INFO 4614 --- [    Test worker] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+    2017-09-12 15:49:27.241  INFO 4614 --- [    Test worker] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+    2017-09-12 15:49:27.346  INFO 4614 --- [    Test worker] s.w.s.m.m.a.RequestMappingHandlerAdapter : Looking for @ControllerAdvice: org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@51a872b3: startup date [Tue Sep 12 15:49:24 PDT 2017]; root of context hierarchy
+    2017-09-12 15:49:27.453  INFO 4614 --- [    Test worker] o.s.t.web.servlet.TestDispatcherServlet  : FrameworkServlet '': initialization completed in 362 ms
+    2017-09-12 15:49:27.824  INFO 4614 --- [    Test worker] s.b.c.e.t.TomcatEmbeddedServletContainer : Tomcat started on port(s): 49554 (http)
+    2017-09-12 15:49:27.827  INFO 4614 --- [    Test worker] c.r.task.test.rest.TaskControllerTest    : Started TaskControllerTest in 3.291 seconds (JVM running for 8.907)
+
+com.rodaxsoft.task.test.rest.TaskControllerTest > testGetTasks STANDARD_OUT
+    2017-09-12 15:49:28.101  INFO 4614 --- [    Test worker] o.h.h.i.QueryTranslatorFactoryInitiator  : HHH000397: Using ASTQueryTranslatorFactory
+    2017-09-12 15:49:28.238  INFO 4614 --- [    Test worker] c.r.task.service.ApplicationUserService  : User created
+
+    MockHttpServletRequest:
+          HTTP Method = GET
+          Request URI = /tasks
+           Parameters = {}
+              Headers = {Content-Type=[application/json;charset=UTF-8]}
+
+    Handler:
+                 Type = com.rodaxsoft.task.rest.TaskController
+               Method = public java.util.List<com.rodaxsoft.task.data.TaskDAO> com.rodaxsoft.task.rest.TaskController.getTasks(java.lang.String)
+
+    Async:
+        Async started = false
+         Async result = null
+
+    Resolved Exception:
+                 Type = null
+
+    ModelAndView:
+            View name = null
+                 View = null
+                Model = null
+
+    FlashMap:
+           Attributes = null
+
+    MockHttpServletResponse:
+               Status = 200
+        Error message = null
+              Headers = {X-Content-Type-Options=[nosniff], X-XSS-Protection=[1; mode=block], Cache-Control=[no-cache, no-store, max-age=0, must-revalidate], Pragma=[no-cache], Expires=[0], X-Frame-Options=[DENY], Content-Type=[application/json;charset=UTF-8]}
+         Content type = application/json;charset=UTF-8
+                 Body = [{"completed":null,"created":"2017-09-12T10:49:28","description":"Description of Test task 1 ","due":null,"id":100,"modified":null,"status":"open","title":"Test Task 1"},{"completed":null,"created":"2017-09-12T10:49:28","description":"Description of Test task 1 ","due":null,"id":82,"modified":null,"status":"open","title":"Test Task 1"},{"completed":null,"created":"2017-09-12T10:49:28","description":"Description of Test task 1 ","due":null,"id":83,"modified":null,"status":"open","title":"Test Task 1"},{"completed":null,"created":"2017-09-12T10:49:28","description":"Description of Test task 1 ","due":null,"id":84,"modified":null,"status":"open","title":"Test Task 1"},{"completed":null,"created":"2017-09-12T10:49:28","description":"Description of Test task 1 ","due":null,"id":85,"modified":null,"status":"open","title":"Test Task 1"},{"completed":null,"created":"2017-09-12T10:49:28","description":"Description of Test task 1 ","due":null,"id":86,"modified":null,"status":"open","title":"Test Task 1"},{"completed":null,"created":"2017-09-12T10:49:28","description":"Description of Test task 1 ","due":null,"id":87,"modified":null,"status":"open","title":"Test Task 1"},{"completed":null,"created":"2017-09-12T10:49:28","description":"Description of Test task 1 ","due":null,"id":88,"modified":null,"status":"open","title":"Test Task 1"},{"completed":null,"created":"2017-09-12T10:49:28","description":"Description of Test task 1 ","due":null,"id":89,"modified":null,"status":"open","title":"Test Task 1"},{"completed":null,"created":"2017-09-12T10:49:28","description":"Description of Test task 1 ","due":null,"id":81,"modified":null,"status":"open","title":"Test Task 1"},{"completed":null,"created":"2017-09-12T10:49:28","description":"Description of Test task 1 ","due":null,"id":90,"modified":null,"status":"open","title":"Test Task 1"},{"completed":null,"created":"2017-09-12T10:49:28","description":"Description of Test task 1 ","due":null,"id":92,"modified":null,"status":"open","title":"Test Task 1"},{"completed":null,"created":"2017-09-12T10:49:28","description":"Description of Test task 1 ","due":null,"id":93,"modified":null,"status":"open","title":"Test Task 1"},{"completed":null,"created":"2017-09-12T10:49:28","description":"Description of Test task 1 ","due":null,"id":94,"modified":null,"status":"open","title":"Test Task 1"},{"completed":null,"created":"2017-09-12T10:49:28","description":"Description of Test task 1 ","due":null,"id":95,"modified":null,"status":"open","title":"Test Task 1"},{"completed":null,"created":"2017-09-12T10:49:28","description":"Description of Test task 1 ","due":null,"id":96,"modified":null,"status":"open","title":"Test Task 1"},{"completed":null,"created":"2017-09-12T10:49:28","description":"Description of Test task 1 ","due":null,"id":97,"modified":null,"status":"open","title":"Test Task 1"},{"completed":null,"created":"2017-09-12T10:49:28","description":"Description of Test task 1 ","due":null,"id":98,"modified":null,"status":"open","title":"Test Task 1"},{"completed":null,"created":"2017-09-12T10:49:28","description":"Description of Test task 1 ","due":null,"id":91,"modified":null,"status":"open","title":"Test Task 1"},{"completed":null,"created":"2017-09-12T10:49:28","description":"Description of Test task 1 ","due":null,"id":99,"modified":null,"status":"open","title":"Test Task 1"},{"completed":null,"created":"2017-09-12T10:49:28","description":"Description of Test task 1 ","due":"2017-10-31","id":1,"modified":null,"status":"open","title":"Test Task 1"},{"completed":null,"created":"2017-09-12T10:49:28","description":"Description of Test task 1 ","due":"2017-11-01","id":2,"modified":null,"status":"open","title":"Test Task 1"},{"completed":null,"created":"2017-09-12T10:49:28","description":"Description of Test task 1 ","due":"2017-11-02","id":3,"modified":null,"status":"open","title":"Test Task 1"},{"completed":null,"created":"2017-09-12T10:49:28","description":"Description of Test task 1 ","due":"2017-11-03","id":4,"modified":null,"status":"open","title":"Test Task 1"},{"completed":null,"created":"2017-09-12T10:49:28","description":"Description of Test task 1 ","due":"2017-11-04","id":5,"modified":null,"status":"open","title":"Test Task 1"},{"completed":null,"created":"2017-09-12T10:49:28","description":"Description of Test task 1 ","due":"2017-11-05","id":6,"modified":null,"status":"open","title":"Test Task 1"},{"completed":null,"created":"2017-09-12T10:49:28","description":"Description of Test task 1 ","due":"2017-11-06","id":7,"modified":null,"status":"open","title":"Test Task 1"},{"completed":null,"created":"2017-09-12T10:49:28","description":"Description of Test task 1 ","due":"2017-11-07","id":8,"modified":null,"status":"open","title":"Test Task 1"},{"completed":null,"created":"2017-09-12T10:49:28","description":"Description of Test task 1 ","due":"2017-11-08","id":9,"modified":null,"status":"open","title":"Test Task 1"},{"completed":null,"created":"2017-09-12T10:49:28","description":"Description of Test task 1 ","due":"2017-11-09","id":10,"modified":null,"status":"open","title":"Test Task 1"},{"completed":null,"created":"2017-09-12T10:49:28","description":"Description of Test task 1 ","due":"2017-11-10","id":11,"modified":null,"status":"open","title":"Test Task 1"},{"completed":null,"created":"2017-09-12T10:49:28","description":"Description of Test task 1 ","due":"2017-11-11","id":12,"modified":null,"status":"open","title":"Test Task 1"},{"completed":null,"created":"2017-09-12T10:49:28","description":"Description of Test task 1 ","due":"2017-11-12","id":13,"modified":null,"status":"open","title":"Test Task 1"},{"completed":null,"created":"2017-09-12T10:49:28","description":"Description of Test task 1 ","due":"2017-11-13","id":14,"modified":null,"status":"open","title":"Test Task 1"},{"completed":null,"created":"2017-09-12T10:49:28","description":"Description of Test task 1 ","due":"2017-11-14","id":15,"modified":null,"status":"open","title":"Test Task 1"},{"completed":null,"created":"2017-09-12T10:49:28","description":"Description of Test task 1 ","due":"2017-11-15","id":16,"modified":null,"status":"open","title":"Test Task 1"},{"completed":null,"created":"2017-09-12T10:49:28","description":"Description of Test task 1 ","due":"2017-11-16","id":17,"modified":null,"status":"open","title":"Test Task 1"},{"completed":null,"created":"2017-09-12T10:49:28","description":"Description of Test task 1 ","due":"2017-11-17","id":18,"modified":null,"status":"open","title":"Test Task 1"},{"completed":null,"created":"2017-09-12T10:49:28","description":"Description of Test task 1 ","due":"2017-11-18","id":19,"modified":null,"status":"open","title":"Test Task 1"},{"completed":null,"created":"2017-09-12T10:49:28","description":"Description of Test task 1 ","due":"2017-11-19","id":20,"modified":null,"status":"open","title":"Test Task 1"},{"completed":null,"created":"2017-09-12T10:49:28","description":"Description of Test task 1 ","due":"2017-11-20","id":21,"modified":null,"status":"open","title":"Test Task 1"},{"completed":null,"created":"2017-09-12T10:49:28","description":"Description of Test task 1 ","due":"2017-11-21","id":22,"modified":null,"status":"open","title":"Test Task 1"},{"completed":null,"created":"2017-09-12T10:49:28","description":"Description of Test task 1 ","due":"2017-11-22","id":23,"modified":null,"status":"open","title":"Test Task 1"},{"completed":null,"created":"2017-09-12T10:49:28","description":"Description of Test task 1 ","due":"2017-11-23","id":24,"modified":null,"status":"open","title":"Test Task 1"},{"completed":null,"created":"2017-09-12T10:49:28","description":"Description of Test task 1 ","due":"2017-11-24","id":25,"modified":null,"status":"open","title":"Test Task 1"},{"completed":null,"created":"2017-09-12T10:49:28","description":"Description of Test task 1 ","due":"2017-11-25","id":26,"modified":null,"status":"open","title":"Test Task 1"},{"completed":null,"created":"2017-09-12T10:49:28","description":"Description of Test task 1 ","due":"2017-11-26","id":27,"modified":null,"status":"open","title":"Test Task 1"},{"completed":null,"created":"2017-09-12T10:49:28","description":"Description of Test task 1 ","due":"2017-11-27","id":28,"modified":null,"status":"open","title":"Test Task 1"},{"completed":null,"created":"2017-09-12T10:49:28","description":"Description of Test task 1 ","due":"2017-11-28","id":29,"modified":null,"status":"open","title":"Test Task 1"},{"completed":null,"created":"2017-09-12T10:49:28","description":"Description of Test task 1 ","due":"2017-11-29","id":30,"modified":null,"status":"open","title":"Test Task 1"},{"completed":null,"created":"2017-09-12T10:49:28","description":"Description of Test task 1 ","due":"2017-11-30","id":31,"modified":null,"status":"open","title":"Test Task 1"},{"completed":null,"created":"2017-09-12T10:49:28","description":"Description of Test task 1 ","due":"2017-12-01","id":32,"modified":null,"status":"open","title":"Test Task 1"},{"completed":null,"created":"2017-09-12T10:49:28","description":"Description of Test task 1 ","due":"2017-12-02","id":33,"modified":null,"status":"open","title":"Test Task 1"},{"completed":null,"created":"2017-09-12T10:49:28","description":"Description of Test task 1 ","due":"2017-12-03","id":34,"modified":null,"status":"open","title":"Test Task 1"},{"completed":null,"created":"2017-09-12T10:49:28","description":"Description of Test task 1 ","due":"2017-12-04","id":35,"modified":null,"status":"open","title":"Test Task 1"},{"completed":null,"created":"2017-09-12T10:49:28","description":"Description of Test task 1 ","due":"2017-12-05","id":36,"modified":null,"status":"open","title":"Test Task 1"},{"completed":null,"created":"2017-09-12T10:49:28","description":"Description of Test task 1 ","due":"2017-12-06","id":37,"modified":null,"status":"open","title":"Test Task 1"},{"completed":null,"created":"2017-09-12T10:49:28","description":"Description of Test task 1 ","due":"2017-12-07","id":38,"modified":null,"status":"open","title":"Test Task 1"},{"completed":null,"created":"2017-09-12T10:49:28","description":"Description of Test task 1 ","due":"2017-12-08","id":39,"modified":null,"status":"open","title":"Test Task 1"},{"completed":null,"created":"2017-09-12T10:49:28","description":"Description of Test task 1 ","due":"2017-12-09","id":40,"modified":null,"status":"open","title":"Test Task 1"},{"completed":null,"created":"2017-09-12T10:49:28","description":"Description of Test task 1 ","due":"2017-12-10","id":41,"modified":null,"status":"open","title":"Test Task 1"},{"completed":null,"created":"2017-09-12T10:49:28","description":"Description of Test task 1 ","due":"2017-12-11","id":42,"modified":null,"status":"open","title":"Test Task 1"},{"completed":null,"created":"2017-09-12T10:49:28","description":"Description of Test task 1 ","due":"2017-12-12","id":43,"modified":null,"status":"open","title":"Test Task 1"},{"completed":null,"created":"2017-09-12T10:49:28","description":"Description of Test task 1 ","due":"2017-12-13","id":44,"modified":null,"status":"open","title":"Test Task 1"},{"completed":null,"created":"2017-09-12T10:49:28","description":"Description of Test task 1 ","due":"2017-12-14","id":45,"modified":null,"status":"open","title":"Test Task 1"},{"completed":null,"created":"2017-09-12T10:49:28","description":"Description of Test task 1 ","due":"2017-12-15","id":46,"modified":null,"status":"open","title":"Test Task 1"},{"completed":null,"created":"2017-09-12T10:49:28","description":"Description of Test task 1 ","due":"2017-12-16","id":47,"modified":null,"status":"open","title":"Test Task 1"},{"completed":null,"created":"2017-09-12T10:49:28","description":"Description of Test task 1 ","due":"2017-12-17","id":48,"modified":null,"status":"open","title":"Test Task 1"},{"completed":null,"created":"2017-09-12T10:49:28","description":"Description of Test task 1 ","due":"2017-12-18","id":49,"modified":null,"status":"open","title":"Test Task 1"},{"completed":null,"created":"2017-09-12T10:49:28","description":"Description of Test task 1 ","due":"2017-12-19","id":50,"modified":null,"status":"open","title":"Test Task 1"},{"completed":null,"created":"2017-09-12T10:49:28","description":"Description of Test task 1 ","due":"2017-12-20","id":51,"modified":null,"status":"open","title":"Test Task 1"},{"completed":null,"created":"2017-09-12T10:49:28","description":"Description of Test task 1 ","due":"2017-12-21","id":52,"modified":null,"status":"open","title":"Test Task 1"},{"completed":null,"created":"2017-09-12T10:49:28","description":"Description of Test task 1 ","due":"2017-12-22","id":53,"modified":null,"status":"open","title":"Test Task 1"},{"completed":null,"created":"2017-09-12T10:49:28","description":"Description of Test task 1 ","due":"2017-12-23","id":54,"modified":null,"status":"open","title":"Test Task 1"},{"completed":null,"created":"2017-09-12T10:49:28","description":"Description of Test task 1 ","due":"2017-12-24","id":55,"modified":null,"status":"open","title":"Test Task 1"},{"completed":null,"created":"2017-09-12T10:49:28","description":"Description of Test task 1 ","due":"2017-12-25","id":56,"modified":null,"status":"open","title":"Test Task 1"},{"completed":null,"created":"2017-09-12T10:49:28","description":"Description of Test task 1 ","due":"2017-12-26","id":57,"modified":null,"status":"open","title":"Test Task 1"},{"completed":null,"created":"2017-09-12T10:49:28","description":"Description of Test task 1 ","due":"2017-12-27","id":58,"modified":null,"status":"open","title":"Test Task 1"},{"completed":null,"created":"2017-09-12T10:49:28","description":"Description of Test task 1 ","due":"2017-12-28","id":59,"modified":null,"status":"open","title":"Test Task 1"},{"completed":null,"created":"2017-09-12T10:49:28","description":"Description of Test task 1 ","due":"2017-12-29","id":60,"modified":null,"status":"open","title":"Test Task 1"},{"completed":null,"created":"2017-09-12T10:49:28","description":"Description of Test task 1 ","due":"2017-12-30","id":61,"modified":null,"status":"open","title":"Test Task 1"},{"completed":null,"created":"2017-09-12T10:49:28","description":"Description of Test task 1 ","due":"2017-12-31","id":62,"modified":null,"status":"open","title":"Test Task 1"},{"completed":null,"created":"2017-09-12T10:49:28","description":"Description of Test task 1 ","due":"2018-01-01","id":63,"modified":null,"status":"open","title":"Test Task 1"},{"completed":null,"created":"2017-09-12T10:49:28","description":"Description of Test task 1 ","due":"2018-01-02","id":64,"modified":null,"status":"open","title":"Test Task 1"},{"completed":null,"created":"2017-09-12T10:49:28","description":"Description of Test task 1 ","due":"2018-01-03","id":65,"modified":null,"status":"open","title":"Test Task 1"},{"completed":null,"created":"2017-09-12T10:49:28","description":"Description of Test task 1 ","due":"2018-01-04","id":66,"modified":null,"status":"open","title":"Test Task 1"},{"completed":null,"created":"2017-09-12T10:49:28","description":"Description of Test task 1 ","due":"2018-01-05","id":67,"modified":null,"status":"open","title":"Test Task 1"},{"completed":null,"created":"2017-09-12T10:49:28","description":"Description of Test task 1 ","due":"2018-01-06","id":68,"modified":null,"status":"open","title":"Test Task 1"},{"completed":null,"created":"2017-09-12T10:49:28","description":"Description of Test task 1 ","due":"2018-01-07","id":69,"modified":null,"status":"open","title":"Test Task 1"},{"completed":null,"created":"2017-09-12T10:49:28","description":"Description of Test task 1 ","due":"2018-01-08","id":70,"modified":null,"status":"open","title":"Test Task 1"},{"completed":null,"created":"2017-09-12T10:49:28","description":"Description of Test task 1 ","due":"2018-01-09","id":71,"modified":null,"status":"open","title":"Test Task 1"},{"completed":null,"created":"2017-09-12T10:49:28","description":"Description of Test task 1 ","due":"2018-01-10","id":72,"modified":null,"status":"open","title":"Test Task 1"},{"completed":null,"created":"2017-09-12T10:49:28","description":"Description of Test task 1 ","due":"2018-01-11","id":73,"modified":null,"status":"open","title":"Test Task 1"},{"completed":null,"created":"2017-09-12T10:49:28","description":"Description of Test task 1 ","due":"2018-01-12","id":74,"modified":null,"status":"open","title":"Test Task 1"},{"completed":null,"created":"2017-09-12T10:49:28","description":"Description of Test task 1 ","due":"2018-01-13","id":75,"modified":null,"status":"open","title":"Test Task 1"},{"completed":null,"created":"2017-09-12T10:49:28","description":"Description of Test task 1 ","due":"2018-01-14","id":76,"modified":null,"status":"open","title":"Test Task 1"},{"completed":null,"created":"2017-09-12T10:49:28","description":"Description of Test task 1 ","due":"2018-01-15","id":77,"modified":null,"status":"open","title":"Test Task 1"},{"completed":null,"created":"2017-09-12T10:49:28","description":"Description of Test task 1 ","due":"2018-01-16","id":78,"modified":null,"status":"open","title":"Test Task 1"},{"completed":null,"created":"2017-09-12T10:49:28","description":"Description of Test task 1 ","due":"2018-01-17","id":79,"modified":null,"status":"open","title":"Test Task 1"},{"completed":null,"created":"2017-09-12T10:49:28","description":"Description of Test task 1 ","due":"2018-01-18","id":80,"modified":null,"status":"open","title":"Test Task 1"}]
+        Forwarded URL = null
+       Redirected URL = null
+              Cookies = []
+
+com.rodaxsoft.task.test.rest.TaskControllerTest > testUpdateTask STANDARD_OUT
+    2017-09-12 15:49:28.713  INFO 4614 --- [    Test worker] c.r.task.service.ApplicationUserService  : User created
+
+    MockHttpServletRequest:
+          HTTP Method = PUT
+          Request URI = /tasks/101
+           Parameters = {}
+              Headers = {Content-Type=[application/json;charset=UTF-8]}
+
+    Handler:
+                 Type = com.rodaxsoft.task.rest.TaskController
+               Method = public com.rodaxsoft.task.data.TaskDAO com.rodaxsoft.task.rest.TaskController.updateTask(java.lang.Long,com.rodaxsoft.task.data.TaskDAO,org.springframework.validation.BindingResult)
+
+    Async:
+        Async started = false
+         Async result = null
+
+    Resolved Exception:
+                 Type = null
+
+    ModelAndView:
+            View name = null
+                 View = null
+                Model = null
+
+    FlashMap:
+           Attributes = null
+
+    MockHttpServletResponse:
+               Status = 200
+        Error message = null
+              Headers = {X-Content-Type-Options=[nosniff], X-XSS-Protection=[1; mode=block], Cache-Control=[no-cache, no-store, max-age=0, must-revalidate], Pragma=[no-cache], Expires=[0], X-Frame-Options=[DENY], Content-Type=[application/json;charset=UTF-8]}
+         Content type = application/json;charset=UTF-8
+                 Body = {"completed":null,"created":"2017-09-12T10:49:28","description":"All new description","due":"2017-10-31","id":101,"modified":"2017-09-12T10:49:28","status":"open","title":"My brand new title"}
+        Forwarded URL = null
+       Redirected URL = null
+              Cookies = []
+
+com.rodaxsoft.task.test.rest.TaskControllerTest > testCreateTask STANDARD_OUT
+    2017-09-12 15:49:28.860  INFO 4614 --- [    Test worker] c.r.task.service.ApplicationUserService  : User created
+
+    MockHttpServletRequest:
+          HTTP Method = POST
+          Request URI = /tasks
+           Parameters = {}
+              Headers = {Content-Type=[application/json;charset=UTF-8]}
+
+    Handler:
+                 Type = com.rodaxsoft.task.rest.TaskController
+               Method = public com.rodaxsoft.task.data.TaskDAO com.rodaxsoft.task.rest.TaskController.createTask(com.rodaxsoft.task.data.TaskDAO,org.springframework.validation.BindingResult,java.lang.String)
+
+    Async:
+        Async started = false
+         Async result = null
+
+    Resolved Exception:
+                 Type = null
+
+    ModelAndView:
+            View name = null
+                 View = null
+                Model = null
+
+    FlashMap:
+           Attributes = null
+
+    MockHttpServletResponse:
+               Status = 200
+        Error message = null
+              Headers = {X-Content-Type-Options=[nosniff], X-XSS-Protection=[1; mode=block], Cache-Control=[no-cache, no-store, max-age=0, must-revalidate], Pragma=[no-cache], Expires=[0], X-Frame-Options=[DENY], Content-Type=[application/json;charset=UTF-8]}
+         Content type = application/json;charset=UTF-8
+                 Body = {"completed":null,"created":"2017-09-12T10:49:28","description":"Description of Test task 1 ","due":"2017-10-31","id":102,"modified":null,"status":"open","title":"Test Task 1"}
+        Forwarded URL = null
+       Redirected URL = null
+              Cookies = []
+
+com.rodaxsoft.task.test.rest.TaskControllerTest > testDeleteTask STANDARD_OUT
+    2017-09-12 15:49:28.989  INFO 4614 --- [    Test worker] c.r.task.service.ApplicationUserService  : User created
+
+    MockHttpServletRequest:
+          HTTP Method = DELETE
+          Request URI = /tasks/103
+           Parameters = {}
+              Headers = {Content-Type=[text/plain;charset=UTF-8]}
+
+    Handler:
+                 Type = com.rodaxsoft.task.rest.TaskController
+               Method = public java.lang.String com.rodaxsoft.task.rest.TaskController.deleteTask(java.lang.Long)
+
+    Async:
+        Async started = false
+         Async result = null
+
+    Resolved Exception:
+                 Type = null
+
+    ModelAndView:
+            View name = null
+                 View = null
+                Model = null
+
+    FlashMap:
+           Attributes = null
+
+    MockHttpServletResponse:
+               Status = 200
+        Error message = null
+              Headers = {X-Content-Type-Options=[nosniff], X-XSS-Protection=[1; mode=block], Cache-Control=[no-cache, no-store, max-age=0, must-revalidate], Pragma=[no-cache], Expires=[0], X-Frame-Options=[DENY], Content-Type=[text/plain;charset=UTF-8], Content-Length=[0]}
+         Content type = text/plain;charset=UTF-8
+                 Body = 
+        Forwarded URL = null
+       Redirected URL = null
+              Cookies = []
+
+com.rodaxsoft.task.test.service.ApplicationUserServiceTest STANDARD_OUT
+    2017-09-12 15:49:29.007  INFO 4614 --- [    Test worker] .b.t.c.SpringBootTestContextBootstrapper : Neither @ContextConfiguration nor @ContextHierarchy found for test class [com.rodaxsoft.task.test.service.ApplicationUserServiceTest], using SpringBootContextLoader
+    2017-09-12 15:49:29.008  INFO 4614 --- [    Test worker] o.s.t.c.support.AbstractContextLoader    : Could not detect default resource locations for test class [com.rodaxsoft.task.test.service.ApplicationUserServiceTest]: no resource found for suffixes {-context.xml, Context.groovy}.
+    2017-09-12 15:49:29.008  INFO 4614 --- [    Test worker] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [com.rodaxsoft.task.test.service.ApplicationUserServiceTest]: ApplicationUserServiceTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+    2017-09-12 15:49:29.017  INFO 4614 --- [    Test worker] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration com.rodaxsoft.task.TaskApplication for test class com.rodaxsoft.task.test.service.ApplicationUserServiceTest
+    2017-09-12 15:49:29.019  INFO 4614 --- [    Test worker] .b.t.c.SpringBootTestContextBootstrapper : Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener, org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener]
+    2017-09-12 15:49:29.020  INFO 4614 --- [    Test worker] .b.t.c.SpringBootTestContextBootstrapper : Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@3b62c69a, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@3845b0f1, org.springframework.boot.test.autoconfigure.SpringBootDependencyInjectionTestExecutionListener@210b26e7, org.springframework.test.context.support.DirtiesContextTestExecutionListener@7f640512, org.springframework.test.context.transaction.TransactionalTestExecutionListener@521f4a72, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@4748baf8, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener@3f0c80e8, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener@601f4e8e, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener@48fbc425, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener@4ae628b8, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener@1136facc, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener@b47ad5a]
+
+      .   ____          _            __ _ _
+     /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+    ( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+     \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+      '  |____| .__|_| |_|_| |_\__, | / / / /
+     =========|_|==============|___/=/_/_/_/
+     :: Spring Boot ::        (v1.5.6.RELEASE)
+
+    2017-09-12 15:49:29.054  INFO 4614 --- [    Test worker] c.r.t.t.s.ApplicationUserServiceTest     : Starting ApplicationUserServiceTest on rodax-mini.local with PID 4614 (started by johndev in /Users/johndev/Documents/workspace-sts-3.9.0.RELEASE/task)
+    2017-09-12 15:49:29.054  INFO 4614 --- [    Test worker] c.r.t.t.s.ApplicationUserServiceTest     : No active profile set, falling back to default profiles: default
+    2017-09-12 15:49:29.057  INFO 4614 --- [    Test worker] o.s.w.c.s.GenericWebApplicationContext   : Refreshing org.springframework.web.context.support.GenericWebApplicationContext@dc81c73: startup date [Tue Sep 12 15:49:29 PDT 2017]; root of context hierarchy
+    2017-09-12 15:49:29.559  INFO 4614 --- [    Test worker] j.LocalContainerEntityManagerFactoryBean : Building JPA container EntityManagerFactory for persistence unit 'default'
+    2017-09-12 15:49:29.560  INFO 4614 --- [    Test worker] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [
+    	name: default
+    	...]
+    2017-09-12 15:49:29.569  INFO 4614 --- [    Test worker] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.HSQLDialect
+    2017-09-12 15:49:29.599  INFO 4614 --- [    Test worker] org.hibernate.tool.hbm2ddl.SchemaExport  : HHH000227: Running hbm2ddl schema export
+    2017-09-12 15:49:29.601  INFO 4614 --- [    Test worker] org.hibernate.tool.hbm2ddl.SchemaExport  : HHH000230: Schema export complete
+    2017-09-12 15:49:29.603  WARN 4614 --- [    Test worker] o.h.j.i.EntityManagerFactoryRegistry     : HHH000436: Entity manager factory name (default) is already registered.  If entity manager will be clustered or passivated, specify a unique value for property 'hibernate.ejb.entitymanager_factory_name'
+    2017-09-12 15:49:29.604  INFO 4614 --- [    Test worker] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+    2017-09-12 15:49:29.913  INFO 4614 --- [    Test worker] o.s.s.web.DefaultSecurityFilterChain     : Creating filter chain: org.springframework.security.web.util.matcher.AnyRequestMatcher@1, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@3083026b, org.springframework.security.web.context.SecurityContextPersistenceFilter@72b6daa3, org.springframework.security.web.header.HeaderWriterFilter@7f28634c, org.springframework.web.filter.CorsFilter@3ae554ab, org.springframework.security.web.authentication.logout.LogoutFilter@471b0ea, com.rodaxsoft.task.security.JWTAuthenticationFilter@7d145d02, com.rodaxsoft.task.security.JWTAuthorizationFilter@6f7f9a8b, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@41a9d7f0, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@7d27ee8a, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@47c75d55, org.springframework.security.web.session.SessionManagementFilter@c5ebe2a, org.springframework.security.web.access.ExceptionTranslationFilter@18d57f2a, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@3975619a]
+    2017-09-12 15:49:30.126  INFO 4614 --- [    Test worker] s.w.s.m.m.a.RequestMappingHandlerAdapter : Looking for @ControllerAdvice: org.springframework.web.context.support.GenericWebApplicationContext@dc81c73: startup date [Tue Sep 12 15:49:29 PDT 2017]; root of context hierarchy
+    2017-09-12 15:49:30.144  INFO 4614 --- [    Test worker] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/tasks],methods=[POST],produces=[application/json;charset=UTF-8]}" onto public com.rodaxsoft.task.data.TaskDAO com.rodaxsoft.task.rest.TaskController.createTask(com.rodaxsoft.task.data.TaskDAO,org.springframework.validation.BindingResult,java.lang.String)
+    2017-09-12 15:49:30.145  INFO 4614 --- [    Test worker] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/tasks],methods=[GET],produces=[application/json;charset=UTF-8]}" onto public java.util.List<com.rodaxsoft.task.data.TaskDAO> com.rodaxsoft.task.rest.TaskController.getTasks(java.lang.String)
+    2017-09-12 15:49:30.145  INFO 4614 --- [    Test worker] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/tasks/{id}],methods=[DELETE],produces=[text/plain]}" onto public java.lang.String com.rodaxsoft.task.rest.TaskController.deleteTask(java.lang.Long)
+    2017-09-12 15:49:30.145  INFO 4614 --- [    Test worker] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/tasks/{id}],methods=[PUT]}" onto public com.rodaxsoft.task.data.TaskDAO com.rodaxsoft.task.rest.TaskController.updateTask(java.lang.Long,com.rodaxsoft.task.data.TaskDAO,org.springframework.validation.BindingResult)
+    2017-09-12 15:49:30.147  INFO 4614 --- [    Test worker] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/access-tokens],methods=[POST],produces=[application/json;charset=UTF-8]}" onto public com.rodaxsoft.task.security.JSONWebToken com.rodaxsoft.task.rest.UserController.login(com.rodaxsoft.task.domain.ApplicationUser,org.springframework.validation.BindingResult)
+    2017-09-12 15:49:30.147  INFO 4614 --- [    Test worker] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/access-tokens],methods=[DELETE],produces=[text/plain]}" onto public java.lang.String com.rodaxsoft.task.rest.UserController.logout(com.rodaxsoft.task.security.JWTToken,java.lang.String,javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+    2017-09-12 15:49:30.148  INFO 4614 --- [    Test worker] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/users],methods=[POST],produces=[application/json;charset=UTF-8]}" onto public com.rodaxsoft.task.security.JSONWebToken com.rodaxsoft.task.rest.UserController.signUp(com.rodaxsoft.task.domain.ApplicationUser,org.springframework.validation.BindingResult)
+    2017-09-12 15:49:30.148  INFO 4614 --- [    Test worker] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/me],methods=[GET],produces=[application/json;charset=UTF-8]}" onto public com.rodaxsoft.task.domain.Profile com.rodaxsoft.task.rest.UserController.getProfile(java.lang.String)
+    2017-09-12 15:49:30.148  INFO 4614 --- [    Test worker] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/access-tokens/refresh],methods=[POST],produces=[application/json;charset=UTF-8]}" onto public java.util.Map<java.lang.String, java.lang.String> com.rodaxsoft.task.rest.UserController.refreshAccessToken(com.rodaxsoft.task.security.JWTToken,java.lang.String,javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+    2017-09-12 15:49:30.151  INFO 4614 --- [    Test worker] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+    2017-09-12 15:49:30.151  INFO 4614 --- [    Test worker] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+    2017-09-12 15:49:30.179  INFO 4614 --- [    Test worker] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+    2017-09-12 15:49:30.179  INFO 4614 --- [    Test worker] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+    2017-09-12 15:49:30.212  INFO 4614 --- [    Test worker] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+    2017-09-12 15:49:30.552  INFO 4614 --- [    Test worker] c.r.t.t.s.ApplicationUserServiceTest     : Started ApplicationUserServiceTest in 1.524 seconds (JVM running for 11.632)
+
+com.rodaxsoft.task.test.service.ApplicationUserServiceTest > testLogin STANDARD_OUT
+    2017-09-12 15:49:30.558  INFO 4614 --- [    Test worker] o.h.h.i.QueryTranslatorFactoryInitiator  : HHH000397: Using ASTQueryTranslatorFactory
+    2017-09-12 15:49:30.668  INFO 4614 --- [    Test worker] c.r.task.service.ApplicationUserService  : User created
+    2017-09-12 15:49:30.673  INFO 4614 --- [    Test worker] c.r.task.service.ApplicationUserService  : User logged-in
+
+com.rodaxsoft.task.test.service.ApplicationUserServiceTest > testLogout STANDARD_OUT
+    2017-09-12 15:49:30.784  INFO 4614 --- [    Test worker] c.r.task.service.ApplicationUserService  : User created
+    Expire token here!
+
+com.rodaxsoft.task.test.service.ApplicationUserServiceTest > testRefreshAccessToken STANDARD_OUT
+    2017-09-12 15:49:30.894  INFO 4614 --- [    Test worker] c.r.task.service.ApplicationUserService  : User created
+    Expire token here!
+
+com.rodaxsoft.task.test.service.ApplicationUserServiceTest > testSignup STANDARD_OUT
+    2017-09-12 15:49:31.007  INFO 4614 --- [    Test worker] c.r.task.service.ApplicationUserService  : User created
+    com.rodaxsoft.task.security.JWTToken@3e19f563
+
+com.rodaxsoft.task.test.service.TaskServiceTest STANDARD_OUT
+    2017-09-12 15:49:31.014  INFO 4614 --- [    Test worker] .b.t.c.SpringBootTestContextBootstrapper : Neither @ContextConfiguration nor @ContextHierarchy found for test class [com.rodaxsoft.task.test.service.TaskServiceTest], using SpringBootContextLoader
+    2017-09-12 15:49:31.014  INFO 4614 --- [    Test worker] o.s.t.c.support.AbstractContextLoader    : Could not detect default resource locations for test class [com.rodaxsoft.task.test.service.TaskServiceTest]: no resource found for suffixes {-context.xml, Context.groovy}.
+    2017-09-12 15:49:31.015  INFO 4614 --- [    Test worker] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [com.rodaxsoft.task.test.service.TaskServiceTest]: TaskServiceTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+    2017-09-12 15:49:31.017  INFO 4614 --- [    Test worker] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration com.rodaxsoft.task.TaskApplication for test class com.rodaxsoft.task.test.service.TaskServiceTest
+    2017-09-12 15:49:31.018  INFO 4614 --- [    Test worker] .b.t.c.SpringBootTestContextBootstrapper : Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener, org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener]
+    2017-09-12 15:49:31.020  INFO 4614 --- [    Test worker] .b.t.c.SpringBootTestContextBootstrapper : Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@574320e7, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@69868524, org.springframework.boot.test.autoconfigure.SpringBootDependencyInjectionTestExecutionListener@13e63c55, org.springframework.test.context.support.DirtiesContextTestExecutionListener@1130cf02, org.springframework.test.context.transaction.TransactionalTestExecutionListener@5f3a91db, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@2c890bd, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener@206e0025, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener@37b183f5, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener@3c8e7891, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener@7a855ac5, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener@2a3a0298, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener@112f8201]
+
+com.rodaxsoft.task.test.service.TaskServiceTest > testGetTasks STANDARD_OUT
+    TaskDAO [completed=null, created=Tue Sep 12 15:49:31 PDT 2017, description=Description of Test task 1 , due=Tue Oct 31 00:00:00 PDT 2017, id=1, modified=null, status=open, title=Test Task 1]
+    TaskDAO [completed=null, created=Tue Sep 12 15:49:31 PDT 2017, description=Description of Test task 1 , due=Wed Nov 01 00:00:00 PDT 2017, id=2, modified=null, status=open, title=Test Task 1]
+    TaskDAO [completed=null, created=Tue Sep 12 15:49:31 PDT 2017, description=Description of Test task 1 , due=Thu Nov 02 00:00:00 PDT 2017, id=3, modified=null, status=open, title=Test Task 1]
+    TaskDAO [completed=null, created=Tue Sep 12 15:49:31 PDT 2017, description=Description of Test task 1 , due=Fri Nov 03 00:00:00 PDT 2017, id=4, modified=null, status=open, title=Test Task 1]
+    TaskDAO [completed=null, created=Tue Sep 12 15:49:31 PDT 2017, description=Description of Test task 1 , due=Sat Nov 04 00:00:00 PDT 2017, id=5, modified=null, status=open, title=Test Task 1]
+    TaskDAO [completed=null, created=Tue Sep 12 15:49:31 PDT 2017, description=Description of Test task 1 , due=Sun Nov 05 00:00:00 PDT 2017, id=6, modified=null, status=open, title=Test Task 1]
+    TaskDAO [completed=null, created=Tue Sep 12 15:49:31 PDT 2017, description=Description of Test task 1 , due=Mon Nov 06 00:00:00 PST 2017, id=7, modified=null, status=open, title=Test Task 1]
+    TaskDAO [completed=null, created=Tue Sep 12 15:49:31 PDT 2017, description=Description of Test task 1 , due=Tue Nov 07 00:00:00 PST 2017, id=8, modified=null, status=open, title=Test Task 1]
+    TaskDAO [completed=null, created=Tue Sep 12 15:49:31 PDT 2017, description=Description of Test task 1 , due=Wed Nov 08 00:00:00 PST 2017, id=9, modified=null, status=open, title=Test Task 1]
+    TaskDAO [completed=null, created=Tue Sep 12 15:49:31 PDT 2017, description=Description of Test task 1 , due=Thu Nov 09 00:00:00 PST 2017, id=10, modified=null, status=open, title=Test Task 1]
+    TaskDAO [completed=null, created=Tue Sep 12 15:49:31 PDT 2017, description=Description of Test task 1 , due=Fri Nov 10 00:00:00 PST 2017, id=11, modified=null, status=open, title=Test Task 1]
+    TaskDAO [completed=null, created=Tue Sep 12 15:49:31 PDT 2017, description=Description of Test task 1 , due=Sat Nov 11 00:00:00 PST 2017, id=12, modified=null, status=open, title=Test Task 1]
+    TaskDAO [completed=null, created=Tue Sep 12 15:49:31 PDT 2017, description=Description of Test task 1 , due=Sun Nov 12 00:00:00 PST 2017, id=13, modified=null, status=open, title=Test Task 1]
+    TaskDAO [completed=null, created=Tue Sep 12 15:49:31 PDT 2017, description=Description of Test task 1 , due=Mon Nov 13 00:00:00 PST 2017, id=14, modified=null, status=open, title=Test Task 1]
+    TaskDAO [completed=null, created=Tue Sep 12 15:49:31 PDT 2017, description=Description of Test task 1 , due=Tue Nov 14 00:00:00 PST 2017, id=15, modified=null, status=open, title=Test Task 1]
+    TaskDAO [completed=null, created=Tue Sep 12 15:49:31 PDT 2017, description=Description of Test task 1 , due=Wed Nov 15 00:00:00 PST 2017, id=16, modified=null, status=open, title=Test Task 1]
+    TaskDAO [completed=null, created=Tue Sep 12 15:49:31 PDT 2017, description=Description of Test task 1 , due=Thu Nov 16 00:00:00 PST 2017, id=17, modified=null, status=open, title=Test Task 1]
+    TaskDAO [completed=null, created=Tue Sep 12 15:49:31 PDT 2017, description=Description of Test task 1 , due=Fri Nov 17 00:00:00 PST 2017, id=18, modified=null, status=open, title=Test Task 1]
+    TaskDAO [completed=null, created=Tue Sep 12 15:49:31 PDT 2017, description=Description of Test task 1 , due=Sat Nov 18 00:00:00 PST 2017, id=19, modified=null, status=open, title=Test Task 1]
+    TaskDAO [completed=null, created=Tue Sep 12 15:49:31 PDT 2017, description=Description of Test task 1 , due=Sun Nov 19 00:00:00 PST 2017, id=20, modified=null, status=open, title=Test Task 1]
+    TaskDAO [completed=null, created=Tue Sep 12 15:49:31 PDT 2017, description=Description of Test task 1 , due=Mon Nov 20 00:00:00 PST 2017, id=21, modified=null, status=open, title=Test Task 1]
+    TaskDAO [completed=null, created=Tue Sep 12 15:49:31 PDT 2017, description=Description of Test task 1 , due=Tue Nov 21 00:00:00 PST 2017, id=22, modified=null, status=open, title=Test Task 1]
+    TaskDAO [completed=null, created=Tue Sep 12 15:49:31 PDT 2017, description=Description of Test task 1 , due=Wed Nov 22 00:00:00 PST 2017, id=23, modified=null, status=open, title=Test Task 1]
+    TaskDAO [completed=null, created=Tue Sep 12 15:49:31 PDT 2017, description=Description of Test task 1 , due=Thu Nov 23 00:00:00 PST 2017, id=24, modified=null, status=open, title=Test Task 1]
+    TaskDAO [completed=null, created=Tue Sep 12 15:49:31 PDT 2017, description=Description of Test task 1 , due=Fri Nov 24 00:00:00 PST 2017, id=25, modified=null, status=open, title=Test Task 1]
+    TaskDAO [completed=null, created=Tue Sep 12 15:49:31 PDT 2017, description=Description of Test task 1 , due=Sat Nov 25 00:00:00 PST 2017, id=26, modified=null, status=open, title=Test Task 1]
+    TaskDAO [completed=null, created=Tue Sep 12 15:49:31 PDT 2017, description=Description of Test task 1 , due=Sun Nov 26 00:00:00 PST 2017, id=27, modified=null, status=open, title=Test Task 1]
+    TaskDAO [completed=null, created=Tue Sep 12 15:49:31 PDT 2017, description=Description of Test task 1 , due=Mon Nov 27 00:00:00 PST 2017, id=28, modified=null, status=open, title=Test Task 1]
+    TaskDAO [completed=null, created=Tue Sep 12 15:49:31 PDT 2017, description=Description of Test task 1 , due=Tue Nov 28 00:00:00 PST 2017, id=29, modified=null, status=open, title=Test Task 1]
+    TaskDAO [completed=null, created=Tue Sep 12 15:49:31 PDT 2017, description=Description of Test task 1 , due=Wed Nov 29 00:00:00 PST 2017, id=30, modified=null, status=open, title=Test Task 1]
+    TaskDAO [completed=null, created=Tue Sep 12 15:49:31 PDT 2017, description=Description of Test task 1 , due=Thu Nov 30 00:00:00 PST 2017, id=31, modified=null, status=open, title=Test Task 1]
+    TaskDAO [completed=null, created=Tue Sep 12 15:49:31 PDT 2017, description=Description of Test task 1 , due=Fri Dec 01 00:00:00 PST 2017, id=32, modified=null, status=open, title=Test Task 1]
+    TaskDAO [completed=null, created=Tue Sep 12 15:49:31 PDT 2017, description=Description of Test task 1 , due=Sat Dec 02 00:00:00 PST 2017, id=33, modified=null, status=open, title=Test Task 1]
+    TaskDAO [completed=null, created=Tue Sep 12 15:49:31 PDT 2017, description=Description of Test task 1 , due=Sun Dec 03 00:00:00 PST 2017, id=34, modified=null, status=open, title=Test Task 1]
+    TaskDAO [completed=null, created=Tue Sep 12 15:49:31 PDT 2017, description=Description of Test task 1 , due=Mon Dec 04 00:00:00 PST 2017, id=35, modified=null, status=open, title=Test Task 1]
+    TaskDAO [completed=null, created=Tue Sep 12 15:49:31 PDT 2017, description=Description of Test task 1 , due=Tue Dec 05 00:00:00 PST 2017, id=36, modified=null, status=open, title=Test Task 1]
+    TaskDAO [completed=null, created=Tue Sep 12 15:49:31 PDT 2017, description=Description of Test task 1 , due=Wed Dec 06 00:00:00 PST 2017, id=37, modified=null, status=open, title=Test Task 1]
+    TaskDAO [completed=null, created=Tue Sep 12 15:49:31 PDT 2017, description=Description of Test task 1 , due=Thu Dec 07 00:00:00 PST 2017, id=38, modified=null, status=open, title=Test Task 1]
+    TaskDAO [completed=null, created=Tue Sep 12 15:49:31 PDT 2017, description=Description of Test task 1 , due=Fri Dec 08 00:00:00 PST 2017, id=39, modified=null, status=open, title=Test Task 1]
+    TaskDAO [completed=null, created=Tue Sep 12 15:49:31 PDT 2017, description=Description of Test task 1 , due=Sat Dec 09 00:00:00 PST 2017, id=40, modified=null, status=open, title=Test Task 1]
+    TaskDAO [completed=null, created=Tue Sep 12 15:49:31 PDT 2017, description=Description of Test task 1 , due=Sun Dec 10 00:00:00 PST 2017, id=41, modified=null, status=open, title=Test Task 1]
+    TaskDAO [completed=null, created=Tue Sep 12 15:49:31 PDT 2017, description=Description of Test task 1 , due=Mon Dec 11 00:00:00 PST 2017, id=42, modified=null, status=open, title=Test Task 1]
+    TaskDAO [completed=null, created=Tue Sep 12 15:49:31 PDT 2017, description=Description of Test task 1 , due=Tue Dec 12 00:00:00 PST 2017, id=43, modified=null, status=open, title=Test Task 1]
+    TaskDAO [completed=null, created=Tue Sep 12 15:49:31 PDT 2017, description=Description of Test task 1 , due=Wed Dec 13 00:00:00 PST 2017, id=44, modified=null, status=open, title=Test Task 1]
+    TaskDAO [completed=null, created=Tue Sep 12 15:49:31 PDT 2017, description=Description of Test task 1 , due=Thu Dec 14 00:00:00 PST 2017, id=45, modified=null, status=open, title=Test Task 1]
+    TaskDAO [completed=null, created=Tue Sep 12 15:49:31 PDT 2017, description=Description of Test task 1 , due=Fri Dec 15 00:00:00 PST 2017, id=46, modified=null, status=open, title=Test Task 1]
+    TaskDAO [completed=null, created=Tue Sep 12 15:49:31 PDT 2017, description=Description of Test task 1 , due=Sat Dec 16 00:00:00 PST 2017, id=47, modified=null, status=open, title=Test Task 1]
+    TaskDAO [completed=null, created=Tue Sep 12 15:49:31 PDT 2017, description=Description of Test task 1 , due=Sun Dec 17 00:00:00 PST 2017, id=48, modified=null, status=open, title=Test Task 1]
+    TaskDAO [completed=null, created=Tue Sep 12 15:49:31 PDT 2017, description=Description of Test task 1 , due=Mon Dec 18 00:00:00 PST 2017, id=49, modified=null, status=open, title=Test Task 1]
+    TaskDAO [completed=null, created=Tue Sep 12 15:49:31 PDT 2017, description=Description of Test task 1 , due=Tue Dec 19 00:00:00 PST 2017, id=50, modified=null, status=open, title=Test Task 1]
+    TaskDAO [completed=null, created=Tue Sep 12 15:49:31 PDT 2017, description=Description of Test task 1 , due=Wed Dec 20 00:00:00 PST 2017, id=51, modified=null, status=open, title=Test Task 1]
+    TaskDAO [completed=null, created=Tue Sep 12 15:49:31 PDT 2017, description=Description of Test task 1 , due=Thu Dec 21 00:00:00 PST 2017, id=52, modified=null, status=open, title=Test Task 1]
+    TaskDAO [completed=null, created=Tue Sep 12 15:49:31 PDT 2017, description=Description of Test task 1 , due=Fri Dec 22 00:00:00 PST 2017, id=53, modified=null, status=open, title=Test Task 1]
+    TaskDAO [completed=null, created=Tue Sep 12 15:49:31 PDT 2017, description=Description of Test task 1 , due=Sat Dec 23 00:00:00 PST 2017, id=54, modified=null, status=open, title=Test Task 1]
+    TaskDAO [completed=null, created=Tue Sep 12 15:49:31 PDT 2017, description=Description of Test task 1 , due=Sun Dec 24 00:00:00 PST 2017, id=55, modified=null, status=open, title=Test Task 1]
+    TaskDAO [completed=null, created=Tue Sep 12 15:49:31 PDT 2017, description=Description of Test task 1 , due=Mon Dec 25 00:00:00 PST 2017, id=56, modified=null, status=open, title=Test Task 1]
+    TaskDAO [completed=null, created=Tue Sep 12 15:49:31 PDT 2017, description=Description of Test task 1 , due=Tue Dec 26 00:00:00 PST 2017, id=57, modified=null, status=open, title=Test Task 1]
+    TaskDAO [completed=null, created=Tue Sep 12 15:49:31 PDT 2017, description=Description of Test task 1 , due=Wed Dec 27 00:00:00 PST 2017, id=58, modified=null, status=open, title=Test Task 1]
+    TaskDAO [completed=null, created=Tue Sep 12 15:49:31 PDT 2017, description=Description of Test task 1 , due=Thu Dec 28 00:00:00 PST 2017, id=59, modified=null, status=open, title=Test Task 1]
+    TaskDAO [completed=null, created=Tue Sep 12 15:49:31 PDT 2017, description=Description of Test task 1 , due=Fri Dec 29 00:00:00 PST 2017, id=60, modified=null, status=open, title=Test Task 1]
+    TaskDAO [completed=null, created=Tue Sep 12 15:49:31 PDT 2017, description=Description of Test task 1 , due=Sat Dec 30 00:00:00 PST 2017, id=61, modified=null, status=open, title=Test Task 1]
+    TaskDAO [completed=null, created=Tue Sep 12 15:49:31 PDT 2017, description=Description of Test task 1 , due=Sun Dec 31 00:00:00 PST 2017, id=62, modified=null, status=open, title=Test Task 1]
+    TaskDAO [completed=null, created=Tue Sep 12 15:49:31 PDT 2017, description=Description of Test task 1 , due=Mon Jan 01 00:00:00 PST 2018, id=63, modified=null, status=open, title=Test Task 1]
+    TaskDAO [completed=null, created=Tue Sep 12 15:49:31 PDT 2017, description=Description of Test task 1 , due=Tue Jan 02 00:00:00 PST 2018, id=64, modified=null, status=open, title=Test Task 1]
+    TaskDAO [completed=null, created=Tue Sep 12 15:49:31 PDT 2017, description=Description of Test task 1 , due=Wed Jan 03 00:00:00 PST 2018, id=65, modified=null, status=open, title=Test Task 1]
+    TaskDAO [completed=null, created=Tue Sep 12 15:49:31 PDT 2017, description=Description of Test task 1 , due=Thu Jan 04 00:00:00 PST 2018, id=66, modified=null, status=open, title=Test Task 1]
+    TaskDAO [completed=null, created=Tue Sep 12 15:49:31 PDT 2017, description=Description of Test task 1 , due=Fri Jan 05 00:00:00 PST 2018, id=67, modified=null, status=open, title=Test Task 1]
+    TaskDAO [completed=null, created=Tue Sep 12 15:49:31 PDT 2017, description=Description of Test task 1 , due=Sat Jan 06 00:00:00 PST 2018, id=68, modified=null, status=open, title=Test Task 1]
+    TaskDAO [completed=null, created=Tue Sep 12 15:49:31 PDT 2017, description=Description of Test task 1 , due=Sun Jan 07 00:00:00 PST 2018, id=69, modified=null, status=open, title=Test Task 1]
+    TaskDAO [completed=null, created=Tue Sep 12 15:49:31 PDT 2017, description=Description of Test task 1 , due=Mon Jan 08 00:00:00 PST 2018, id=70, modified=null, status=open, title=Test Task 1]
+    TaskDAO [completed=null, created=Tue Sep 12 15:49:31 PDT 2017, description=Description of Test task 1 , due=Tue Jan 09 00:00:00 PST 2018, id=71, modified=null, status=open, title=Test Task 1]
+    TaskDAO [completed=null, created=Tue Sep 12 15:49:31 PDT 2017, description=Description of Test task 1 , due=Wed Jan 10 00:00:00 PST 2018, id=72, modified=null, status=open, title=Test Task 1]
+    TaskDAO [completed=null, created=Tue Sep 12 15:49:31 PDT 2017, description=Description of Test task 1 , due=Thu Jan 11 00:00:00 PST 2018, id=73, modified=null, status=open, title=Test Task 1]
+    TaskDAO [completed=null, created=Tue Sep 12 15:49:31 PDT 2017, description=Description of Test task 1 , due=Fri Jan 12 00:00:00 PST 2018, id=74, modified=null, status=open, title=Test Task 1]
+    TaskDAO [completed=null, created=Tue Sep 12 15:49:31 PDT 2017, description=Description of Test task 1 , due=Sat Jan 13 00:00:00 PST 2018, id=75, modified=null, status=open, title=Test Task 1]
+    TaskDAO [completed=null, created=Tue Sep 12 15:49:31 PDT 2017, description=Description of Test task 1 , due=Sun Jan 14 00:00:00 PST 2018, id=76, modified=null, status=open, title=Test Task 1]
+    TaskDAO [completed=null, created=Tue Sep 12 15:49:31 PDT 2017, description=Description of Test task 1 , due=Mon Jan 15 00:00:00 PST 2018, id=77, modified=null, status=open, title=Test Task 1]
+    TaskDAO [completed=null, created=Tue Sep 12 15:49:31 PDT 2017, description=Description of Test task 1 , due=Tue Jan 16 00:00:00 PST 2018, id=78, modified=null, status=open, title=Test Task 1]
+    TaskDAO [completed=null, created=Tue Sep 12 15:49:31 PDT 2017, description=Description of Test task 1 , due=Wed Jan 17 00:00:00 PST 2018, id=79, modified=null, status=open, title=Test Task 1]
+    TaskDAO [completed=null, created=Tue Sep 12 15:49:31 PDT 2017, description=Description of Test task 1 , due=Thu Jan 18 00:00:00 PST 2018, id=80, modified=null, status=open, title=Test Task 1]
+    TaskDAO [completed=null, created=Tue Sep 12 15:49:31 PDT 2017, description=Description of Test task 1 , due=null, id=81, modified=null, status=open, title=Test Task 1]
+
+com.rodaxsoft.task.test.service.TaskServiceTest > testGetTasks FAILED
+    java.lang.NullPointerException
+        at java.util.Date.getMillisOf(Date.java:958)
+        at java.util.Date.before(Date.java:917)
+        at com.rodaxsoft.task.test.service.TaskServiceTest.testGetTasks(TaskServiceTest.java:156)
+
+com.rodaxsoft.task.test.service.TaskServiceTest > testUpdateTask STANDARD_OUT
+    TaskDAO [completed=Tue Sep 12 15:49:31 PDT 2017, created=2017-09-12 15:49:31.221, description=Description of Test task 1 , due=Tue Oct 31 00:00:00 PDT 2017, id=82, modified=Tue Sep 12 15:49:31 PDT 2017, status=completed, title=Test Task 1]
+    {
+      "completed" : "2017-09-12",
+      "created" : "2017-09-12T10:49:31",
+      "description" : "Description of Test task 1 ",
+      "due" : "2017-10-31",
+      "id" : 82,
+      "modified" : "2017-09-12T10:49:31",
+      "status" : "completed",
+      "title" : "Test Task 1"
+    }
+
+com.rodaxsoft.task.test.service.TaskServiceTest > testCreateTask STANDARD_OUT
+    TaskDAO [completed=null, created=Tue Sep 12 15:49:31 PDT 2017, description=Description of Test task 1 , due=Tue Oct 31 00:00:00 PDT 2017, id=83, modified=null, status=open, title=Test Task 1]
+
+com.rodaxsoft.task.test.service.TaskServiceTest > testCreateTask FAILED
+    java.lang.AssertionError: expected same:<1> was not:<83>
+        at org.junit.Assert.fail(Assert.java:88)
+        at org.junit.Assert.failNotSame(Assert.java:828)
+        at org.junit.Assert.assertSame(Assert.java:771)
+        at org.junit.Assert.assertSame(Assert.java:782)
+        at com.rodaxsoft.task.test.service.TaskServiceTest.testCreateTask(TaskServiceTest.java:102)
+
+com.rodaxsoft.task.test.service.TaskServiceTest > testDeleteTask STANDARD_OUT
+    TaskDAO [completed=null, created=Tue Sep 12 15:49:31 PDT 2017, description=Description of Test task 1 , due=Tue Oct 31 00:00:00 PDT 2017, id=84, modified=null, status=open, title=Test Task 1]
+    {
+      "completed" : null,
+      "created" : "2017-09-12T10:49:31",
+      "description" : "Description of Test task 1 ",
+      "due" : "2017-10-31",
+      "id" : 84,
+      "modified" : null,
+      "status" : "open",
+      "title" : "Test Task 1"
+    }
+
+com.rodaxsoft.task.test.TaskApplicationTests STANDARD_OUT
+    2017-09-12 15:49:31.285  INFO 4614 --- [    Test worker] .b.t.c.SpringBootTestContextBootstrapper : Neither @ContextConfiguration nor @ContextHierarchy found for test class [com.rodaxsoft.task.test.TaskApplicationTests], using SpringBootContextLoader
+    2017-09-12 15:49:31.286  INFO 4614 --- [    Test worker] o.s.t.c.support.AbstractContextLoader    : Could not detect default resource locations for test class [com.rodaxsoft.task.test.TaskApplicationTests]: no resource found for suffixes {-context.xml, Context.groovy}.
+    2017-09-12 15:49:31.286  INFO 4614 --- [    Test worker] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [com.rodaxsoft.task.test.TaskApplicationTests]: TaskApplicationTests does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+    2017-09-12 15:49:31.294  INFO 4614 --- [    Test worker] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration com.rodaxsoft.task.TaskApplication for test class com.rodaxsoft.task.test.TaskApplicationTests
+    2017-09-12 15:49:31.296  INFO 4614 --- [    Test worker] .b.t.c.SpringBootTestContextBootstrapper : Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener, org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener]
+    2017-09-12 15:49:31.298  INFO 4614 --- [    Test worker] .b.t.c.SpringBootTestContextBootstrapper : Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@72096142, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@793c1d94, org.springframework.boot.test.autoconfigure.SpringBootDependencyInjectionTestExecutionListener@52709ae9, org.springframework.test.context.support.DirtiesContextTestExecutionListener@79e51716, org.springframework.test.context.transaction.TransactionalTestExecutionListener@40df6a19, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@59960f2b, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener@f676122, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener@5e6b8a7f, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener@655fbc09, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener@cd908de, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener@38031616, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener@3ab94b1b]
+Gradle Test Executor 9 finished executing tests.
+2017-09-12 15:49:31.312  INFO 4614 --- [       Thread-6] o.s.c.support.GenericApplicationContext  : Closing org.springframework.context.support.GenericApplicationContext@160f170a: startup date [Tue Sep 12 15:49:24 PDT 2017]; root of context hierarchy
+2017-09-12 15:49:31.312  INFO 4614 --- [       Thread-5] s.c.a.AnnotationConfigApplicationContext : Closing org.springframework.context.annotation.AnnotationConfigApplicationContext@6784c4d7: startup date [Tue Sep 12 15:49:20 PDT 2017]; root of context hierarchy
+2017-09-12 15:49:31.312  INFO 4614 --- [      Thread-11] ationConfigEmbeddedWebApplicationContext : Closing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@51a872b3: startup date [Tue Sep 12 15:49:24 PDT 2017]; root of context hierarchy
+2017-09-12 15:49:31.312  INFO 4614 --- [      Thread-13] o.s.w.c.s.GenericWebApplicationContext   : Closing org.springframework.web.context.support.GenericWebApplicationContext@dc81c73: startup date [Tue Sep 12 15:49:29 PDT 2017]; root of context hierarchy
+2017-09-12 15:49:31.314  INFO 4614 --- [       Thread-5] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2017-09-12 15:49:31.315  INFO 4614 --- [       Thread-5] org.hibernate.tool.hbm2ddl.SchemaExport  : HHH000227: Running hbm2ddl schema export
+Hibernate: drop table application_user if exists
+Hibernate: drop table taskdao if exists
+2017-09-12 15:49:31.316  INFO 4614 --- [      Thread-11] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2017-09-12 15:49:31.316  INFO 4614 --- [      Thread-13] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2017-09-12 15:49:31.316  INFO 4614 --- [       Thread-5] org.hibernate.tool.hbm2ddl.SchemaExport  : HHH000230: Schema export complete
+2017-09-12 15:49:31.316  INFO 4614 --- [      Thread-11] org.hibernate.tool.hbm2ddl.SchemaExport  : HHH000227: Running hbm2ddl schema export
+2017-09-12 15:49:31.316  INFO 4614 --- [      Thread-13] org.hibernate.tool.hbm2ddl.SchemaExport  : HHH000227: Running hbm2ddl schema export
+2017-09-12 15:49:31.318  INFO 4614 --- [      Thread-13] org.hibernate.tool.hbm2ddl.SchemaExport  : HHH000230: Schema export complete
+2017-09-12 15:49:31.319  INFO 4614 --- [      Thread-11] org.hibernate.tool.hbm2ddl.SchemaExport  : HHH000230: Schema export complete
+Finished generating test XML results (0.003 secs) into: /Users/johndev/Documents/workspace-sts-3.9.0.RELEASE/task/build/test-results/test
+Generating HTML test report...
+Finished generating test html results (0.003 secs) into: /Users/johndev/Documents/workspace-sts-3.9.0.RELEASE/task/build/reports/tests/test
+:test FAILED
+:test (Thread[Task worker for ':',5,main]) completed. Took 18.286 secs.
+7 actionable tasks: 5 executed, 2 up-to-date
