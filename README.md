@@ -1,6 +1,6 @@
 # Todo API
 
-Todo is a task management service that enables registered users to easily manage their tasks. Each task has a *name* as well as other optional values including *due date*, *status*, and *description*. The next version will include *rank*, so that tasks can be ordered by priority.
+Todo is a task management service that enables registered users to easily manage their tasks. Each task has a name as well as other optional values including *due date*, *status*, and *description*. The next version will include *rank*, so that tasks can be ordered by priority.
 
 The Todo API is implemented as a [Spring Boot](https://projects.spring.io/spring-boot/) app running an embedded version of Tomcat. For demonstration purposes, the data store is a [HSQLDB](http://hsqldb.org) in-memory database accessed via [Spring JPA](https://projects.spring.io/spring-data-jpa/). It uses [JSON Web Tokens (JWT)](https://jwt.io/) for authentication.
 
@@ -54,10 +54,9 @@ Method | HTTP Requests | Description
 No header required.
 
 #### Parameters
-No parameters required.
+All body elements are required.
 
 #### Request Body
-All elements are required.
 
 	{
   	  "email": string,
@@ -112,7 +111,7 @@ If successful, returns a JSON user:
 	Content-Type: application/json
 
 #### Parameters
-No parameters required.
+All body elements are required.
 
 #### Request Body
 
@@ -189,7 +188,7 @@ If successful, returns a JSON Web Token:
 	Cookie: ACCESS_TOKEN=<JWT access token string>
 
 #### Parameters
-The `title` is required as a body element.
+The `title` is required as a body element. The `status` defaults to `"open"`.
 
 #### Request Body
 
@@ -268,7 +267,7 @@ If successful, returns an array of tasks:
 	Cookie: ACCESS_TOKEN=<JWT access token string>
 
 #### Parameters
-The task `id` is required as a path parameter and the `title` is required as a body element.
+The task `id` is required as a path parameter and the `title` is required as a body element. The `status` defaults to `"open"`.
 
 #### Request Body
 
