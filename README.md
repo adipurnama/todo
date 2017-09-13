@@ -2,7 +2,7 @@
 
 Todo is a task management service that enables registered users to easily manage their tasks. Each task has a name as well as other optional values including *due date*, *status*, and *description*. The next version will include *rank*, so that tasks can be ordered by priority.
 
-The Todo API is implemented as a [Spring Boot](https://projects.spring.io/spring-boot/) app running an embedded version of Tomcat. For demonstration purposes, the data store is a [HSQLDB](http://hsqldb.org) in-memory database accessed via [Spring JPA](https://projects.spring.io/spring-data-jpa/). It uses [JSON Web Tokens (JWT)](https://jwt.io/) for authentication.
+The Todo RESTful API is implemented as a [Spring Boot](https://projects.spring.io/spring-boot/) app running an embedded version of Tomcat. For demonstration purposes, the data store is a [HSQLDB](http://hsqldb.org) in-memory database accessed via [Spring JPA](https://projects.spring.io/spring-data-jpa/). It uses [JSON Web Tokens (JWT)](https://jwt.io/) for authentication.
 
 # Table of Contents
 
