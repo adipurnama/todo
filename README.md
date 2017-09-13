@@ -28,8 +28,8 @@ Note: All dates are specified as strings, i.e., `yyyy-MM-dd` or `yyyy-MM-dd'T'hh
 
 Method | HTTP Requests | Description
 ------------ | ------------- |-------
-*[signup](#insert-user)* | `POST /users`| Create a user
-*[profile](#view)* | `GET /me` | View current user
+*[signup](#signup-user)* | `POST /users`| Create a user
+*[profile](#profile)* | `GET /me` | View current user
 *[login](#login)* |`POST/access-tokens` | Login user
 *[logout](#logout)* |`DELETE/access-tokens` | Logout user
 *[refresh](#refresh-token)* |`POST /access-tokens/refresh` |Refresh user token
@@ -189,7 +189,7 @@ If successful, returns a JSON Web Token:
 	Cookie: ACCESS_TOKEN=<JWT access token string>
 
 #### Parameters
-No parameters required.
+The `title` is required as a body element.
 
 #### Request Body
 
@@ -198,7 +198,7 @@ No parameters required.
   	  "description": string,
   	  "due": date string (yyyy-MM-dd),
   	  "status": string (open | completed),
- 	  "title": string <required>
+ 	    "title": string <required>
 	}
 
 #### Response
@@ -268,7 +268,7 @@ If successful, returns an array of tasks:
 	Cookie: ACCESS_TOKEN=<JWT access token string>
 
 #### Parameters
-No parameters required.
+The task `id` is required as a path parameter and the `title` is required as a body element.
 
 #### Request Body
 
@@ -306,7 +306,7 @@ If successful, returns JSON task:
 	Cookie: ACCESS_TOKEN=<JWT access token string>
 
 #### Parameters
-No parameters required.
+The task `id` is required as a path parameter.
 
 #### Request Body
 No body required.
