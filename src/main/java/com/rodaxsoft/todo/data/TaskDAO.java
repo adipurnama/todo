@@ -133,7 +133,6 @@ public class TaskDAO {
 	@PreUpdate
 	protected void onUpdate() {
 		setModified(new Date());
-		int x = 9;
 	}
 	/**
 	 * @param completed the completed to set
