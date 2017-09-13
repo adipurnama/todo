@@ -1,14 +1,4 @@
-# API
-
-## Tasks
-
-Method | HTTP Requests | Description 
------------- | ------------- |-------
-*[insert](#insert-task)* | `POST /tasks` | Create a task
-*[list](#get-tasks)* | `GET /tasks`| Returns tasks
-*[update](#update-task)* |`PUT /tasks/:id` | Update a task
-*[delete](#delete-task)* |`DELETE /tasks/:id` | Delete a task
-
+# Todo API
 
 ## User
 
@@ -19,6 +9,15 @@ Method | HTTP Requests | Description
 *[login](#login)* |`POST/access-tokens` | Login user
 *[logout](#logout)* |`DELETE/access-tokens` | Logout user
 *[refresh](#refresh-token)* |`POST /access-tokens/refresh` |Refresh user token
+
+## Tasks
+
+Method | HTTP Requests | Description 
+------------ | ------------- |-------
+*[insert](#insert-task)* | `POST /tasks` | Create a task
+*[list](#get-tasks)* | `GET /tasks`| Returns tasks
+*[update](#update-task)* |`PUT /tasks/:id` | Update a task
+*[delete](#delete-task)* |`DELETE /tasks/:id` | Delete a task
 
 ---
 
