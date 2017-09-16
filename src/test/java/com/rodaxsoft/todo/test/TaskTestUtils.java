@@ -25,9 +25,9 @@ import org.joda.time.LocalDate;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.rodaxsoft.todo.data.TaskDAO;
 import com.rodaxsoft.todo.domain.ApplicationUser;
 import com.rodaxsoft.todo.domain.Profile;
+import com.rodaxsoft.todo.domain.Task;
 import com.rodaxsoft.todo.security.JSONWebToken;
 
 /**
@@ -41,20 +41,20 @@ public class TaskTestUtils {
 	public static final Date DUE_DATE = new LocalDate(2017, 10, 31).toDate();
 	public static final String TITLE = "Test Task 1";
 
-	public static List<TaskDAO> create100Tasks() {
-		List<TaskDAO> tasks = new ArrayList<>();
+	public static List<Task> create100Tasks() {
+		List<Task> tasks = new ArrayList<>();
 		for (int i = 0; i < 100; i++) {
-			TaskDAO dao = createMockTaskDao();
+			Task task = createMockTask();
 			if(i > 0 && i < 80) {
 				Date lastDue = tasks.get(i-1).getDue();
 				LocalDate ld = new LocalDate(lastDue.getTime());
 				ld = ld.plusDays(1);
-				dao.setDue(ld.toDate());
+				task.setDue(ld.toDate());
 			} else if(i >= 80){
-				dao.setDue(null);
+				task.setDue(null);
 			}
 			
-			tasks.add(dao);
+			tasks.add(task);
 		}
 		return tasks;
 	}
@@ -85,12 +85,12 @@ public class TaskTestUtils {
 		return new ObjectMapper().writeValueAsString(createMockApplicationUser());
 	}
 
-	public static TaskDAO createMockTaskDao() {
-		TaskDAO dao = new TaskDAO();
-		dao.setDue(DUE_DATE);
-		dao.setDescription(DESCRIPTION);
-		dao.setTitle(TITLE);
-		return dao;
+	public static Task createMockTask() {
+		Task task = new Task();
+		task.setDue(DUE_DATE);
+		task.setDescription(DESCRIPTION);
+		task.setTitle(TITLE);
+		return task;
 	}
 	
 	public static Profile getProfileFromJson(String json) throws IOException {

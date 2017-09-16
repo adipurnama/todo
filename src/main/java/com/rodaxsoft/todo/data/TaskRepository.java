@@ -13,10 +13,12 @@ package com.rodaxsoft.todo.data;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
+import com.rodaxsoft.todo.domain.Task;
+
 /**
  * TaskRepository interface
  *
  */
 @Repository
-public interface TaskRepository extends JpaRepository<TaskDAO, Long> {
+public interface TaskRepository extends JpaRepository<Task, Long> {
 }

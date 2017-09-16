@@ -28,10 +28,10 @@ import org.springframework.test.context.junit4.SpringRunner;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.rodaxsoft.todo.data.ApplicationUserRepository;
-import com.rodaxsoft.todo.data.TaskDAO;
 import com.rodaxsoft.todo.data.TaskRepository;
 import com.rodaxsoft.todo.data.TaskStatus;
 import com.rodaxsoft.todo.domain.ApplicationUser;
+import com.rodaxsoft.todo.domain.Task;
 import com.rodaxsoft.todo.service.TaskService;
 import com.rodaxsoft.todo.test.TaskTestUtils;
 
@@ -61,13 +61,13 @@ public class TaskServiceTest {
 	/**
 	 * @return
 	 */
-	private TaskDAO createMockTaskDAO() {
-		TaskDAO dao = new TaskDAO();
-		dao.setDue(new LocalDate(2017, 10, 31).toDate());
-		dao.setDescription("Description of Test task 1 ");
-		dao.setTitle("Test Task 1");
-		dao.setUserId(userId);
-		return dao;
+	private Task createMockTask() {
+		Task task = new Task();
+		task.setDue(new LocalDate(2017, 10, 31).toDate());
+		task.setDescription("Description of Test task 1 ");
+		task.setTitle("Test Task 1");
+		task.setUserId(userId);
+		return task;
 	}
 	
 	@Before
@@ -79,13 +79,13 @@ public class TaskServiceTest {
 	
 	@Test
 	public void testCreateTask() {
-		TaskDAO savedDao = taskService.createTask(createMockTaskDAO());
-		System.out.println(savedDao);
-		Assert.assertNotNull(savedDao.getCreated());
-		Assert.assertNotNull(savedDao.getId());
+		Task savedTask = taskService.createTask(createMockTask());
+		System.out.println(savedTask);
+		Assert.assertNotNull(savedTask.getCreated());
+		Assert.assertNotNull(savedTask.getId());
 		
 		try {
-			String result = new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(savedDao);
+			String result = new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(savedTask);
 			System.out.println(result);
 		} catch (JsonProcessingException e) {
 			Assert.fail(e.getMessage());
@@ -94,13 +94,13 @@ public class TaskServiceTest {
 	
 	@Test
 	public void testDeleteTask() {
-		TaskDAO savedDao = taskService.createTask(createMockTaskDAO());
-		taskService.deleteTask(savedDao.getId());
-		System.out.println(savedDao);
+		Task savedTask = taskService.createTask(createMockTask());
+		taskService.deleteTask(savedTask.getId());
+		System.out.println(savedTask);
 		assertTrue(taskService.getTasks().isEmpty());
 		
 		try {
-			String result = new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(savedDao);
+			String result = new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(savedTask);
 			System.out.println(result);
 		} catch (JsonProcessingException e) {
 			Assert.fail(e.getMessage());
@@ -109,19 +109,19 @@ public class TaskServiceTest {
 	
 	@Test
 	public void testGetTasks() {
-		List<TaskDAO> tasks = TaskTestUtils.create100Tasks();
-		TaskDAO prev = null;
-		for (TaskDAO taskDao : tasks) {
-			TaskDAO savedDao = taskService.createTask(taskDao);
-			System.out.println(savedDao);
-			Assert.assertNotNull(savedDao.getCreated());
-			Assert.assertNotNull(savedDao.getId());
+		List<Task> tasks = TaskTestUtils.create100Tasks();
+		Task prev = null;
+		for (Task task : tasks) {
+			Task savedTask = taskService.createTask(task);
+			System.out.println(savedTask);
+			Assert.assertNotNull(savedTask.getCreated());
+			Assert.assertNotNull(savedTask.getId());
 			
-			if(prev != null && prev.getDue() != null && taskDao.getDue() != null) {
-				Assert.assertTrue(prev.getDue().before(taskDao.getDue()));
+			if(prev != null && prev.getDue() != null && task.getDue() != null) {
+				Assert.assertTrue(prev.getDue().before(task.getDue()));
 			}
 			
-			prev = taskDao;
+			prev = task;
 		}
 		
 		tasks = taskService.getTasks();
@@ -130,15 +130,15 @@ public class TaskServiceTest {
 	
 	@Test
 	public void testUpdateTask() {
-		TaskDAO savedDao = taskService.createTask(createMockTaskDAO());
-		savedDao.setStatus(TaskStatus.COMPLETED);
-		savedDao.setCompleted(new Date());
-		savedDao = taskService.updateTask(savedDao);
-		System.out.println(savedDao);
-		Assert.assertNotNull(savedDao.getModified());
+		Task savedTask = taskService.createTask(createMockTask());
+		savedTask.setStatus(TaskStatus.COMPLETED);
+		savedTask.setCompleted(new Date());
+		savedTask = taskService.updateTask(savedTask);
+		System.out.println(savedTask);
+		Assert.assertNotNull(savedTask.getModified());
 		
 		try {
-			String result = new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(savedDao);
+			String result = new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(savedTask);
 			System.out.println(result);
 		} catch (JsonProcessingException e) {
 			Assert.fail(e.getMessage());

@@ -14,8 +14,8 @@ import org.springframework.validation.Errors;
 import org.springframework.validation.ValidationUtils;
 import org.springframework.validation.Validator;
 
-import com.rodaxsoft.todo.data.TaskDAO;
 import com.rodaxsoft.todo.data.TaskStatus;
+import com.rodaxsoft.todo.domain.Task;
 
 /**
  * TaskCreateAndUpdateValidator class
@@ -34,38 +34,38 @@ public class TaskCreateAndUpdateValidator implements Validator {
 
 	@Override
 	public boolean supports(Class<?> clazz) {
-		return TaskDAO.class.isAssignableFrom(clazz);
+		return Task.class.isAssignableFrom(clazz);
 	}
 
 	@Override
 	public void validate(Object target, Errors errors) {
 		ValidationUtils.rejectIfEmptyOrWhitespace(errors, "title", "field.required", "Title required");
-		TaskDAO dao = (TaskDAO) target;
+		Task task = (Task) target;
 		
-		if(dao.getCreated() != null) {
+		if(task.getCreated() != null) {
 			errors.rejectValue("created", FIELD_READONLY_CODE, FIELD_READONLY_MSG);			
 		}
 		
-		if(dao.getModified() != null) {
+		if(task.getModified() != null) {
 			errors.rejectValue("modified", FIELD_READONLY_CODE, FIELD_READONLY_MSG);
 		}
 		
-		if(dao.getUserId() != null) {
+		if(task.getUserId() != null) {
 			errors.rejectValue("userId", FIELD_READONLY_CODE, FIELD_READONLY_MSG);
 		}
 		
 		//Check for empty description if non-null
-		String description = dao.getDescription();
+		String description = task.getDescription();
 		if(description != null && description.isEmpty()) {
 			errors.rejectValue("description", FIELD_EMPTY_CODE, FIELD_EMPTY_MSG);			
 		}
 		
-		if(dao.getId() != null) {
+		if(task.getId() != null) {
 			errors.rejectValue("userId", FIELD_READONLY_CODE, FIELD_READONLY_MSG);
 		}
 		
-		TaskStatus status = dao.getStatus();
-		if((dao.getCompleted() != null && status != TaskStatus.COMPLETED) || 
+		TaskStatus status = task.getStatus();
+		if((task.getCompleted() != null && status != TaskStatus.COMPLETED) || 
 		   (status != null && status == TaskStatus.RESERVED) ) {
 			errors.rejectValue("status", "field.invalid", "Invalid status");			
 		}

@@ -27,7 +27,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.rodaxsoft.todo.data.TaskDAO;
+import com.rodaxsoft.todo.domain.Task;
 import com.rodaxsoft.todo.service.ApplicationUserService;
 import com.rodaxsoft.todo.service.TaskService;
 import com.rodaxsoft.todo.validation.TaskCreateAndUpdateValidator;
@@ -51,8 +51,8 @@ public class TaskController {
 		this.userService = userService;
 	}
 
-	@PostMapping(produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
-	public TaskDAO createTask(@RequestBody TaskDAO task, BindingResult result, @CookieValue(COOKIE_STRING) String token) {
+	@PostMapping
+	public Task createTask(@RequestBody Task task, BindingResult result, @CookieValue(COOKIE_STRING) String token) {
 		taskValidator.validate(task, result);
 		if(result.hasErrors()) {
 			throw new ValidationException(result);
@@ -65,13 +65,13 @@ public class TaskController {
 		return taskService.createTask(task);
 	}
 	
-	@GetMapping(produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
-	public List<TaskDAO> getTasks(@CookieValue(COOKIE_STRING) String token) {
+	@GetMapping
+	public List<Task> getTasks(@CookieValue(COOKIE_STRING) String token) {
 		return taskService.getTasks();	
 	}
 	
 	@PutMapping(path = "/{id}")
-	public TaskDAO updateTask(@PathVariable Long id, @RequestBody TaskDAO updatedTask, BindingResult result) {
+	public Task updateTask(@PathVariable Long id, @RequestBody Task updatedTask, BindingResult result) {
 		taskValidator.validate(updatedTask, result);
 		if (result.hasFieldErrors()) {
 			throw new ValidationException(result);

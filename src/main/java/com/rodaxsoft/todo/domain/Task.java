@@ -1,5 +1,5 @@
 /*
-  TaskDAO.java
+  Task.java
 
   Created by John Boyer on Sep 11, 2017
   Copyright (c) 2017 Rodax Software, Inc.
@@ -8,7 +8,7 @@
   License, v. 2.0. If a copy of the MPL was not distributed with this
   file, You can obtain one at http://mozilla.org/MPL/2.0/.
 */
-package com.rodaxsoft.todo.data;
+package com.rodaxsoft.todo.domain;
 
 import java.util.Date;
 
@@ -21,13 +21,14 @@ import javax.persistence.PreUpdate;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.rodaxsoft.todo.data.TaskStatus;
 
 /**
- * TaskDAO class
+ * Task class
  *
  */
 @Entity
-public class TaskDAO {
+public class Task {
 
 	@JsonFormat(pattern = "yyyy-MM-dd")
 	private Date completed;
@@ -199,7 +200,7 @@ public class TaskDAO {
 	 */
 	@Override
 	public String toString() {
-		return "TaskDAO [completed=" + completed + ", created=" + created + ", description=" + description + ", due="
+		return "Task [completed=" + completed + ", created=" + created + ", description=" + description + ", due="
 				+ due + ", id=" + id + ", modified=" + modified + ", status=" + status + ", title=" + title + "]";
 	}
 	

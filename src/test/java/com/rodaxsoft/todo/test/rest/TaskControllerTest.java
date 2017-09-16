@@ -46,9 +46,9 @@ import com.fasterxml.jackson.databind.type.CollectionType;
 import com.fasterxml.jackson.databind.type.TypeFactory;
 import com.rodaxsoft.todo.TaskApplication;
 import com.rodaxsoft.todo.data.ApplicationUserRepository;
-import com.rodaxsoft.todo.data.TaskDAO;
 import com.rodaxsoft.todo.data.TaskRepository;
 import com.rodaxsoft.todo.domain.ApplicationUser;
+import com.rodaxsoft.todo.domain.Task;
 import com.rodaxsoft.todo.security.JWTToken;
 import com.rodaxsoft.todo.service.ApplicationUserService;
 import com.rodaxsoft.todo.service.TaskService;
@@ -123,8 +123,8 @@ public class TaskControllerTest {
 	public void testCreateTask() {
 		try {
 			
-			TaskDAO taskDao = TaskTestUtils.createMockTaskDao();
-			String json = new ObjectMapper().writeValueAsString(taskDao);
+			Task task = TaskTestUtils.createMockTask();
+			String json = new ObjectMapper().writeValueAsString(task);
 			MvcResult result = mvc.perform(post(TASKS_ENDPOINT)
 					                .contentType(MediaType.APPLICATION_JSON)
 					                .content(json).cookie(cookie))
@@ -147,13 +147,13 @@ public class TaskControllerTest {
 	
 	@Test
 	public void testDeleteTask() {
-		TaskDAO dao = TaskTestUtils.createMockTaskDao();
-		dao = taskService.createTask(dao);
+		Task task = TaskTestUtils.createMockTask();
+		task = taskService.createTask(task);
 
 		
 		try {
 			MvcResult result;
-			result = mvc.perform(delete(TASKS_ENDPOINT + "/" + dao.getId())
+			result = mvc.perform(delete(TASKS_ENDPOINT + "/" + task.getId())
 			        .contentType(MediaType.TEXT_PLAIN_VALUE)
 			               .cookie(cookie))
 			                    .andExpect(status().isOk())
@@ -168,11 +168,11 @@ public class TaskControllerTest {
 	
 	@Test
 	public void testGetTasks() {
-		List<TaskDAO> tasks = TaskTestUtils.create100Tasks();
+		List<Task> tasks = TaskTestUtils.create100Tasks();
 		Long userId = userService.getUserIdForToken(cookie.getValue());
-		for (TaskDAO taskDao : tasks) {
-			taskDao.setUserId(userId);
-			taskService.createTask(taskDao);
+		for (Task task : tasks) {
+			task.setUserId(userId);
+			taskService.createTask(task);
 		}
 		
 		MvcResult result;
@@ -194,7 +194,7 @@ public class TaskControllerTest {
 			
 			ObjectMapper mapper = new ObjectMapper();
 			TypeFactory factory = mapper.getTypeFactory();
-			CollectionType type = factory.constructCollectionType(List.class, TaskDAO.class);
+			CollectionType type = factory.constructCollectionType(List.class, Task.class);
 			String json = response.getContentAsString();
 			tasks = mapper.readValue(json, type);
 			
@@ -207,18 +207,18 @@ public class TaskControllerTest {
 	
 	@Test
 	public void testUpdateTask() {
-		TaskDAO dao = TaskTestUtils.createMockTaskDao();
-		dao = taskService.createTask(dao);
-		dao.setDescription("All new description");
-		dao.setTitle("My brand new title");
+		Task task = TaskTestUtils.createMockTask();
+		task = taskService.createTask(task);
+		task.setDescription("All new description");
+		task.setTitle("My brand new title");
 		
 		UploadableTestTask upldTask = new UploadableTestTask();
-		BeanUtils.copyProperties(dao, upldTask);
+		BeanUtils.copyProperties(task, upldTask);
 
 		try {
 			
 			String json = new ObjectMapper().writeValueAsString(upldTask);
-			MvcResult result = mvc.perform(put(TASKS_ENDPOINT + "/" + dao.getId())
+			MvcResult result = mvc.perform(put(TASKS_ENDPOINT + "/" + task.getId())
 			        .contentType(MediaType.APPLICATION_JSON)
 			        .content(json).cookie(cookie))
 			                    .andExpect(status().isOk())

@@ -18,8 +18,8 @@ import org.springframework.data.domain.Sort.Direction;
 import org.springframework.data.domain.Sort.Order;
 import org.springframework.stereotype.Service;
 
-import com.rodaxsoft.todo.data.TaskDAO;
 import com.rodaxsoft.todo.data.TaskRepository;
+import com.rodaxsoft.todo.domain.Task;
 
 /**
  * TaskService class
@@ -35,18 +35,18 @@ public class TaskService {
 		this.taskRepository = taskRepository;
 	}
 	
-	public TaskDAO createTask(TaskDAO taskDao) {
-		if(null == taskDao.getTitle()) {
+	public Task createTask(Task task) {
+		if(null == task.getTitle()) {
 			throw new IllegalArgumentException("title cannot be null");
 		}
 		
-		TaskDAO savedTask = taskRepository.save(taskDao);
+		Task savedTask = taskRepository.save(task);
 		return savedTask;
 	}
 	
-	public List<TaskDAO> getTasks() {
+	public List<Task> getTasks() {
 		Sort sort = new Sort(new Order(Direction.ASC, "due").nullsFirst());
-		List<TaskDAO> tasks = taskRepository.findAll(sort);
+		List<Task> tasks = taskRepository.findAll(sort);
 		return tasks;
 	}
 	
@@ -54,15 +54,15 @@ public class TaskService {
 		taskRepository.delete(id);
 	}
 	
-	public TaskDAO updateTask(TaskDAO taskDao) {
-		TaskDAO savedTask = taskRepository.findOne(taskDao.getId());
+	public Task updateTask(Task task) {
+		Task savedTask = taskRepository.findOne(task.getId());
 		//Non-modifiable properties: id, created, userId
-		taskDao.setId(savedTask.getId());
-		taskDao.setCreated(savedTask.getCreated());
-		taskDao.setUserId(savedTask.getUserId());
+		task.setId(savedTask.getId());
+		task.setCreated(savedTask.getCreated());
+		task.setUserId(savedTask.getUserId());
 		//Ignore modified, it'll get updated
 		
-		savedTask = taskRepository.save(taskDao)	;
+		savedTask = taskRepository.save(task)	;
 		return savedTask;
 	}
 }

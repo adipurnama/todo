@@ -232,7 +232,7 @@ No parameters required.
 No body required
 
 #### Response
-If successful, returns an array of tasks:
+If successful, returns a sorted array of tasks in ascending order by due date. Due dates with `null` values will appear first. 
 
 	[{
   	   "completed": string (yyyy-MM-dd),

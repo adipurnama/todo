@@ -1,5 +1,5 @@
 /*
-  TaskDAOTest.java
+  TaskTest.java
 
   Created by John Boyer on Sep 11, 2017
   Copyright (c) 2017 Rodax Software, Inc.
@@ -18,35 +18,35 @@ import org.junit.Assert;
 import org.junit.Test;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.rodaxsoft.todo.data.TaskDAO;
 import com.rodaxsoft.todo.data.TaskStatus;
+import com.rodaxsoft.todo.domain.Task;
 
 /**
- * TaskDAOTest class
+ * TaskTest class
  */
-public class TaskDAOTest {
+public class TaskTest {
 	
-	public static TaskDAO createMockTaskDAO() {
-		TaskDAO dao = new TaskDAO();
-		dao.setDue(new LocalDate(2017, 10, 31).toDate());
-		dao.setCreated(new Date());
-		dao.setDescription("description of Test task 1 ");
-		dao.setTitle("Test Task 1");
-		dao.setId(1L);
-		return dao;
+	public static Task createMockTask() {
+		Task task = new Task();
+		task.setDue(new LocalDate(2017, 10, 31).toDate());
+		task.setCreated(new Date());
+		task.setDescription("description of Test task 1 ");
+		task.setTitle("Test Task 1");
+		task.setId(1L);
+		return task;
 	}
 	
 	@Test
 	public void testCreate() {
 		
-		TaskDAO dao = createMockTaskDAO();
+		Task task = createMockTask();
 
 		try {
 			ObjectMapper mapper = new ObjectMapper();
-			String result = mapper.writerWithDefaultPrettyPrinter().writeValueAsString(dao);
+			String result = mapper.writerWithDefaultPrettyPrinter().writeValueAsString(task);
 			System.out.println(result);
-			dao = mapper.readValue(result, TaskDAO.class);
-			System.out.println(dao);
+			task = mapper.readValue(result, Task.class);
+			System.out.println(task);
 			
 		} catch (IOException e) {
 			Assert.fail(e.getMessage());
@@ -55,17 +55,17 @@ public class TaskDAOTest {
 	
 	@Test 
 	public void testUpdate() {
-		TaskDAO dao = createMockTaskDAO();
-		dao.setCompleted(new Date());
-		dao.setModified(new Date());
-		dao.setStatus(TaskStatus.COMPLETED);
+		Task task = createMockTask();
+		task.setCompleted(new Date());
+		task.setModified(new Date());
+		task.setStatus(TaskStatus.COMPLETED);
 
 		try {
 			ObjectMapper mapper = new ObjectMapper();
-			String result = mapper.writerWithDefaultPrettyPrinter().writeValueAsString(dao);
+			String result = mapper.writerWithDefaultPrettyPrinter().writeValueAsString(task);
 			System.out.println(result);
-			dao = mapper.readValue(result, TaskDAO.class);
-			System.out.println(dao);
+			task = mapper.readValue(result, Task.class);
+			System.out.println(task);
 			
 		} catch (IOException e) {
 			Assert.fail(e.getMessage());
