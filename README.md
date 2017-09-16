@@ -43,6 +43,18 @@ Method | HTTP Requests | Description
 *[update](#update-task)* |`PUT /tasks/:id` | Update a task
 *[delete](#delete-task)* |`DELETE /tasks/:id` | Delete a task
 
+##  Errors
+If an error occurs, the API will return the following JSON response:
+
+	{
+	    "timestamp": number,
+	    "status": number,
+	    "error": string,
+	    "exception": string,
+	    "message": string,
+	    "path": string
+	}
+	
 ---
 
 ### Signup User
@@ -232,7 +244,7 @@ No parameters required.
 No body required
 
 #### Response
-If successful, returns a sorted array of tasks in ascending order by due date. Due dates with `null` values will appear first. 
+If successful, returns a sorted array of tasks in ascending order by due date. Due dates with `null` values will appear first.
 
 	[{
   	   "completed": string (yyyy-MM-dd),
