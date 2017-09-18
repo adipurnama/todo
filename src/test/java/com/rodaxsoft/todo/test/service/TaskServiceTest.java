@@ -29,9 +29,9 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.rodaxsoft.todo.data.ApplicationUserRepository;
 import com.rodaxsoft.todo.data.TaskRepository;
-import com.rodaxsoft.todo.data.TaskStatus;
 import com.rodaxsoft.todo.domain.ApplicationUser;
 import com.rodaxsoft.todo.domain.Task;
+import com.rodaxsoft.todo.domain.TaskStatus;
 import com.rodaxsoft.todo.service.TaskService;
 import com.rodaxsoft.todo.test.TaskTestUtils;
 

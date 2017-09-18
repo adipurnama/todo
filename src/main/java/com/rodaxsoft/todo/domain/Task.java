@@ -21,7 +21,6 @@ import javax.persistence.PreUpdate;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.rodaxsoft.todo.data.TaskStatus;
 
 /**
  * Task class

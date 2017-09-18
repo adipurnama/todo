@@ -14,8 +14,8 @@ import org.springframework.validation.Errors;
 import org.springframework.validation.ValidationUtils;
 import org.springframework.validation.Validator;
 
-import com.rodaxsoft.todo.data.TaskStatus;
 import com.rodaxsoft.todo.domain.Task;
+import com.rodaxsoft.todo.domain.TaskStatus;
 
 /**
  * TaskCreateAndUpdateValidator class

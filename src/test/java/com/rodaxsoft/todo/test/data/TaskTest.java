@@ -18,8 +18,8 @@ import org.junit.Assert;
 import org.junit.Test;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.rodaxsoft.todo.data.TaskStatus;
 import com.rodaxsoft.todo.domain.Task;
+import com.rodaxsoft.todo.domain.TaskStatus;
 
 /**
  * TaskTest class

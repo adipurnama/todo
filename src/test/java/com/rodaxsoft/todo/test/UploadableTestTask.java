@@ -13,7 +13,7 @@ package com.rodaxsoft.todo.test;
 import java.util.Date;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
-import com.rodaxsoft.todo.data.TaskStatus;
+import com.rodaxsoft.todo.domain.TaskStatus;
 
 /**
  * UploadableTestTask class
