@@ -30,6 +30,9 @@ public interface SecurityConstants {
      * Header string, e.g., <code>Authorization</code> or<code> x-access-token</code>
      */
     String HEADER_STRING = "x-access-token";
+    /**
+     * Cookie key, e.g., <code>ACCESS_TOKEN=eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJleHAi...</code>
+     */
     String COOKIE_STRING = "ACCESS_TOKEN";
     /**
      * Sign-up URL

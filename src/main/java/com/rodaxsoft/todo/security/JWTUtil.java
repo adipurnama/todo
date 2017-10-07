@@ -25,13 +25,11 @@ import java.util.Date;
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 
-import org.apache.commons.lang3.exception.ContextedRuntimeException;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.userdetails.User;
 
 import io.jsonwebtoken.Claims;
-import io.jsonwebtoken.JwtException;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
 
@@ -115,13 +113,12 @@ public class JWTUtil {
 	 * Refreshes the access token with the given token
 	 * @param jwtToken A JSON web token
 	 * @return A new access token
-	 * @throws JwtException if the access or refresh tokens are invalid
 	 * @return A a new access token
 	 */
 	public static String refreshAccessToken(JSONWebToken jwtToken) {
 		
 		if(null == jwtToken.getAccessToken() || null == jwtToken.getRefreshToken()) {
-			throw new JwtException("tokens cannot be null");
+			throw new JSONWebTokenException("tokens cannot be null");
 		}
 		
 		//Access token
@@ -134,11 +131,11 @@ public class JWTUtil {
 
 		//Ensure usernames match
 		if(!accessTokenUsername.equals(refreshTokenUsername)) {
-			throw new JwtException("access and refresh token mismatch");
+			throw new JSONWebTokenException("access and refresh token mismatch");
 		}
 		
 		if(isTokenExpired(refreshToken)) {
-			throw new JwtException("refresh token expired");
+			throw new JSONWebTokenException("refresh token expired");
 		}
 
 		return generateAccessToken(() -> { return accessTokenUsername; });
@@ -209,9 +206,7 @@ public class JWTUtil {
 			if (user != null) {
 				upaToken = new UsernamePasswordAuthenticationToken(user, null, new ArrayList<>());
 			} else {
-				throw new ContextedRuntimeException("Unable to parse user")
-				             .addContextValue("token", token)
-						     .addContextValue("user", null);
+				throw new JSONWebTokenException("invalid token");
 			}
 		}
 		return upaToken;

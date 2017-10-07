@@ -10,16 +10,11 @@
 */
 package com.rodaxsoft.todo.test;
 
-import static com.rodaxsoft.todo.security.SecurityConstants.COOKIE_STRING;
-import static com.rodaxsoft.todo.security.SecurityConstants.MAX_COOKIE_AGE;
-
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.Map;
-
-import javax.servlet.http.Cookie;
 
 import org.joda.time.LocalDate;
 
@@ -28,7 +23,6 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.rodaxsoft.todo.domain.ApplicationUser;
 import com.rodaxsoft.todo.domain.Profile;
 import com.rodaxsoft.todo.domain.Task;
-import com.rodaxsoft.todo.security.JSONWebToken;
 
 /**
  * TaskTestUtils class
@@ -57,20 +51,6 @@ public class TaskTestUtils {
 			tasks.add(task);
 		}
 		return tasks;
-	}
-	
-	/**
-	 * Creates a cookie with the max age. See {@link #MAX_COOKIE_AGE}.
-	 * @param jwt JSON web token
-	 * @return A Cookie object
-	 */
-	public static Cookie createCookie(JSONWebToken jwt) {
-		Cookie cookie = new Cookie(COOKIE_STRING, jwt.getAccessToken());
-		cookie.setMaxAge(MAX_COOKIE_AGE);
-		cookie.setHttpOnly(true);
-		cookie.setDomain("localhost");
-		cookie.setPath("/");
-		return cookie;
 	}
 	
 	public static ApplicationUser createMockApplicationUser() {

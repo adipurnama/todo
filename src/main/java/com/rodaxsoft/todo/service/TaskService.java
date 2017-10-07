@@ -20,6 +20,8 @@ import org.springframework.stereotype.Service;
 
 import com.rodaxsoft.todo.data.TaskRepository;
 import com.rodaxsoft.todo.domain.Task;
+import com.rodaxsoft.todo.exception.ResourceNotFoundException;
+import com.rodaxsoft.todo.exception.ValidationException;
 
 /**
  * TaskService class
@@ -37,11 +39,19 @@ public class TaskService {
 	
 	public Task createTask(Task task) {
 		if(null == task.getTitle()) {
-			throw new IllegalArgumentException("title cannot be null");
+			throw new ValidationException("title cannot be null");
 		}
 		
 		Task savedTask = taskRepository.save(task);
 		return savedTask;
+	}
+	
+	public boolean exists(Long id) {
+		return taskRepository.exists(id);
+	}
+	
+	public boolean exists(Task task) {
+		return exists(task.getId());
 	}
 	
 	public List<Task> getTasks() {
@@ -51,11 +61,20 @@ public class TaskService {
 	}
 	
 	public void deleteTask(Long id) {
+		if(!taskRepository.exists(id)) {
+			throw new ResourceNotFoundException("Task not found");
+		}
+		
 		taskRepository.delete(id);
 	}
 	
 	public Task updateTask(Task task) {
-		Task savedTask = taskRepository.findOne(task.getId());
+		final Long id = task.getId();
+		if(!taskRepository.exists(id)) {
+			throw new ResourceNotFoundException("Task not found");
+		}
+		
+		Task savedTask = taskRepository.findOne(id);
 		//Non-modifiable properties: id, created, userId
 		task.setId(savedTask.getId());
 		task.setCreated(savedTask.getCreated());

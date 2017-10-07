@@ -11,6 +11,7 @@
 package com.rodaxsoft.todo.test.rest;
 
 
+import static com.rodaxsoft.todo.security.SecurityConstants.HEADER_STRING;
 import static org.hamcrest.CoreMatchers.notNullValue;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.delete;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
@@ -22,8 +23,6 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 
 import java.io.File;
 import java.util.List;
-
-import javax.servlet.http.Cookie;
 
 import org.junit.After;
 import org.junit.Assert;
@@ -68,8 +67,6 @@ public class TaskControllerTest {
 
 	private static final String TASKS_ENDPOINT = "/tasks";
 	
-	private Cookie cookie;
-	
 	@Autowired
 	private MockMvc mvc;
 	
@@ -86,6 +83,8 @@ public class TaskControllerTest {
 	
 	@Autowired
 	private ApplicationUserService userService;
+
+	private JWTToken token;
 	
 	@After
 	public void cleanup() {
@@ -109,9 +108,7 @@ public class TaskControllerTest {
 			           .andExpect(jsonPath("$.refresh_token", notNullValue())).andReturn();
 			
 			MockHttpServletResponse localRes = result.getResponse();
-			JWTToken token = JWTToken.fromJson(localRes.getContentAsString());
-			
-			cookie = TaskTestUtils.createCookie(token);
+			token = JWTToken.fromJson(localRes.getContentAsString());
 		
 		} catch (Exception e) {
 			Assert.fail(e.getMessage());
@@ -127,7 +124,7 @@ public class TaskControllerTest {
 			String json = new ObjectMapper().writeValueAsString(task);
 			MvcResult result = mvc.perform(post(TASKS_ENDPOINT)
 					                .contentType(MediaType.APPLICATION_JSON)
-					                .content(json).cookie(cookie))
+					                .content(json).header(HEADER_STRING, token.getAccessToken()))
 					                            .andExpect(status().isOk())
 					                            .andExpect(jsonPath("$.id", notNullValue()))
 					                            .andExpect(jsonPath("$.due", notNullValue()))
@@ -155,7 +152,7 @@ public class TaskControllerTest {
 			MvcResult result;
 			result = mvc.perform(delete(TASKS_ENDPOINT + "/" + task.getId())
 			        .contentType(MediaType.TEXT_PLAIN_VALUE)
-			               .cookie(cookie))
+			        .header(HEADER_STRING, token.getAccessToken()))
 			                    .andExpect(status().isOk())
 			                    .andDo(print())
 			       .andReturn();
@@ -169,7 +166,7 @@ public class TaskControllerTest {
 	@Test
 	public void testGetTasks() {
 		List<Task> tasks = TaskTestUtils.create100Tasks();
-		Long userId = userService.getUserIdForToken(cookie.getValue());
+		Long userId = userService.getUserIdForToken(token.getAccessToken());
 		for (Task task : tasks) {
 			task.setUserId(userId);
 			taskService.createTask(task);
@@ -180,7 +177,7 @@ public class TaskControllerTest {
 
 			result = mvc.perform(get(TASKS_ENDPOINT)
 			        .contentType(MediaType.APPLICATION_JSON)
-			        .cookie(cookie))
+			        .header(HEADER_STRING, token.getAccessToken()))
 			                    .andExpect(status().isOk())
 	                            .andExpect(jsonPath("$[*].id", notNullValue()))
 	                            .andExpect(jsonPath("$[*].due", notNullValue()))
@@ -220,7 +217,7 @@ public class TaskControllerTest {
 			String json = new ObjectMapper().writeValueAsString(upldTask);
 			MvcResult result = mvc.perform(put(TASKS_ENDPOINT + "/" + task.getId())
 			        .contentType(MediaType.APPLICATION_JSON)
-			        .content(json).cookie(cookie))
+			        .content(json).header(HEADER_STRING, token.getAccessToken()))
 			                    .andExpect(status().isOk())
 			                    .andExpect(jsonPath("$.id", notNullValue()))
 	                            .andExpect(jsonPath("$.due", notNullValue()))

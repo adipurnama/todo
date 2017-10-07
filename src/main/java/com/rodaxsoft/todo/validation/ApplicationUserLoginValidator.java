@@ -11,12 +11,12 @@
 package com.rodaxsoft.todo.validation;
 
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-
 import org.springframework.validation.Errors;
 import org.springframework.validation.ValidationUtils;
 import org.springframework.validation.Validator;
 
 import com.rodaxsoft.todo.domain.ApplicationUser;
+import com.rodaxsoft.todo.exception.ResourceNotFoundException;
 
 /**
  * ApplicationUserLoginValidator class
@@ -47,7 +47,7 @@ public class ApplicationUserLoginValidator implements Validator {
 		String email = user.getEmail();
 		ApplicationUser storedUser = storedApplicationUserProvider.storedApplicationUserForEmail(email);
 		if(null == storedUser) {
-			errors.rejectValue("email", "email.not.found", "Email address not found.");
+			throw new ResourceNotFoundException("Email address not found: " + email);
 		} else {
 
 			if(!storedUser.getEmail().equals(email)) {

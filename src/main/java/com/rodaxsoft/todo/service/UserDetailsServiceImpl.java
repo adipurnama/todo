@@ -20,6 +20,7 @@ import org.springframework.stereotype.Service;
 
 import com.rodaxsoft.todo.data.ApplicationUserRepository;
 import com.rodaxsoft.todo.domain.ApplicationUser;
+import com.rodaxsoft.todo.exception.ResourceNotFoundException;
 
 /**
  * UserDetailsServiceImpl class
@@ -36,7 +37,7 @@ public class UserDetailsServiceImpl implements UserDetailsService {
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
         ApplicationUser applicationUser = applicationUserRepository.findByEmail(username);
         if (applicationUser == null) {
-            throw new UsernameNotFoundException(username);
+            throw new ResourceNotFoundException(username);
         }
         return new User(applicationUser.getUsername(), applicationUser.getPassword(), emptyList());
     }

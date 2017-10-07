@@ -10,19 +10,18 @@
 */
 package com.rodaxsoft.todo.test.rest;
 
-import static com.rodaxsoft.todo.test.TaskTestUtils.createCookie;
+import static com.rodaxsoft.todo.security.SecurityConstants.HEADER_STRING;
 import static com.rodaxsoft.todo.test.TaskTestUtils.getProfileFromJson;
 import static org.hamcrest.CoreMatchers.notNullValue;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.delete;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
+import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 import java.util.HashMap;
 import java.util.Map;
-
-import javax.servlet.http.Cookie;
 
 import org.junit.Assert;
 import org.junit.Test;
@@ -43,7 +42,9 @@ import com.rodaxsoft.todo.TaskApplication;
 import com.rodaxsoft.todo.data.ApplicationUserRepository;
 import com.rodaxsoft.todo.domain.ApplicationUser;
 import com.rodaxsoft.todo.domain.Profile;
+import com.rodaxsoft.todo.security.ApplicationAuthentication;
 import com.rodaxsoft.todo.security.JWTToken;
+import com.rodaxsoft.todo.security.JWTUtil;
 import com.rodaxsoft.todo.test.TaskTestUtils;
 import com.rodaxsoft.todo.test.TestBeanProvider;
 
@@ -111,12 +112,10 @@ public class UserControllerTest implements TestBeanProvider {
 			JWTToken token = JWTToken.fromJson(response.getContentAsString());
 			Assert.assertNotNull(token);
 			
-			Cookie cookie = createCookie(token);
-			
 			result = mvc.perform(get("/me")
 				     .contentType(MediaType.APPLICATION_JSON)
 				     .content(json)
-				     .cookie(cookie))
+				     .header(HEADER_STRING, token.getAccessToken()))
 				   .andExpect(status().isOk())
 				   .andReturn();
 			
@@ -125,10 +124,6 @@ public class UserControllerTest implements TestBeanProvider {
 			Assert.assertNotNull(profile);
 			Assert.assertNotNull(profile.getEmail());
 			Assert.assertNotNull(profile.getName());
-			
-			//Delete cookie
-			cookie.setMaxAge(0);
-			response.addCookie(cookie);
 			
 			//Delete the new user
 			ApplicationUser savedUser = applicationUserRepository.findByEmail(TaskTestUtils.createMockApplicationUser().getEmail());
@@ -197,13 +192,11 @@ public class UserControllerTest implements TestBeanProvider {
 			JWTToken token = JWTToken.fromJson(response.getContentAsString());
 			Assert.assertNotNull(token);
 			
-			Cookie cookie = createCookie(token);
-			
 			//Then perform logout
 			mvc.perform(delete(ACCESS_TOKENS_PATH)
 				     .contentType(MediaType.APPLICATION_JSON)
 				     .content(token.toRefreshTokenJson())
-				     .cookie(cookie))
+				     .header(HEADER_STRING, token.getAccessToken()))
 				   .andExpect(status().isOk());
 			
 			//Delete the new user
@@ -239,13 +232,11 @@ public class UserControllerTest implements TestBeanProvider {
 			JWTToken token = JWTToken.fromJson(response.getContentAsString());
 			Assert.assertNotNull(token);
 			
-			Cookie cookie = createCookie(token);
-			
 			//Then refresh access token
 			result = mvc.perform(post(REFRESH_ACCESS_TOKENS_PATH)
 				     .contentType(MediaType.APPLICATION_JSON)
 				     .content(token.toRefreshTokenJson())
-				     .cookie(cookie))
+				     .header(HEADER_STRING, token.getAccessToken()))
 				   .andExpect(status().isOk())
 				   .andExpect(jsonPath("$.jwt", notNullValue())).andReturn();
 			
@@ -254,11 +245,10 @@ public class UserControllerTest implements TestBeanProvider {
 			Assert.assertNotNull(token);
 			
 			//Fetch the profile with new access token
-			cookie.setValue(token.getAccessToken());
 			result = mvc.perform(get("/me")
 				     .contentType(MediaType.APPLICATION_JSON)
 				     .content(json)
-				     .cookie(cookie))
+				     .header(HEADER_STRING, token.getAccessToken()))
 				   .andExpect(status().isOk())
 				   .andReturn();
 			
@@ -267,10 +257,6 @@ public class UserControllerTest implements TestBeanProvider {
 			Assert.assertNotNull(profile);
 			Assert.assertNotNull(profile.getEmail());
 			Assert.assertNotNull(profile.getName());
-			
-			//Delete cookie
-			cookie.setMaxAge(0);
-			response.addCookie(cookie);
 			
 			//Delete the new user
 			applicationUserRepository.delete(savedUser);

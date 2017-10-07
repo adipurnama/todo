@@ -24,18 +24,23 @@ import org.springframework.stereotype.Service;
 
 import com.rodaxsoft.todo.data.ApplicationUserRepository;
 import com.rodaxsoft.todo.domain.ApplicationUser;
+import com.rodaxsoft.todo.exception.DuplicateUserException;
+import com.rodaxsoft.todo.exception.ResourceNotFoundException;
 import com.rodaxsoft.todo.security.JSONWebToken;
+import com.rodaxsoft.todo.security.JSONWebTokenException;
 import com.rodaxsoft.todo.security.JWTToken;
 import com.rodaxsoft.todo.security.JWTUtil;
 import com.rodaxsoft.todo.validation.StoredApplicationUserProvider;
-
-import io.jsonwebtoken.JwtException;
 
 /**
  * ApplicationUserService class
  */
 @Service
 public class ApplicationUserService implements StoredApplicationUserProvider {
+	
+	private static final String REFRESH_TOKEN_EXPIRED_MSG = "Refresh token expired";
+
+	private static final String REFRESH_TOKEN_NULL_MSG = "Refresh token cannot be null";
 	
 	private static final Log LOG = LogFactory.getLog(ApplicationUserService.class);
 	
@@ -80,7 +85,7 @@ public class ApplicationUserService implements StoredApplicationUserProvider {
 	public JSONWebToken signUpUser(ApplicationUser user) {
 		ApplicationUser savedUser = applicationUserRepository.findByEmail(user.getEmail());
 		if(savedUser != null) {
-			throw new IllegalArgumentException("User already exists");
+			throw new DuplicateUserException("User already exists");
 		}
 		
 		user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
@@ -96,9 +101,9 @@ public class ApplicationUserService implements StoredApplicationUserProvider {
 		String refreshToken = token.getRefreshToken();
 		String accessToken = token.getAccessToken();
 		if(null == refreshToken) {
-			throw new IllegalArgumentException("refresh token cannot be null");
+			throw new JSONWebTokenException(REFRESH_TOKEN_NULL_MSG);
 		} else if(JWTUtil.isTokenExpired(refreshToken)) {
-			throw new JwtException("Refresh token expired");
+			throw new JSONWebTokenException(REFRESH_TOKEN_EXPIRED_MSG);
 		}
 		
 		if(JWTUtil.isTokenExpired(accessToken)) {
@@ -111,9 +116,9 @@ public class ApplicationUserService implements StoredApplicationUserProvider {
 	public  Map<String, String> refreshAccessToken(JSONWebToken token, ApplicationUserServiceListener listener) {
 		String refreshToken = token.getRefreshToken();
 		if(null == refreshToken) {
-			throw new IllegalArgumentException("refresh token cannot be null");
+			throw new JSONWebTokenException(REFRESH_TOKEN_NULL_MSG);
 		} else if(JWTUtil.isTokenExpired(refreshToken)) {
-			throw new JwtException("Refresh token expired");
+			throw new JSONWebTokenException(REFRESH_TOKEN_EXPIRED_MSG);
 		}
 		
 		String newAccessToken = JWTUtil.refreshAccessToken(token);
@@ -133,7 +138,7 @@ public class ApplicationUserService implements StoredApplicationUserProvider {
 		String username = parseToken(token).getUsername();
 		ApplicationUser user = storedApplicationUserForEmail(username);
 		if(null == user) {
-			throw new IllegalArgumentException("User not found");
+			throw new ResourceNotFoundException("User not found");
 		}
 
 		return user.getId();

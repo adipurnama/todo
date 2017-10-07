@@ -37,31 +37,12 @@ public class JWTAuthorizationFilter extends BasicAuthenticationFilter {
         super(authManager);
     }
     
-
-	//@Override
-    protected void doFilterInternalX(HttpServletRequest req,
-                                    HttpServletResponse res,
-                                    FilterChain chain) throws IOException, ServletException {
-        
-    	    String header = req.getHeader(HEADER_STRING);
-
-        if (header == null || !header.startsWith(TOKEN_PREFIX)) {
-            chain.doFilter(req, res);
-            return;
-        }
-        
-        Authentication authentication = getAuthentication(req);
-
-        SecurityContextHolder.getContext().setAuthentication(authentication);
-        chain.doFilter(req, res);
-    }
-    
-
 	protected void doFilterInternal(HttpServletRequest req, HttpServletResponse res, FilterChain chain)
 			throws IOException, ServletException {
 		Cookie cookie = getAccessTokenCookie(req);
+		String header = req.getHeader(HEADER_STRING);
 
-		if (cookie == null && null == req.getHeader(HEADER_STRING)) {
+		if (cookie == null && null == header) {
 			chain.doFilter(req, res);
 			return;
 		}
@@ -82,7 +63,7 @@ public class JWTAuthorizationFilter extends BasicAuthenticationFilter {
 			//Check for Cookie token
 			Cookie cookie = getAccessTokenCookie(request);
 			if (null == cookie) {
-				throw new IllegalArgumentException("Unable to authenticate without header or cookie");
+				throw new JSONWebTokenException("Unable to authenticate without header or cookie");
 			}
 			
 			token = cookie.getValue();

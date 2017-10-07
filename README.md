@@ -54,7 +54,7 @@ If an error occurs, the API will return the following JSON response:
 	    "message": string,
 	    "path": string
 	}
-	
+
 ---
 
 ### Signup User
@@ -84,7 +84,7 @@ If successful, returns a JWT JSON:
   	  "refresh_token": string
 	}
 
-Clients should securely persist the access token, i.e., the `jwt` element, and the `refresh_token`. The access token is required as Cookie value for most of the API methods with the exception of signup and login.
+Clients should securely persist the access token, i.e., the `jwt` element, and the `refresh_token`. The `jwt` element is the _access token_ and it's required as header value for most of the API methods with the exception of signup and login.
 
 ---
 
@@ -96,7 +96,7 @@ Clients should securely persist the access token, i.e., the `jwt` element, and t
 #### Header
 
 	Content-Type: application/json
-	Cookie: ACCESS_TOKEN=<JWT access token string>
+	x-access-token: <JWT access token>
 
 #### Parameters
 No parameters required.
@@ -149,7 +149,7 @@ If successful, returns a JSON Web Token:
 
 #### Header
 	Content-Type: application/json
-	Cookie: ACCESS_TOKEN=<JWT access token string>
+	x-access-token: <JWT access token>
 
 #### Parameters
 No parameters required.
@@ -171,7 +171,7 @@ No response, if successful.
 
 #### Header
 	Content-Type: application/json
-	Cookie: ACCESS_TOKEN=<JWT access token string>
+	x-access-token: <JWT access token>
 
 #### Parameters
 No parameters required.
@@ -197,7 +197,7 @@ If successful, returns a JSON Web Token:
 
 #### Header
 	Content-Type: application/json
-	Cookie: ACCESS_TOKEN=<JWT access token string>
+	x-access-token: <JWT access token>
 
 #### Parameters
 The `title` is required as a body element. The `status` defaults to `"open"`.
@@ -235,7 +235,7 @@ If successful, returns JSON task:
 
 #### Header
 	Content-Type: application/json
-	Cookie: ACCESS_TOKEN=<JWT access token string>
+	x-access-token: <JWT access token>
 
 #### Parameters
 No parameters required.
@@ -276,7 +276,7 @@ If successful, returns a sorted array of tasks in ascending order by due date. D
 
 #### Header
 	Content-Type: application/json
-	Cookie: ACCESS_TOKEN=<JWT access token string>
+	x-access-token: <JWT access token>
 
 #### Parameters
 The task `id` is required as a path parameter and the `title` is required as a body element. The `status` defaults to `"open"`.
@@ -314,7 +314,7 @@ If successful, returns JSON task:
 
 #### Header
 	Content-Type: application/json
-	Cookie: ACCESS_TOKEN=<JWT access token string>
+	x-access-token: <JWT access token>
 
 #### Parameters
 The task `id` is required as a path parameter.
