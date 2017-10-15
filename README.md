@@ -20,310 +20,33 @@ To just build the project type: `$ gradle build`
 For information on installing Gradle go to https://gradle.org/install
 
 # Reference
-To create and manage tasks, first create a user. See [signup](#signup-user).
+
+## Getting Started
+To create and manage tasks, first create a user. See *signup* in the User section below.
 
 Note: All dates are specified as strings, i.e., `yyyy-MM-dd` or `yyyy-MM-dd'T'hh:mm:ss`.
 
-## User
-
-Method | HTTP Requests | Description
------------- | ------------- |-------
-*[signup](#signup-user)* | `POST /users`| Create a user
-*[profile](#profile)* | `GET /me` | View current user
-*[login](#login)* |`POST/access-tokens` | Login user
-*[logout](#logout)* |`DELETE/access-tokens` | Logout user
-*[refresh](#refresh-token)* |`POST /access-tokens/refresh` |Refresh user token
-
-## Tasks
-
-Method | HTTP Requests | Description
------------- | ------------- |-------
-*[insert](#insert-task)* | `POST /tasks` | Create a task
-*[list](#get-tasks)* | `GET /tasks`| Returns tasks
-*[update](#update-task)* |`PUT /tasks/:id` | Update a task
-*[delete](#delete-task)* |`DELETE /tasks/:id` | Delete a task
-
-##  Errors
-If an error occurs, the API will return the following JSON response:
-
-	{
-	    "timestamp": number,
-	    "status": number,
-	    "error": string,
-	    "exception": string,
-	    "message": string,
-	    "path": string
-	}
-
----
-
-### Signup User
-
-#### Request
-`POST /users`
-
-#### Header
-No header required.
-
-#### Parameters
-All body elements are required.
-
-#### Request Body
-
-	{
-  	  "email": string,
-  	  "name": string,
-  	  "password": string
-	}
-
-#### Response
-If successful, returns a JWT JSON:
-
-	{
-  	  "jwt": string,
-  	  "refresh_token": string
-	}
-
-Clients should securely persist the access token, i.e., the `jwt` element, and the `refresh_token`. The `jwt` element is the _access token_ and it's required as header value for most of the API methods with the exception of signup and login.
-
----
-
-### Profile
-
-#### Request
-`GET /me`
-
-#### Header
-
-	Content-Type: application/json
-	x-access-token: <JWT access token>
-
-#### Parameters
-No parameters required.
-
-#### Request Body
-No body required.
-
-#### Response
-If successful, returns a JSON user:
-
-	{
-  	  "email": string,
-  	  "name": string
-	}
-
----
-
-### Login
-
-#### Request
-`POST/access-tokens`
-
-#### Header
-	Content-Type: application/json
-
-#### Parameters
-All body elements are required.
-
-#### Request Body
-
-	{
-  	  "email": string,
-  	  "name": string
-	}
-
-#### Response
-If successful, returns a JSON Web Token:
-
-	{
-  	  "jwt": string,
-  	  "refresh_token": string
-	}
-
----
-
-### Logout
-
-#### Request
-`DELETE/access-tokens`
-
-#### Header
-	Content-Type: application/json
-	x-access-token: <JWT access token>
-
-#### Parameters
-No parameters required.
-
-#### Request Body
-	{
-  	  "refresh_token": string
-	}
-
-#### Response
-No response, if successful.
-
----
-
-### Refresh Token
-
-#### Request
-`POST /access-tokens/refresh`
-
-#### Header
-	Content-Type: application/json
-	x-access-token: <JWT access token>
-
-#### Parameters
-No parameters required.
-
-#### Request Body
-	{
-  	  "refresh_token": string
-	}
-
-#### Response
-If successful, returns a JSON Web Token:
-
-	{
-  	  "jwt": string
-	}
-
----
-
-### Insert Task
-
-#### Request
-`POST /tasks`
-
-#### Header
-	Content-Type: application/json
-	x-access-token: <JWT access token>
-
-#### Parameters
-The `title` is required as a body element. The `status` defaults to `"open"`.
-
-#### Request Body
-
-	{
-  	  "completed": string (yyyy-MM-dd),
-  	  "description": string,
-  	  "due": date string (yyyy-MM-dd),
-  	  "status": string (open | completed),
- 	    "title": string <required>
-	}
-
-#### Response
-If successful, returns JSON task:
-
-	{
-  	  "completed": string (yyyy-MM-dd),
-  	  "created": string (yyyy-MM-dd'T'hh:mm:ss),
-  	  "description": string,
-  	  "due": string (yyyy-MM-dd),
-  	  "id": number,
-  	  "modified": string (yyyy-MM-dd'T'hh:mm:ss),
-  	  "status": string (open | completed),
-  	  "title": string
-	}
-
----
-
-### Get Tasks
-
-#### Request
-`GET /tasks`
-
-#### Header
-	Content-Type: application/json
-	x-access-token: <JWT access token>
-
-#### Parameters
-No parameters required.
-
-#### Request Body
-No body required
-
-#### Response
-If successful, returns a sorted array of tasks in ascending order by due date. Due dates with `null` values will appear first.
-
-	[{
-  	   "completed": string (yyyy-MM-dd),
-  	   "created": string (yyyy-MM-dd'T'hh:mm:ss),
-  	   "description": string,
-  	   "due": string (yyyy-MM-dd),
-  	   "id": number,
-  	   "modified": string (yyyy-MM-dd'T'hh:mm:ss),
-  	   "status": string (open | completed),
-  	   "title": string
-	}, {
-  	     "completed": string (yyyy-MM-dd),
-  	     "created": string (yyyy-MM-dd'T'hh:mm:ss),
-  	     "description": string,
-  	     "due": string (yyyy-MM-dd),
-  	     "id": number,
-  	     "modified": string (yyyy-MM-dd'T'hh:mm:ss),
-  	     "status": string (open | completed),
-  	     "title": string
-	},...
-	]
-
----
-
-### Update Task
-
-#### Request
-`PUT /tasks/:id`
-
-#### Header
-	Content-Type: application/json
-	x-access-token: <JWT access token>
-
-#### Parameters
-The task `id` is required as a path parameter and the `title` is required as a body element. The `status` defaults to `"open"`.
-
-#### Request Body
-
-	{
-  	  "completed": string (yyyy-MM-dd),
-  	  "description": string | null,
-  	  "due": date string (yyyy-MM-dd),
-  	  "status": string (open | completed),
- 	    "title": string <required>
-	}
-
-#### Response
-If successful, returns JSON task:
-
-	{
-  	  "completed": string (yyyy-MM-dd),
-  	  "created": string (yyyy-MM-dd'T'hh:mm:ss),
-  	  "description": string,
-  	  "due": string (yyyy-MM-dd),
-  	  "id": number,
-  	  "modified": string (yyyy-MM-dd'T'hh:mm:ss),
-  	  "status": string (open | completed),
-  	  "title": string
-	}
-
----
-
-### Delete Task
-
-#### Request
-`DELETE /tasks/:id`
-
-#### Header
-	Content-Type: application/json
-	x-access-token: <JWT access token>
-
-#### Parameters
-The task `id` is required as a path parameter.
-
-#### Request Body
-No body required.
-
-#### Response
-No response, if successful.
+For a detailed reference of the Todo RESTful API go to https://todo.restlet.io.
+
+## API Overview
+### User
+
+Method | HTTP Requests | Description | Returns
+------------ | ------------- |-------|--------
+*signup* | `POST /users`| Create a user | A JWT  object
+*profile* | `GET /me` | View current user | User info
+*login* |`POST/access-tokens` | Login user | A JWT object
+*logout* |`DELETE/access-tokens` | Logout user | Nothing
+*refresh* |`POST /access-tokens/refresh` |Refresh user token | JWT access token
+
+### Tasks
+
+Method | HTTP Requests | Description | Returns
+------------ | ------------- |-------|--------
+*insert* | `POST /tasks` | Create a task | A task object
+*list* | `GET /tasks`| Returns tasks | An array of task objects
+*update* |`PUT /tasks/:id` | Update a task | A task object
+*delete* |`DELETE /tasks/:id` | Delete a task | Nothing
 
 # Contributors
 
