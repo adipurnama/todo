@@ -51,12 +51,13 @@ public class UserController implements StoredApplicationUserProvider {
 
 	private static final Log LOG = LogFactory.getLog(UserController.class);
 
-
 	/**
 	 * Login validator
 	 */
+	@Autowired
 	private final Validator applicationUserLoginValidator;
 	
+	@Autowired
 	private ApplicationUserService applicationUserService;
 	
 	/**
@@ -65,10 +66,9 @@ public class UserController implements StoredApplicationUserProvider {
 	private final Validator applicationUserSignupValidator;
 	
 	@Autowired
-	public UserController(Validator applicationUserSignupValidator, ApplicationUserService applicationUserService) {
+	public UserController(Validator applicationUserSignupValidator) {
 		this.applicationUserSignupValidator = applicationUserSignupValidator;
 		this.applicationUserLoginValidator = new ApplicationUserLoginValidator(this);
-		this.applicationUserService = applicationUserService;
 	}
 
 	@Override

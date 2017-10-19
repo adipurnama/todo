@@ -1,153 +1,67 @@
 /*
   ApplicationUserService.java
 
-  Created by John Boyer on Sep 9, 2017
+  Created by John Boyer on Oct 19, 2017
   Copyright (c) 2017 Rodax Software, Inc.
-
+  
   This Source Code Form is subject to the terms of the Mozilla Public
   License, v. 2.0. If a copy of the MPL was not distributed with this
   file, You can obtain one at http://mozilla.org/MPL/2.0/.
 */
 package com.rodaxsoft.todo.service;
 
-import static com.rodaxsoft.todo.security.JWTUtil.generateJsonWebToken;
-import static com.rodaxsoft.todo.security.JWTUtil.parseToken;
-
-import java.util.HashMap;
 import java.util.Map;
 
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-import org.springframework.stereotype.Service;
 
-import com.rodaxsoft.todo.data.ApplicationUserRepository;
 import com.rodaxsoft.todo.domain.ApplicationUser;
-import com.rodaxsoft.todo.exception.DuplicateUserException;
-import com.rodaxsoft.todo.exception.ResourceNotFoundException;
 import com.rodaxsoft.todo.security.JSONWebToken;
-import com.rodaxsoft.todo.security.JSONWebTokenException;
 import com.rodaxsoft.todo.security.JWTToken;
-import com.rodaxsoft.todo.security.JWTUtil;
-import com.rodaxsoft.todo.validation.StoredApplicationUserProvider;
 
 /**
- * ApplicationUserService class
+ * Application user service interface
+ * @author John Boyer
+ *
  */
-@Service
-public class ApplicationUserService implements StoredApplicationUserProvider {
-	
-	private static final String REFRESH_TOKEN_EXPIRED_MSG = "Refresh token expired";
-
-	private static final String REFRESH_TOKEN_NULL_MSG = "Refresh token cannot be null";
-	
-	private static final Log LOG = LogFactory.getLog(ApplicationUserService.class);
-	
+public interface ApplicationUserService {
 	/**
-	 * ApplicationUserRepository
+	 * @return BCryptPasswordEncoder instance
 	 */
-	private ApplicationUserRepository applicationUserRepository;
+	BCryptPasswordEncoder getBCryptPasswordEncoder();
 	/**
-	 * BCryptPasswordEncoder
-	 */
-	private BCryptPasswordEncoder bCryptPasswordEncoder;
-	
-	@Autowired
-	public ApplicationUserService(ApplicationUserRepository applicationUserRepository, BCryptPasswordEncoder bCryptPasswordEncoder) {
-		this.applicationUserRepository = applicationUserRepository;
-		this.bCryptPasswordEncoder = bCryptPasswordEncoder;
-	}
-	
-	@Override
-	public BCryptPasswordEncoder getBCryptPasswordEncoder() {
-		return bCryptPasswordEncoder;
-	}
-	
-	/**
+	 * Logs in the given <code>user</code> and returns a JWT token object
 	 * @param user
-	 * @return
+	 * @return a JWT token object
 	 */
-	public JSONWebToken loginUser(ApplicationUser user) {
-		final String email = user.getEmail();
-		ApplicationUser savedUser = storedApplicationUserForEmail(email);
-		JSONWebToken jwt = generateJsonWebToken(savedUser);
-		
-		LOG.info("User logged-in");
-		return jwt;
-	}
-	
+	JSONWebToken loginUser(ApplicationUser user);
 	/**
-	 * @param user
-	 * @param result
-	 * @return
+	 * Signs up a user and returns a JWT token object
+	 * @param user The user to sign-up
+	 * @return a JWT token object
 	 */
-	public JSONWebToken signUpUser(ApplicationUser user) {
-		ApplicationUser savedUser = applicationUserRepository.findByEmail(user.getEmail());
-		if(savedUser != null) {
-			throw new DuplicateUserException("User already exists");
-		}
-		
-		user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
-		applicationUserRepository.save(user);
-		JSONWebToken jwt = generateJsonWebToken(user);
-		
-		LOG.info("User created");
-
-		return jwt;
-	}
-	
-	public void logoutUser(JSONWebToken token, ApplicationUserServiceListener listener) {
-		String refreshToken = token.getRefreshToken();
-		String accessToken = token.getAccessToken();
-		if(null == refreshToken) {
-			throw new JSONWebTokenException(REFRESH_TOKEN_NULL_MSG);
-		} else if(JWTUtil.isTokenExpired(refreshToken)) {
-			throw new JSONWebTokenException(REFRESH_TOKEN_EXPIRED_MSG);
-		}
-		
-		if(JWTUtil.isTokenExpired(accessToken)) {
-			LOG.info("Access token already expired");
-		} else if(listener != null){
-			listener.shouldExpireAccessToken();
-		}
-	}
-	
-	public  Map<String, String> refreshAccessToken(JSONWebToken token, ApplicationUserServiceListener listener) {
-		String refreshToken = token.getRefreshToken();
-		if(null == refreshToken) {
-			throw new JSONWebTokenException(REFRESH_TOKEN_NULL_MSG);
-		} else if(JWTUtil.isTokenExpired(refreshToken)) {
-			throw new JSONWebTokenException(REFRESH_TOKEN_EXPIRED_MSG);
-		}
-		
-		String newAccessToken = JWTUtil.refreshAccessToken(token);
-		
-		if(listener != null) {
-			listener.shouldExpireAccessToken();
-		}
-		
-		Map<String, String> tokenMap = new HashMap<>();
-		tokenMap.put(JWTToken.ACCESS_TOKEN_JSON_KEY, newAccessToken);
-		
-		return tokenMap;
-	}
-	
-	
-	public Long getUserIdForToken(String token) {
-		String username = parseToken(token).getUsername();
-		ApplicationUser user = storedApplicationUserForEmail(username);
-		if(null == user) {
-			throw new ResourceNotFoundException("User not found");
-		}
-
-		return user.getId();
-	}
-
-
-	@Override
-	public ApplicationUser storedApplicationUserForEmail(String email) {
-		return applicationUserRepository.findByEmail(email);
-	}
+	JSONWebToken signUpUser(ApplicationUser user);
+	/**
+	 * Logs out the user
+	 * @param token A JWT token object
+	 * @param listener An application user service listener
+	 */
+	void logoutUser(JSONWebToken token, ApplicationUserServiceListener listener);
+	/**
+	 * Refreshes the access token
+	 * @param token The current access token
+	 * @param listener An application user service listener
+	 * @return A map with {@link JWTToken#ACCESS_TOKEN_JSON_KEY} ask the key for the value.
+	 */
+	Map<String, String> refreshAccessToken(JSONWebToken token, ApplicationUserServiceListener listener);
+	/**
+	 * Returns the user id for the given <code>token</code>
+	 * @param token The user token value
+	 */
+	Long getUserIdForToken(String token);
+	/**
+	 * Returns the user for the given <code>email</code>.
+	 * @param email The user's email
+	 */
+	ApplicationUser storedApplicationUserForEmail(String email);
 
 }

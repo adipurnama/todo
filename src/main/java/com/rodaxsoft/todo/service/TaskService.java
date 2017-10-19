@@ -1,7 +1,7 @@
 /*
   TaskService.java
 
-  Created by John Boyer on Sep 11, 2017
+  Created by John Boyer on Oct 19, 2017
   Copyright (c) 2017 Rodax Software, Inc.
 
   This Source Code Form is subject to the terms of the Mozilla Public
@@ -12,76 +12,45 @@ package com.rodaxsoft.todo.service;
 
 import java.util.List;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Sort;
-import org.springframework.data.domain.Sort.Direction;
-import org.springframework.data.domain.Sort.Order;
-import org.springframework.stereotype.Service;
-
-import com.rodaxsoft.todo.data.TaskRepository;
 import com.rodaxsoft.todo.domain.Task;
-import com.rodaxsoft.todo.exception.ResourceNotFoundException;
-import com.rodaxsoft.todo.exception.ValidationException;
 
 /**
- * TaskService class
+ * Task service interface
+ * @author John Boyer
+ *
  */
-@Service
-public class TaskService {
-	
-	
-	private TaskRepository taskRepository;
-
-	@Autowired
-	public TaskService(TaskRepository taskRepository) {
-		this.taskRepository = taskRepository;
-	}
-	
-	public Task createTask(Task task) {
-		if(null == task.getTitle()) {
-			throw new ValidationException("title cannot be null");
-		}
-		
-		Task savedTask = taskRepository.save(task);
-		return savedTask;
-	}
-	
-	public boolean exists(Long id) {
-		return taskRepository.exists(id);
-	}
-	
-	public boolean exists(Task task) {
-		return exists(task.getId());
-	}
-	
-	public List<Task> getTasks() {
-		Sort sort = new Sort(new Order(Direction.ASC, "due").nullsFirst());
-		List<Task> tasks = taskRepository.findAll(sort);
-		return tasks;
-	}
-	
-	public void deleteTask(Long id) {
-		if(!taskRepository.exists(id)) {
-			throw new ResourceNotFoundException("Task not found");
-		}
-		
-		taskRepository.delete(id);
-	}
-	
-	public Task updateTask(Task task) {
-		final Long id = task.getId();
-		if(!taskRepository.exists(id)) {
-			throw new ResourceNotFoundException("Task not found");
-		}
-		
-		Task savedTask = taskRepository.findOne(id);
-		//Non-modifiable properties: id, created, userId
-		task.setId(savedTask.getId());
-		task.setCreated(savedTask.getCreated());
-		task.setUserId(savedTask.getUserId());
-		//Ignore modified, it'll get updated
-		
-		savedTask = taskRepository.save(task)	;
-		return savedTask;
-	}
+public interface TaskService {
+	/**
+	 * Creates a task in a data store
+	 * @param task The task to create
+	 * @return
+	 */
+	Task createTask(Task task);
+	/**
+	 * Determines if the task exists in the data store
+	 * @param id The task id
+	 * @return A boolean value of <code>true</code>; otherwise, <code>false</code>.
+	 */
+	boolean exists(Long id);
+	/**
+	 * Determines if the task exists in the data store
+	 * @param task The task
+	 * @return A boolean value of <code>true</code>; otherwise, <code>false</code>.
+	 */
+	boolean exists(Task task);
+	/**
+	 * Retrieves a list of tasks
+	 */
+	List<Task> getTasks();
+	/**
+	 * Deletes the task for the given <code>id</code>.
+	 * @param id The task id
+	 */
+	void deleteTask(Long id);
+	/**
+	 * Updates the task
+	 * @param task The task to update
+	 * @return The updated task
+	 */
+	Task updateTask(Task task);
 }
