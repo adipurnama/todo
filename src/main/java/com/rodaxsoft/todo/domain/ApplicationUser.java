@@ -11,9 +11,10 @@
 package com.rodaxsoft.todo.domain;
 
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.PrePersist;
+
+import org.springframework.util.JdkIdGenerator;
 
 import com.fasterxml.jackson.annotation.JsonGetter;
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -46,9 +47,9 @@ public class ApplicationUser implements Credentials {
 	}
 
 	private String email;
+	
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private long id;
+	private String id;
 
 	private String name;
 	private String password;
@@ -59,7 +60,7 @@ public class ApplicationUser implements Credentials {
 		return email;
 	}
 
-	public long getId() {
+	public String getId() {
 		return id;
 	}
 
@@ -83,6 +84,11 @@ public class ApplicationUser implements Credentials {
 	@Override
 	public String getUsername() {
 		return email;
+	}
+	
+	@PrePersist
+	protected void onCreate() {
+		id = new JdkIdGenerator().generateId().toString();
 	}
 
 	public void setEmail(String email) {

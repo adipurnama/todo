@@ -43,7 +43,7 @@ public class JpaTaskService implements TaskService {
 	}
 	
 	@Override
-	public boolean exists(Long id) {
+	public boolean exists(String id) {
 		return taskRepository.exists(id);
 	}
 	
@@ -60,7 +60,7 @@ public class JpaTaskService implements TaskService {
 	}
 	
 	@Override
-	public void deleteTask(Long id) {
+	public void deleteTask(String id) {
 		if(!taskRepository.exists(id)) {
 			throw new ResourceNotFoundException("Task not found");
 		}
@@ -70,7 +70,7 @@ public class JpaTaskService implements TaskService {
 	
 	@Override
 	public Task updateTask(Task task) {
-		final Long id = task.getId();
+		final String id = task.getId();
 		if(!taskRepository.exists(id)) {
 			throw new ResourceNotFoundException("Task not found");
 		}

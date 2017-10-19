@@ -47,7 +47,7 @@ public class TaskServiceTest {
 	@Autowired
 	private TaskService taskService;
 	
-	private Long userId;
+	private String userId;
 	
 	@Autowired
 	private ApplicationUserRepository userRepository; 

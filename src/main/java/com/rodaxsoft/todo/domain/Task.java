@@ -13,11 +13,11 @@ package com.rodaxsoft.todo.domain;
 import java.util.Date;
 
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.PrePersist;
 import javax.persistence.PreUpdate;
+
+import org.springframework.util.JdkIdGenerator;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -42,8 +42,7 @@ public class Task {
 	private Date due;
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long id;
+	private String id;
 
 	@JsonFormat(pattern = "yyyy-MM-dd'T'hh:mm:ss")
 	private Date modified;
@@ -54,7 +53,7 @@ public class Task {
 	private String title;
 	
 	@JsonIgnore
-	private Long userId;
+	private String userId;
 
 	/**
 	 * @return the completed
@@ -89,7 +88,7 @@ public class Task {
 	/**
 	 * @return the id
 	 */
-	public Long getId() {
+	public String getId() {
 		return id;
 	}
 
@@ -121,15 +120,16 @@ public class Task {
 	/**
 	 * @return the userId
 	 */
-	public Long getUserId() {
+	public String getUserId() {
 		return userId;
 	}
-
 
 	@PrePersist
 	protected void onCreate() {
 		created = new Date();
+		id = new JdkIdGenerator().generateId().toString();
 	}
+	
 	@PreUpdate
 	protected void onUpdate() {
 		setModified(new Date());
@@ -162,7 +162,7 @@ public class Task {
 	/**
 	 * @param id the id to set
 	 */
-	public void setId(Long id) {
+	public void setId(String id) {
 		this.id = id;
 	}
 
@@ -190,7 +190,7 @@ public class Task {
 	/**
 	 * @param userId the userId to set
 	 */
-	public void setUserId(Long userId) {
+	public void setUserId(String userId) {
 		this.userId = userId;
 	}
 

@@ -57,7 +57,7 @@ public interface ApplicationUserService {
 	 * Returns the user id for the given <code>token</code>
 	 * @param token The user token value
 	 */
-	Long getUserIdForToken(String token);
+	String getUserIdForToken(String token);
 	/**
 	 * Returns the user for the given <code>email</code>.
 	 * @param email The user's email

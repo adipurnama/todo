@@ -20,5 +20,5 @@ import com.rodaxsoft.todo.domain.Task;
  *
  */
 @Repository
-public interface TaskRepository extends JpaRepository<Task, Long> {
+public interface TaskRepository extends JpaRepository<Task, String> {
 }

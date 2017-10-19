@@ -166,7 +166,7 @@ public class TaskControllerTest {
 	@Test
 	public void testGetTasks() {
 		List<Task> tasks = TaskTestUtils.create100Tasks();
-		Long userId = userService.getUserIdForToken(token.getAccessToken());
+		String userId = userService.getUserIdForToken(token.getAccessToken());
 		for (Task task : tasks) {
 			task.setUserId(userId);
 			taskService.createTask(task);

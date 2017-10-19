@@ -31,7 +31,7 @@ public interface TaskService {
 	 * @param id The task id
 	 * @return A boolean value of <code>true</code>; otherwise, <code>false</code>.
 	 */
-	boolean exists(Long id);
+	boolean exists(String id);
 	/**
 	 * Determines if the task exists in the data store
 	 * @param task The task
@@ -46,7 +46,7 @@ public interface TaskService {
 	 * Deletes the task for the given <code>id</code>.
 	 * @param id The task id
 	 */
-	void deleteTask(Long id);
+	void deleteTask(String id);
 	/**
 	 * Updates the task
 	 * @param task The task to update

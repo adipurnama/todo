@@ -19,6 +19,6 @@ import com.rodaxsoft.todo.domain.ApplicationUser;
  * ApplicationUserRepository interface
  */
 @Repository
-public interface ApplicationUserRepository extends JpaRepository<ApplicationUser, Long> {
+public interface ApplicationUserRepository extends JpaRepository<ApplicationUser, String> {
     ApplicationUser findByEmail(String email);
 }

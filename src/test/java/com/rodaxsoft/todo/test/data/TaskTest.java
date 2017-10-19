@@ -12,6 +12,7 @@ package com.rodaxsoft.todo.test.data;
 
 import java.io.IOException;
 import java.util.Date;
+import java.util.UUID;
 
 import org.joda.time.LocalDate;
 import org.junit.Assert;
@@ -32,7 +33,7 @@ public class TaskTest {
 		task.setCreated(new Date());
 		task.setDescription("description of Test task 1 ");
 		task.setTitle("Test Task 1");
-		task.setId(1L);
+		task.setId(UUID.randomUUID().toString());
 		return task;
 	}
 	

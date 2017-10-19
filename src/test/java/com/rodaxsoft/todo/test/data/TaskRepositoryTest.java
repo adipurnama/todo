@@ -53,10 +53,11 @@ public class TaskRepositoryTest {
 		//Save a task
 		Task task = createMockTask();
 		task = taskRepository.save(task);
+		String taskId = task.getId();
 		
 		List<Task> tasks = taskRepository.findAll();
 		Assert.assertSame(1, tasks.size());
-		Assert.assertSame(1L, tasks.get(0).getId());
+		Assert.assertSame(taskId, tasks.get(0).getId());
 		
 		try {
 			String result = new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(tasks);

@@ -58,7 +58,7 @@ public class TaskController {
 		}
 		
 		//Set user id here!
-		Long userId = userService.getUserIdForToken(token);
+		String userId = userService.getUserIdForToken(token);
 		task.setUserId(userId);
 		
 		return taskService.createTask(task);
@@ -70,7 +70,7 @@ public class TaskController {
 	}
 	
 	@PutMapping(path = "/{id}")
-	public Task updateTask(@PathVariable Long id, @RequestBody Task updatedTask, BindingResult result) {
+	public Task updateTask(@PathVariable String id, @RequestBody Task updatedTask, BindingResult result) {
 		if(!taskService.exists(id)) {
 			throw new ResourceNotFoundException("Task not found");
 		}
@@ -85,7 +85,7 @@ public class TaskController {
 	}
 	
 	@DeleteMapping(path = "/{id}", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
-	public String deleteTask(@PathVariable Long id) {
+	public String deleteTask(@PathVariable String id) {
 		if(!taskService.exists(id)) {
 			throw new ResourceNotFoundException("Task not found");
 		}

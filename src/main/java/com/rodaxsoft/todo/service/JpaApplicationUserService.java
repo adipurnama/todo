@@ -68,6 +68,9 @@ public class JpaApplicationUserService implements StoredApplicationUserProvider,
 	public JSONWebToken loginUser(ApplicationUser user) {
 		final String email = user.getEmail();
 		ApplicationUser savedUser = storedApplicationUserForEmail(email);
+		if(null == savedUser) {
+			throw new ResourceNotFoundException("User not found");
+		}
 		JSONWebToken jwt = generateJsonWebToken(savedUser);
 		
 		LOG.info("User logged-in");
@@ -129,7 +132,7 @@ public class JpaApplicationUserService implements StoredApplicationUserProvider,
 	}
 	
 	@Override
-	public Long getUserIdForToken(String token) {
+	public String getUserIdForToken(String token) {
 		String username = parseToken(token).getUsername();
 		ApplicationUser user = storedApplicationUserForEmail(username);
 		if(null == user) {
