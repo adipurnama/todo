@@ -30,9 +30,8 @@ import com.rodaxsoft.todo.domain.Task;
  */
 public class TaskTestUtils {
 
-
 	public static final String DESCRIPTION = "Description of Test task 1 ";
-	public static final Date DUE_DATE = new LocalDate(2017, 10, 31).toDate();
+	public static final Date DUE_DATE = LocalDate.now().plusDays(14).toDate();
 	public static final String TITLE = "Test Task 1";
 
 	public static List<Task> create100Tasks() {

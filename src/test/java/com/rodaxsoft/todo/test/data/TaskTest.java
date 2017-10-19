@@ -29,7 +29,7 @@ public class TaskTest {
 	
 	public static Task createMockTask() {
 		Task task = new Task();
-		task.setDue(new LocalDate(2017, 10, 31).toDate());
+		task.setDue(LocalDate.now().plusDays(14).toDate());
 		task.setCreated(new Date());
 		task.setDescription("description of Test task 1 ");
 		task.setTitle("Test Task 1");
