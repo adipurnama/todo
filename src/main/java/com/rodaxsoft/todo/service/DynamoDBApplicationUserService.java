@@ -1,5 +1,5 @@
 /*
-  JpaApplicationUserService.java
+  DynamoDBApplicationUserService.java
 
   Created by John Boyer on Sep 9, 2017
   Copyright (c) 2017 Rodax Software, Inc.
@@ -22,8 +22,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
-import com.rodaxsoft.todo.data.ApplicationUserRepository;
-import com.rodaxsoft.todo.domain.ApplicationUser;
+import com.rodaxsoft.todo.data.DynamoDBUserMapper;
+import com.rodaxsoft.todo.domain.UserItem;
 import com.rodaxsoft.todo.exception.DuplicateUserException;
 import com.rodaxsoft.todo.exception.ResourceNotFoundException;
 import com.rodaxsoft.todo.security.JSONWebToken;
@@ -33,29 +33,29 @@ import com.rodaxsoft.todo.security.JWTUtil;
 import com.rodaxsoft.todo.validation.StoredApplicationUserProvider;
 
 /**
- * JpaApplicationUserService class
+ * DynamoDBApplicationUserService class
  */
 @Service
-public class JpaApplicationUserService implements StoredApplicationUserProvider, ApplicationUserService {
+public class DynamoDBApplicationUserService implements StoredApplicationUserProvider, ApplicationUserService {
 	
 	private static final String REFRESH_TOKEN_EXPIRED_MSG = "Refresh token expired";
 
 	private static final String REFRESH_TOKEN_NULL_MSG = "Refresh token cannot be null";
 	
-	private static final Log LOG = LogFactory.getLog(JpaApplicationUserService.class);
+	private static final Log LOG = LogFactory.getLog(DynamoDBApplicationUserService.class);
 	
 	/**
 	 * ApplicationUserRepository
 	 */
-	private ApplicationUserRepository applicationUserRepository;
+	@Autowired
+	private DynamoDBUserMapper userMapper;
 	/**
 	 * BCryptPasswordEncoder
 	 */
 	private BCryptPasswordEncoder bCryptPasswordEncoder;
 	
 	@Autowired
-	public JpaApplicationUserService(ApplicationUserRepository applicationUserRepository, BCryptPasswordEncoder bCryptPasswordEncoder) {
-		this.applicationUserRepository = applicationUserRepository;
+	public DynamoDBApplicationUserService(BCryptPasswordEncoder bCryptPasswordEncoder) {
 		this.bCryptPasswordEncoder = bCryptPasswordEncoder;
 	}
 	
@@ -65,9 +65,9 @@ public class JpaApplicationUserService implements StoredApplicationUserProvider,
 	}
 	
 	@Override
-	public JSONWebToken loginUser(ApplicationUser user) {
+	public JSONWebToken loginUser(UserItem user) {
 		final String email = user.getEmail();
-		ApplicationUser savedUser = storedApplicationUserForEmail(email);
+		UserItem savedUser = storedApplicationUserForEmail(email);
 		if(null == savedUser) {
 			throw new ResourceNotFoundException("User not found");
 		}
@@ -78,14 +78,14 @@ public class JpaApplicationUserService implements StoredApplicationUserProvider,
 	}
 	
 	@Override
-	public JSONWebToken signUpUser(ApplicationUser user) {
-		ApplicationUser savedUser = applicationUserRepository.findByEmail(user.getEmail());
+	public JSONWebToken signUpUser(UserItem user) {
+		UserItem savedUser = userMapper.findByEmail(user.getEmail());
 		if(savedUser != null) {
 			throw new DuplicateUserException("User already exists");
 		}
 		
 		user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
-		applicationUserRepository.save(user);
+		userMapper.createUser(user);
 		JSONWebToken jwt = generateJsonWebToken(user);
 		
 		LOG.info("User created");
@@ -134,7 +134,7 @@ public class JpaApplicationUserService implements StoredApplicationUserProvider,
 	@Override
 	public String getUserIdForToken(String token) {
 		String username = parseToken(token).getUsername();
-		ApplicationUser user = storedApplicationUserForEmail(username);
+		UserItem user = storedApplicationUserForEmail(username);
 		if(null == user) {
 			throw new ResourceNotFoundException("User not found");
 		}
@@ -144,8 +144,8 @@ public class JpaApplicationUserService implements StoredApplicationUserProvider,
 
 
 	@Override
-	public ApplicationUser storedApplicationUserForEmail(String email) {
-		return applicationUserRepository.findByEmail(email);
+	public UserItem storedApplicationUserForEmail(String email) {
+		return userMapper.findByEmail(email);
 	}
 
 }

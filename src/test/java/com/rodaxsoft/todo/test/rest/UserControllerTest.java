@@ -23,7 +23,9 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 import java.util.HashMap;
 import java.util.Map;
 
+import org.junit.After;
 import org.junit.Assert;
+import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -39,12 +41,10 @@ import org.springframework.test.web.servlet.MvcResult;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.rodaxsoft.todo.TaskApplication;
-import com.rodaxsoft.todo.data.ApplicationUserRepository;
-import com.rodaxsoft.todo.domain.ApplicationUser;
+import com.rodaxsoft.todo.data.DynamoDBUserMapper;
 import com.rodaxsoft.todo.domain.Profile;
-import com.rodaxsoft.todo.security.ApplicationAuthentication;
+import com.rodaxsoft.todo.domain.UserItem;
 import com.rodaxsoft.todo.security.JWTToken;
-import com.rodaxsoft.todo.security.JWTUtil;
 import com.rodaxsoft.todo.test.TaskTestUtils;
 import com.rodaxsoft.todo.test.TestBeanProvider;
 
@@ -65,16 +65,18 @@ public class UserControllerTest implements TestBeanProvider {
 	private static final String USERS_PATH = "/users";
 
 	@Autowired
-	private ApplicationUserRepository applicationUserRepository;
+	private DynamoDBUserMapper applicationUserRepository;
 	
 	@Autowired
 	private BCryptPasswordEncoder bCryptPasswordEncoder;
 	
 	@Autowired
 	private MockMvc mvc;
+
+	private UserItem savedUser;
 	
 	@Override
-	public ApplicationUserRepository getApplicationUserRepository() {
+	public DynamoDBUserMapper getApplicationUserRepository() {
 		return applicationUserRepository;
 	}
 	
@@ -82,12 +84,24 @@ public class UserControllerTest implements TestBeanProvider {
 	public BCryptPasswordEncoder getBCryptPasswordEncoder() {
 		return bCryptPasswordEncoder;
 	}
-
+	
+	@Before
+	public void setUp() {
+		savedUser = TaskTestUtils.saveMockApplicationUser(this);
+	}
+	
+	@After
+	public void tearDown() {
+		if(savedUser != null) {
+			applicationUserRepository.deleteUser(savedUser);
+		}
+	}
+	
 	/**
-	 * @param mockUser
+	 * @param savedUser
 	 * @return
 	 */
-	private Map<String, String> getCredentialsMap(ApplicationUser mockUser) {
+	private Map<String, String> getCredentialsMap(UserItem mockUser) {
 		Map<String, String> credentials = new HashMap<>();
 		credentials.put("email", mockUser.getEmail());
 		credentials.put("password", mockUser.getPassword());
@@ -98,55 +112,11 @@ public class UserControllerTest implements TestBeanProvider {
 	public void testGetProfile() {
 		
 		MvcResult result;
+		Map<String, String> credentials = getCredentialsMap(savedUser);
 		try {
-			//First Create mock user and signup
-			String json = TaskTestUtils.createMockApplicationUserJson();
-			result = mvc.perform(post(USERS_PATH)
-					     .contentType(MediaType.APPLICATION_JSON)
-					     .content(json))
-					   .andExpect(status().isOk())
-					   .andExpect(jsonPath("$.jwt", notNullValue()))
-			           .andExpect(jsonPath("$.refresh_token", notNullValue())).andReturn();
-			
-			MockHttpServletResponse response = result.getResponse();
-			JWTToken token = JWTToken.fromJson(response.getContentAsString());
-			Assert.assertNotNull(token);
-			
-			result = mvc.perform(get("/me")
-				     .contentType(MediaType.APPLICATION_JSON)
-				     .content(json)
-				     .header(HEADER_STRING, token.getAccessToken()))
-				   .andExpect(status().isOk())
-				   .andReturn();
-			
-			response = result.getResponse();
-			Profile profile = getProfileFromJson(response.getContentAsString());
-			Assert.assertNotNull(profile);
-			Assert.assertNotNull(profile.getEmail());
-			Assert.assertNotNull(profile.getName());
-			
-			//Delete the new user
-			ApplicationUser savedUser = applicationUserRepository.findByEmail(TaskTestUtils.createMockApplicationUser().getEmail());
-			applicationUserRepository.delete(savedUser);
-			
-		} catch (Exception e) {
-			Assert.fail(e.getMessage());
-		}
-		
-	}
-
-
-	@Test
-	public void testLoginUser() {
-		//Create a user, bypassing the controller
-		ApplicationUser mockUser = TaskTestUtils.createMockApplicationUser();
-		ApplicationUser savedUser = TaskTestUtils.saveMockApplicationUser(this);
-		
-		Map<String, String> credentials = getCredentialsMap(mockUser);
-		
-		try {
+			//First login
 			String json = new ObjectMapper().writeValueAsString(credentials);
-			MvcResult result = mvc.perform(post(ACCESS_TOKENS_PATH)
+			result = mvc.perform(post(ACCESS_TOKENS_PATH)
 				     .contentType(MediaType.APPLICATION_JSON)
 				     .content(json))
 				   .andExpect(status().isOk())
@@ -157,8 +127,47 @@ public class UserControllerTest implements TestBeanProvider {
 			JWTToken token = JWTToken.fromJson(response.getContentAsString());
 			Assert.assertNotNull(token);
 			
-			//Delete the new user
-			applicationUserRepository.delete(savedUser);
+			//Fetch profile
+			result = mvc.perform(get("/me")
+				     .contentType(MediaType.APPLICATION_JSON)
+				     .content(json)
+				     .header(HEADER_STRING, token.getAccessToken()))
+				   .andExpect(status().isOk())
+				   .andDo(print())
+				   .andReturn();
+			
+			response = result.getResponse();
+			Profile profile = getProfileFromJson(response.getContentAsString());
+			Assert.assertNotNull(profile);
+			Assert.assertNotNull(profile.getEmail());
+			Assert.assertNotNull(profile.getName());
+			
+		} catch (Exception e) {
+			Assert.fail(e.getMessage());
+		}
+		
+	}
+
+
+	@Test
+	public void testLoginUser() {
+		
+		Map<String, String> credentials = getCredentialsMap(savedUser);
+		
+		try {
+			String json = new ObjectMapper().writeValueAsString(credentials);
+			MvcResult result = mvc.perform(post(ACCESS_TOKENS_PATH)
+				     .contentType(MediaType.APPLICATION_JSON)
+				     .content(json))
+				   .andExpect(status().isOk())
+				   .andExpect(jsonPath("$.jwt", notNullValue()))
+			       .andExpect(jsonPath("$.refresh_token", notNullValue()))
+			       .andDo(print())
+			       .andReturn();
+			
+			MockHttpServletResponse response = result.getResponse();			
+			JWTToken token = JWTToken.fromJson(response.getContentAsString());
+			Assert.assertNotNull(token);
 			
 		} catch (Exception e) {
 			Assert.fail(e.getMessage());
@@ -170,11 +179,7 @@ public class UserControllerTest implements TestBeanProvider {
 	@Test
 	public void testLogout() {
 		
-		//Create a user, bypassing the controller signup
-		ApplicationUser mockUser = TaskTestUtils.createMockApplicationUser();
-		ApplicationUser savedUser = TaskTestUtils.saveMockApplicationUser(this);
-		
-		Map<String, String> credentials = getCredentialsMap(mockUser);
+		Map<String, String> credentials = getCredentialsMap(savedUser);
 
 		try {
 
@@ -197,10 +202,9 @@ public class UserControllerTest implements TestBeanProvider {
 				     .contentType(MediaType.APPLICATION_JSON)
 				     .content(token.toRefreshTokenJson())
 				     .header(HEADER_STRING, token.getAccessToken()))
-				   .andExpect(status().isOk());
-			
-			//Delete the new user
-			applicationUserRepository.delete(savedUser);
+				   .andExpect(status().isOk())
+				   .andDo(print())
+				   .andReturn();
 			
 		} catch (Exception e) {
 			Assert.fail(e.getMessage());
@@ -209,12 +213,8 @@ public class UserControllerTest implements TestBeanProvider {
 
 	@Test
 	public void testRefreshAccessToken() {
-		
-		//Create a user, bypassing the controller signup
-		ApplicationUser mockUser = TaskTestUtils.createMockApplicationUser();
-		ApplicationUser savedUser = TaskTestUtils.saveMockApplicationUser(this);
 
-		Map<String, String> credentials = getCredentialsMap(mockUser);
+		Map<String, String> credentials = getCredentialsMap(savedUser);
 		
 		try {
 
@@ -238,7 +238,9 @@ public class UserControllerTest implements TestBeanProvider {
 				     .content(token.toRefreshTokenJson())
 				     .header(HEADER_STRING, token.getAccessToken()))
 				   .andExpect(status().isOk())
-				   .andExpect(jsonPath("$.jwt", notNullValue())).andReturn();
+				   .andExpect(jsonPath("$.jwt", notNullValue()))
+				   .andDo(print())
+				   .andReturn();
 			
 			response = result.getResponse();
 			token = JWTToken.fromJson(response.getContentAsString());
@@ -257,9 +259,8 @@ public class UserControllerTest implements TestBeanProvider {
 			Assert.assertNotNull(profile);
 			Assert.assertNotNull(profile.getEmail());
 			Assert.assertNotNull(profile.getName());
+
 			
-			//Delete the new user
-			applicationUserRepository.delete(savedUser);
 			
 		} catch (Exception e) {
 			Assert.fail(e.getMessage());
@@ -270,23 +271,23 @@ public class UserControllerTest implements TestBeanProvider {
 	public void testSignupUser() {	
 		try {
 			
+			//Delete the new user
+			applicationUserRepository.deleteUser(savedUser);
+			
 			String json = TaskTestUtils.createMockApplicationUserJson();
 			MvcResult result = mvc.perform(post(USERS_PATH)
 					     .contentType(MediaType.APPLICATION_JSON)
 					     .content(json))
 					   .andExpect(status().isOk())
 					   .andExpect(jsonPath("$.jwt", notNullValue()))
-			           .andExpect(jsonPath("$.refresh_token", notNullValue())).andReturn();
+			           .andExpect(jsonPath("$.refresh_token", notNullValue()))
+			           .andDo(print())
+			           .andReturn();
 			
 			
 			MockHttpServletResponse response = result.getResponse();			
 			JWTToken token = JWTToken.fromJson(response.getContentAsString());
 			Assert.assertNotNull(token);
-			
-			//Delete the new user
-			String email = TaskTestUtils.createMockApplicationUser().getEmail();
-			ApplicationUser savedUser = applicationUserRepository.findByEmail(email);
-			applicationUserRepository.delete(savedUser);
 
 		} catch (Exception e) {
 			Assert.fail(e.getMessage());

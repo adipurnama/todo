@@ -13,6 +13,7 @@ package com.rodaxsoft.todo.test;
 import java.util.Date;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.rodaxsoft.todo.domain.TaskStatus;
 
 /**
@@ -25,8 +26,10 @@ public class UploadableTestTask {
 	private String description;
 	@JsonFormat(pattern = "yyyy-MM-dd")
 	private Date due;
-	private TaskStatus status;
+	private String status;
 	private String title;
+	@JsonIgnore
+	private String userId;
 	/**
 	 * @return the completed
 	 */
@@ -48,7 +51,7 @@ public class UploadableTestTask {
 	/**
 	 * @return the status
 	 */
-	public TaskStatus getStatus() {
+	public String getStatus() {
 		return status;
 	}
 	/**
@@ -56,6 +59,12 @@ public class UploadableTestTask {
 	 */
 	public String getTitle() {
 		return title;
+	}
+	/**
+	 * @return the userId
+	 */
+	public String getUserId() {
+		return userId;
 	}
 	/**
 	 * @param completed the completed to set
@@ -78,7 +87,7 @@ public class UploadableTestTask {
 	/**
 	 * @param status the status to set
 	 */
-	public void setStatus(TaskStatus status) {
+	public void setStatus(String status) {
 		this.status = status;
 	}
 	/**
@@ -86,5 +95,11 @@ public class UploadableTestTask {
 	 */
 	public void setTitle(String title) {
 		this.title = title;
+	}
+	/**
+	 * @param userId the userId to set
+	 */
+	public void setUserId(String userId) {
+		this.userId = userId;
 	}
 }

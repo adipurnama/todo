@@ -14,7 +14,7 @@ import org.springframework.validation.Errors;
 import org.springframework.validation.ValidationUtils;
 import org.springframework.validation.Validator;
 
-import com.rodaxsoft.todo.domain.Task;
+import com.rodaxsoft.todo.domain.TaskItem;
 import com.rodaxsoft.todo.domain.TaskStatus;
 
 /**
@@ -34,13 +34,13 @@ public class TaskCreateAndUpdateValidator implements Validator {
 
 	@Override
 	public boolean supports(Class<?> clazz) {
-		return Task.class.isAssignableFrom(clazz);
+		return TaskItem.class.isAssignableFrom(clazz);
 	}
 
 	@Override
 	public void validate(Object target, Errors errors) {
 		ValidationUtils.rejectIfEmptyOrWhitespace(errors, "title", "field.required", "Title required");
-		Task task = (Task) target;
+		TaskItem task = (TaskItem) target;
 		
 		if(task.getCreated() != null) {
 			errors.rejectValue("created", FIELD_READONLY_CODE, FIELD_READONLY_MSG);			
@@ -64,7 +64,7 @@ public class TaskCreateAndUpdateValidator implements Validator {
 			errors.rejectValue("userId", FIELD_READONLY_CODE, FIELD_READONLY_MSG);
 		}
 		
-		TaskStatus status = task.getStatus();
+		TaskStatus status = TaskStatus.getValue(task.getStatus());
 		if((task.getCompleted() != null && status != TaskStatus.COMPLETED) || 
 		   (status != null && status == TaskStatus.RESERVED) ) {
 			errors.rejectValue("status", "field.invalid", "Invalid status");			

@@ -1,5 +1,5 @@
 /*
-  JpaTaskService.java
+  DynamoDBTaskService.java
 
   Created by John Boyer on Sep 11, 2017
   Copyright (c) 2017 Rodax Software, Inc.
@@ -13,76 +13,77 @@ package com.rodaxsoft.todo.service;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Sort;
-import org.springframework.data.domain.Sort.Direction;
-import org.springframework.data.domain.Sort.Order;
 import org.springframework.stereotype.Service;
 
-import com.rodaxsoft.todo.data.TaskRepository;
-import com.rodaxsoft.todo.domain.Task;
+import com.rodaxsoft.todo.data.DynamoDBTaskMapper;
+import com.rodaxsoft.todo.domain.TaskItem;
 import com.rodaxsoft.todo.exception.ResourceNotFoundException;
 import com.rodaxsoft.todo.exception.ValidationException;
 
 /**
- * JpaTaskService class
+ * DynamoDBTaskService class
  */
 @Service
-public class JpaTaskService implements TaskService {
+public class DynamoDBTaskService implements TaskService {
 	
 	@Autowired
-	private TaskRepository taskRepository;
+	private DynamoDBTaskMapper taskMapper;
 
 	@Override
-	public Task createTask(Task task) {
+	public TaskItem createTask(TaskItem task) {
 		if(null == task.getTitle()) {
 			throw new ValidationException("title cannot be null");
 		}
 		
-		Task savedTask = taskRepository.save(task);
+		TaskItem savedTask = taskMapper.createTask(task);
 		return savedTask;
 	}
 	
 	@Override
-	public boolean exists(String id) {
-		return taskRepository.exists(id);
+	public void deleteTask(String id) {
+		if(!taskMapper.exists(id)) {
+			throw new ResourceNotFoundException("TaskItem not found");
+		}
+		
+		taskMapper.deleteTaskById(id);
 	}
 	
 	@Override
-	public boolean exists(Task task) {
+	public boolean exists(String id) {
+		return taskMapper.exists(id);
+	}
+	
+	@Override
+	public boolean exists(TaskItem task) {
 		return exists(task.getId());
 	}
 	
 	@Override
-	public List<Task> getTasks() {
-		Sort sort = new Sort(new Order(Direction.ASC, "due").nullsFirst());
-		List<Task> tasks = taskRepository.findAll(sort);
+	public List<TaskItem> getTasks(String userId) {
+		List<TaskItem> tasks = taskMapper.findByUserId(userId);
 		return tasks;
 	}
 	
 	@Override
-	public void deleteTask(String id) {
-		if(!taskRepository.exists(id)) {
-			throw new ResourceNotFoundException("Task not found");
-		}
-		
-		taskRepository.delete(id);
+	public boolean hasTasks(String userId) {
+		return taskMapper.hasTasks(userId);
 	}
-	
+
 	@Override
-	public Task updateTask(Task task) {
+	public TaskItem updateTask(TaskItem task) {
 		final String id = task.getId();
-		if(!taskRepository.exists(id)) {
-			throw new ResourceNotFoundException("Task not found");
+		if(!taskMapper.exists(id)) {
+			throw new ResourceNotFoundException("TaskItem not found");
 		}
 		
-		Task savedTask = taskRepository.findOne(id);
+		TaskItem savedTask = taskMapper.findById(id);
 		//Non-modifiable properties: id, created, userId
 		task.setId(savedTask.getId());
 		task.setCreated(savedTask.getCreated());
 		task.setUserId(savedTask.getUserId());
 		//Ignore modified, it'll get updated
 		
-		savedTask = taskRepository.save(task)	;
+		savedTask = taskMapper.updateTask(task)	;
 		return savedTask;
 	}
 }

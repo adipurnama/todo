@@ -13,7 +13,6 @@ package com.rodaxsoft.todo.security;
 import static com.rodaxsoft.todo.security.JWTUtil.authenticate;
 import static com.rodaxsoft.todo.security.JWTUtil.getAccessTokenCookie;
 import static com.rodaxsoft.todo.security.SecurityConstants.HEADER_STRING;
-import static com.rodaxsoft.todo.security.SecurityConstants.TOKEN_PREFIX;
 
 import java.io.IOException;
 

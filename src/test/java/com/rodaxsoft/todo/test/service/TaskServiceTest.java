@@ -16,7 +16,6 @@ import java.util.Date;
 import java.util.List;
 
 import org.joda.time.LocalDate;
-import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
@@ -27,11 +26,10 @@ import org.springframework.test.context.junit4.SpringRunner;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.rodaxsoft.todo.data.ApplicationUserRepository;
-import com.rodaxsoft.todo.data.TaskRepository;
-import com.rodaxsoft.todo.domain.ApplicationUser;
-import com.rodaxsoft.todo.domain.Task;
+import com.rodaxsoft.todo.data.DynamoDBUserMapper;
+import com.rodaxsoft.todo.domain.TaskItem;
 import com.rodaxsoft.todo.domain.TaskStatus;
+import com.rodaxsoft.todo.domain.UserItem;
 import com.rodaxsoft.todo.service.TaskService;
 import com.rodaxsoft.todo.test.TaskTestUtils;
 
@@ -42,44 +40,34 @@ import com.rodaxsoft.todo.test.TaskTestUtils;
 @SpringBootTest
 public class TaskServiceTest {
 	@Autowired
-	private TaskRepository taskRepsitory;
-	
-	@Autowired
 	private TaskService taskService;
 	
 	private String userId;
 	
 	@Autowired
-	private ApplicationUserRepository userRepository; 
-	
-	@After
-	public void cleanup() {
-		userRepository.deleteAll();
-		taskRepsitory.deleteAll();
-	}
+	private DynamoDBUserMapper userRepository; 
 	
 	/**
 	 * @return
 	 */
-	private Task createMockTask() {
-		Task task = new Task();
+	private TaskItem createMockTask() {
+		TaskItem task = new TaskItem();
 		task.setDue(LocalDate.now().plusDays(14).toDate());
 		task.setDescription("Description of Test task 1 ");
-		task.setTitle("Test Task 1");
+		task.setTitle("Test TaskItem 1");
 		task.setUserId(userId);
 		return task;
 	}
 	
 	@Before
 	public void setup() {
-		ApplicationUser user = userRepository.save(TaskTestUtils.createMockApplicationUser());
+		UserItem user = userRepository.createUser(TaskTestUtils.createMockApplicationUser());
 		userId = user.getId();
 	}
 	
-	
 	@Test
 	public void testCreateTask() {
-		Task savedTask = taskService.createTask(createMockTask());
+		TaskItem savedTask = taskService.createTask(createMockTask());
 		System.out.println(savedTask);
 		Assert.assertNotNull(savedTask.getCreated());
 		Assert.assertNotNull(savedTask.getId());
@@ -94,10 +82,10 @@ public class TaskServiceTest {
 	
 	@Test
 	public void testDeleteTask() {
-		Task savedTask = taskService.createTask(createMockTask());
+		TaskItem savedTask = taskService.createTask(createMockTask());
 		taskService.deleteTask(savedTask.getId());
 		System.out.println(savedTask);
-		assertTrue(taskService.getTasks().isEmpty());
+		assertTrue(!taskService.exists(savedTask));
 		
 		try {
 			String result = new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(savedTask);
@@ -109,10 +97,10 @@ public class TaskServiceTest {
 	
 	@Test
 	public void testGetTasks() {
-		List<Task> tasks = TaskTestUtils.create100Tasks();
-		Task prev = null;
-		for (Task task : tasks) {
-			Task savedTask = taskService.createTask(task);
+		List<TaskItem> tasks = TaskTestUtils.create100Tasks(userId);
+		TaskItem prev = null;
+		for (TaskItem task : tasks) {
+			TaskItem savedTask = taskService.createTask(task);
 			System.out.println(savedTask);
 			Assert.assertNotNull(savedTask.getCreated());
 			Assert.assertNotNull(savedTask.getId());
@@ -124,13 +112,15 @@ public class TaskServiceTest {
 			prev = task;
 		}
 		
-		tasks = taskService.getTasks();
+		tasks = taskService.getTasks(userId);
+		Assert.assertNotNull(tasks);
+		Assert.assertTrue(tasks.size() >= 100);
 		System.out.println(tasks);
 	}
 	
 	@Test
 	public void testUpdateTask() {
-		Task savedTask = taskService.createTask(createMockTask());
+		TaskItem savedTask = taskService.createTask(createMockTask());
 		savedTask.setStatus(TaskStatus.COMPLETED);
 		savedTask.setCompleted(new Date());
 		savedTask = taskService.updateTask(savedTask);

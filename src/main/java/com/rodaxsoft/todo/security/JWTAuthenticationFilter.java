@@ -31,7 +31,7 @@ import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.rodaxsoft.todo.domain.ApplicationUser;
+import com.rodaxsoft.todo.domain.UserItem;
 
 /**
  * JWTAuthenticationFilter class
@@ -48,7 +48,7 @@ public class JWTAuthenticationFilter extends UsernamePasswordAuthenticationFilte
 	public Authentication attemptAuthentication(HttpServletRequest req, HttpServletResponse res)
 			throws AuthenticationException {
 		try {
-			ApplicationUser creds = new ObjectMapper().readValue(req.getInputStream(), ApplicationUser.class);
+			UserItem creds = new ObjectMapper().readValue(req.getInputStream(), UserItem.class);
 
 			return authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(creds.getUsername(),
 					creds.getPassword(), new ArrayList<>()));

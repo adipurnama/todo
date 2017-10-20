@@ -33,8 +33,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.rodaxsoft.todo.domain.ApplicationUser;
 import com.rodaxsoft.todo.domain.Profile;
+import com.rodaxsoft.todo.domain.UserItem;
 import com.rodaxsoft.todo.exception.ValidationException;
 import com.rodaxsoft.todo.security.JSONWebToken;
 import com.rodaxsoft.todo.security.JWTToken;
@@ -92,7 +92,7 @@ public class UserController implements StoredApplicationUserProvider {
 	 */
 	private Profile getUserProfile(String token) {
 		String username = parseToken(token).getUsername();
-		ApplicationUser savedUser = storedApplicationUserForEmail(username);
+		UserItem savedUser = storedApplicationUserForEmail(username);
 		LOG.info("User retrieved");
 
 		return savedUser.getProfile();
@@ -144,7 +144,7 @@ public class UserController implements StoredApplicationUserProvider {
 	 * @return The JWT token object
 	 */
 	@PostMapping(path = "/access-tokens", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
-	public JSONWebToken login(@RequestBody ApplicationUser user, BindingResult result) {
+	public JSONWebToken login(@RequestBody UserItem user, BindingResult result) {
 		applicationUserLoginValidator.validate(user, result);
 		handleErrors(result);
 		
@@ -189,7 +189,7 @@ public class UserController implements StoredApplicationUserProvider {
 	 * @return The JWT token object
 	 */
 	@PostMapping(path = "/users", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
-	public JSONWebToken signUp(@RequestBody ApplicationUser user, BindingResult result) {
+	public JSONWebToken signUp(@RequestBody UserItem user, BindingResult result) {
 		applicationUserSignupValidator.validate(user, result);
 		handleErrors(result);
 		
@@ -197,7 +197,7 @@ public class UserController implements StoredApplicationUserProvider {
 	}
 
 	@Override
-	public ApplicationUser storedApplicationUserForEmail(String email) {
+	public UserItem storedApplicationUserForEmail(String email) {
 		return applicationUserService.storedApplicationUserForEmail(email);
 	}
 

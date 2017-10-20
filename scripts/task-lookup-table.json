@@ -1,0 +1,19 @@
+{
+	"AttributeDefinitions": [
+		{
+			"AttributeName": "userId",
+			"AttributeType": "S"
+		}
+	],
+	"TableName": "TaskLookup",
+	"KeySchema": [
+		{
+			"AttributeName": "userId",
+			"KeyType": "HASH"
+		}
+	],
+	"ProvisionedThroughput": {
+		"ReadCapacityUnits": 25,
+		"WriteCapacityUnits": 25
+	}
+}

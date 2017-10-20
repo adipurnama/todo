@@ -2,7 +2,7 @@
 
 Todo is a task management service that enables registered users to easily manage their tasks. Each task has a name as well as other optional values including *due date*, *status*, and *description*. The next version will include *rank*, so that tasks can be ordered by priority.
 
-The Todo RESTful API is implemented as a [Spring Boot](https://projects.spring.io/spring-boot/) app running an embedded version of Tomcat. For demonstration purposes, the data store is a [HSQLDB](http://hsqldb.org) in-memory database accessed via [Spring JPA](https://projects.spring.io/spring-data-jpa/). It uses [JSON Web Tokens (JWT)](https://jwt.io/) for authentication.
+The Todo RESTful API is implemented as a [Spring Boot](https://projects.spring.io/spring-boot/) app running an embedded version of Tomcat. The data store is a [DynamoDB Local](https://aws.amazon.com/blogs/aws/dynamodb-local-for-desktop-development) running in-memory. It uses [JSON Web Tokens (JWT)](https://jwt.io/) for authentication.
 
 # Table of Contents
 
@@ -13,8 +13,18 @@ The Todo RESTful API is implemented as a [Spring Boot](https://projects.spring.i
 
 # Build and Run
 
-To build and run the project in place type: `$ gradle bootRun`
+## Install DynamoDB Local
+1. Before running or testing the app, you'll need install [DynamoDB Local](http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/DynamoDBLocal.html).
+2. Set `DYANMODB_HOME` in the run DynamoDB script (`run-dynamodb.sh`) in the `/scripts` directory.
 
+## Run as a Spring Boot App
+1. Run DynamoDB Local: `$ ./scripts/run-dynamodb.sh`
+2. Then create the Todo app's tables: `$ ./scripts/create-dynamodb-tables.sh`
+3. To build and run the project in place type: `$ gradle bootRun`
+
+_Note: DynamoDB Local is configured to run in-memory, so these steps will need to be repeated on each run._
+
+## Build the App
 To just build the project type: `$ gradle build`
 
 For information on installing Gradle go to https://gradle.org/install

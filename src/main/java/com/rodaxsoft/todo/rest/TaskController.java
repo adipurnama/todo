@@ -27,9 +27,11 @@ import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.rodaxsoft.todo.domain.Task;
+import com.rodaxsoft.todo.domain.TaskItem;
 import com.rodaxsoft.todo.exception.ResourceNotFoundException;
 import com.rodaxsoft.todo.exception.ValidationException;
+import com.rodaxsoft.todo.security.ApplicationAuthentication;
+import com.rodaxsoft.todo.security.JWTUtil;
 import com.rodaxsoft.todo.service.ApplicationUserService;
 import com.rodaxsoft.todo.service.TaskService;
 import com.rodaxsoft.todo.validation.TaskCreateAndUpdateValidator;
@@ -51,7 +53,7 @@ public class TaskController {
 	private TaskCreateAndUpdateValidator taskValidator;
 
 	@PostMapping
-	public Task createTask(@RequestBody Task task, BindingResult result, @RequestHeader(HEADER_STRING) String token) {
+	public TaskItem createTask(@RequestBody TaskItem task, BindingResult result, @RequestHeader(HEADER_STRING) String token) {
 		taskValidator.validate(task, result);
 		if(result.hasErrors()) {
 			throw new ValidationException(result);
@@ -65,14 +67,15 @@ public class TaskController {
 	}
 	
 	@GetMapping
-	public List<Task> getTasks(@RequestHeader(HEADER_STRING) String token) {
-		return taskService.getTasks();	
+	public List<TaskItem> getTasks(@RequestHeader(HEADER_STRING) String token) {
+		ApplicationAuthentication auth = JWTUtil.parseToken(token);
+		return taskService.getTasks(auth.getUsername());	
 	}
 	
 	@PutMapping(path = "/{id}")
-	public Task updateTask(@PathVariable String id, @RequestBody Task updatedTask, BindingResult result) {
+	public TaskItem updateTask(@PathVariable String id, @RequestBody TaskItem updatedTask, BindingResult result) {
 		if(!taskService.exists(id)) {
-			throw new ResourceNotFoundException("Task not found");
+			throw new ResourceNotFoundException("TaskItem not found");
 		}
 		
 		taskValidator.validate(updatedTask, result);
@@ -87,7 +90,7 @@ public class TaskController {
 	@DeleteMapping(path = "/{id}", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
 	public String deleteTask(@PathVariable String id) {
 		if(!taskService.exists(id)) {
-			throw new ResourceNotFoundException("Task not found");
+			throw new ResourceNotFoundException("TaskItem not found");
 		}
 
 		taskService.deleteTask(id);

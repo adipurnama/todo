@@ -12,10 +12,10 @@ package com.rodaxsoft.todo.service;
 
 import java.util.List;
 
-import com.rodaxsoft.todo.domain.Task;
+import com.rodaxsoft.todo.domain.TaskItem;
 
 /**
- * Task service interface
+ * TaskItem service interface
  * @author John Boyer
  *
  */
@@ -25,7 +25,12 @@ public interface TaskService {
 	 * @param task The task to create
 	 * @return
 	 */
-	Task createTask(Task task);
+	TaskItem createTask(TaskItem task);
+	/**
+	 * Deletes the task for the given <code>id</code>.
+	 * @param id The task id
+	 */
+	void deleteTask(String id);
 	/**
 	 * Determines if the task exists in the data store
 	 * @param id The task id
@@ -37,20 +42,22 @@ public interface TaskService {
 	 * @param task The task
 	 * @return A boolean value of <code>true</code>; otherwise, <code>false</code>.
 	 */
-	boolean exists(Task task);
+	boolean exists(TaskItem task);
 	/**
-	 * Retrieves a list of tasks
+	 * @param userId
+	 * @return
 	 */
-	List<Task> getTasks();
+	List<TaskItem> getTasks(String userId);
 	/**
-	 * Deletes the task for the given <code>id</code>.
-	 * @param id The task id
+	 * Determines if the user has tasks
+	 * @param userId The user id
+	 * @return <code>true</code> if the user has tasks; otherwise, <code>null</code>.
 	 */
-	void deleteTask(String id);
+	boolean hasTasks(String userId);
 	/**
 	 * Updates the task
 	 * @param task The task to update
 	 * @return The updated task
 	 */
-	Task updateTask(Task task);
+	TaskItem updateTask(TaskItem task);
 }

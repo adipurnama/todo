@@ -12,13 +12,13 @@ package com.rodaxsoft.todo.test;
 
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
-import com.rodaxsoft.todo.data.ApplicationUserRepository;
+import com.rodaxsoft.todo.data.DynamoDBUserMapper;
 
 
 /**
  * TestBeanProvider interface
  */
 public interface TestBeanProvider {
-	ApplicationUserRepository getApplicationUserRepository();
+	DynamoDBUserMapper getApplicationUserRepository();
 	BCryptPasswordEncoder getBCryptPasswordEncoder();
 }

@@ -21,8 +21,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
-import com.rodaxsoft.todo.data.ApplicationUserRepository;
-import com.rodaxsoft.todo.domain.ApplicationUser;
+import com.rodaxsoft.todo.data.DynamoDBUserMapper;
+import com.rodaxsoft.todo.domain.UserItem;
 import com.rodaxsoft.todo.security.JSONWebToken;
 import com.rodaxsoft.todo.service.ApplicationUserService;
 import com.rodaxsoft.todo.test.TaskTestUtils;
@@ -35,18 +35,15 @@ import com.rodaxsoft.todo.test.TaskTestUtils;
 public class ApplicationUserServiceTest {
 	
 	@Autowired
-	private ApplicationUserRepository userRepository;
-	
-	@Autowired
 	private ApplicationUserService userService;
 	
-	@After
-	public void cleanup() {
-		userRepository.deleteAll();
-	}
+	@Autowired
+	private DynamoDBUserMapper userMapper;
+
+	private UserItem user;
 
 	private JSONWebToken createUser() {
-		ApplicationUser user = TaskTestUtils.createMockApplicationUser();
+		user = TaskTestUtils.createMockApplicationUser();
 		JSONWebToken token = userService.signUpUser(user);
 		Assert.assertNotNull(token);
 		Assert.assertNotNull(token.getAccessToken());
@@ -54,12 +51,17 @@ public class ApplicationUserServiceTest {
 		return token;
 	}
 	
+	@After
+	public void tearDown() {
+		userMapper.deleteUser(user);
+	}
+	
 	@Test
 	public void testLogin() {
 		//Create user in the database
 		JSONWebToken token = createUser();
 		
-		ApplicationUser user = TaskTestUtils.createMockApplicationUser();
+		UserItem user = TaskTestUtils.createMockApplicationUser();
 		token = userService.loginUser(user);
 		Assert.assertNotNull(token);
 		Assert.assertNotNull(token.getAccessToken());

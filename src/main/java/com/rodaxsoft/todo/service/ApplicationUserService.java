@@ -14,7 +14,7 @@ import java.util.Map;
 
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
-import com.rodaxsoft.todo.domain.ApplicationUser;
+import com.rodaxsoft.todo.domain.UserItem;
 import com.rodaxsoft.todo.security.JSONWebToken;
 import com.rodaxsoft.todo.security.JWTToken;
 
@@ -33,13 +33,13 @@ public interface ApplicationUserService {
 	 * @param user
 	 * @return a JWT token object
 	 */
-	JSONWebToken loginUser(ApplicationUser user);
+	JSONWebToken loginUser(UserItem user);
 	/**
 	 * Signs up a user and returns a JWT token object
 	 * @param user The user to sign-up
 	 * @return a JWT token object
 	 */
-	JSONWebToken signUpUser(ApplicationUser user);
+	JSONWebToken signUpUser(UserItem user);
 	/**
 	 * Logs out the user
 	 * @param token A JWT token object
@@ -62,6 +62,6 @@ public interface ApplicationUserService {
 	 * Returns the user for the given <code>email</code>.
 	 * @param email The user's email
 	 */
-	ApplicationUser storedApplicationUserForEmail(String email);
+	UserItem storedApplicationUserForEmail(String email);
 
 }

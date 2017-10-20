@@ -1,0 +1,15 @@
+{
+    "AttributeDefinitions": [{
+        "AttributeName": "email",
+        "AttributeType": "S"
+    }],
+    "TableName": "User",
+    "KeySchema": [{
+        "AttributeName": "email",
+        "KeyType": "HASH"
+    }],
+    "ProvisionedThroughput": {
+        "ReadCapacityUnits": 25,
+        "WriteCapacityUnits": 25
+    }
+}

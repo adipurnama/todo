@@ -19,7 +19,7 @@ import org.junit.Assert;
 import org.junit.Test;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.rodaxsoft.todo.domain.Task;
+import com.rodaxsoft.todo.domain.TaskItem;
 import com.rodaxsoft.todo.domain.TaskStatus;
 
 /**
@@ -27,12 +27,12 @@ import com.rodaxsoft.todo.domain.TaskStatus;
  */
 public class TaskTest {
 	
-	public static Task createMockTask() {
-		Task task = new Task();
+	public static TaskItem createMockTask() {
+		TaskItem task = new TaskItem();
 		task.setDue(LocalDate.now().plusDays(14).toDate());
 		task.setCreated(new Date());
 		task.setDescription("description of Test task 1 ");
-		task.setTitle("Test Task 1");
+		task.setTitle("Test TaskItem 1");
 		task.setId(UUID.randomUUID().toString());
 		return task;
 	}
@@ -40,13 +40,13 @@ public class TaskTest {
 	@Test
 	public void testCreate() {
 		
-		Task task = createMockTask();
+		TaskItem task = createMockTask();
 
 		try {
 			ObjectMapper mapper = new ObjectMapper();
 			String result = mapper.writerWithDefaultPrettyPrinter().writeValueAsString(task);
 			System.out.println(result);
-			task = mapper.readValue(result, Task.class);
+			task = mapper.readValue(result, TaskItem.class);
 			System.out.println(task);
 			
 		} catch (IOException e) {
@@ -56,7 +56,7 @@ public class TaskTest {
 	
 	@Test 
 	public void testUpdate() {
-		Task task = createMockTask();
+		TaskItem task = createMockTask();
 		task.setCompleted(new Date());
 		task.setModified(new Date());
 		task.setStatus(TaskStatus.COMPLETED);
@@ -65,7 +65,7 @@ public class TaskTest {
 			ObjectMapper mapper = new ObjectMapper();
 			String result = mapper.writerWithDefaultPrettyPrinter().writeValueAsString(task);
 			System.out.println(result);
-			task = mapper.readValue(result, Task.class);
+			task = mapper.readValue(result, TaskItem.class);
 			System.out.println(task);
 			
 		} catch (IOException e) {

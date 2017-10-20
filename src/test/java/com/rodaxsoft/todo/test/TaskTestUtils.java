@@ -20,9 +20,9 @@ import org.joda.time.LocalDate;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.rodaxsoft.todo.domain.ApplicationUser;
 import com.rodaxsoft.todo.domain.Profile;
-import com.rodaxsoft.todo.domain.Task;
+import com.rodaxsoft.todo.domain.TaskItem;
+import com.rodaxsoft.todo.domain.UserItem;
 
 /**
  * TaskTestUtils class
@@ -32,12 +32,12 @@ public class TaskTestUtils {
 
 	public static final String DESCRIPTION = "Description of Test task 1 ";
 	public static final Date DUE_DATE = LocalDate.now().plusDays(14).toDate();
-	public static final String TITLE = "Test Task 1";
+	public static final String TITLE = "Test TaskItem 1";
 
-	public static List<Task> create100Tasks() {
-		List<Task> tasks = new ArrayList<>();
+	public static List<TaskItem> create100Tasks(String userId) {
+		List<TaskItem> tasks = new ArrayList<>();
 		for (int i = 0; i < 100; i++) {
-			Task task = createMockTask();
+			TaskItem task = createMockTask(userId);
 			if(i > 0 && i < 80) {
 				Date lastDue = tasks.get(i-1).getDue();
 				LocalDate ld = new LocalDate(lastDue.getTime());
@@ -52,8 +52,8 @@ public class TaskTestUtils {
 		return tasks;
 	}
 	
-	public static ApplicationUser createMockApplicationUser() {
-		ApplicationUser mockUser = new ApplicationUser();
+	public static UserItem createMockApplicationUser() {
+		UserItem mockUser = new UserItem();
 		mockUser.setEmail("john@example.com");
 		mockUser.setName("John Doe");
 		mockUser.setPassword("ycPwxjU6");
@@ -64,11 +64,12 @@ public class TaskTestUtils {
 		return new ObjectMapper().writeValueAsString(createMockApplicationUser());
 	}
 
-	public static Task createMockTask() {
-		Task task = new Task();
+	public static TaskItem createMockTask(String userId) {
+		TaskItem task = new TaskItem();
 		task.setDue(DUE_DATE);
 		task.setDescription(DESCRIPTION);
 		task.setTitle(TITLE);
+		task.setUserId(userId);
 		return task;
 	}
 	
@@ -94,11 +95,11 @@ public class TaskTestUtils {
 		};
 	}
 	
-	public static ApplicationUser saveMockApplicationUser(TestBeanProvider provider) {
-		ApplicationUser mockUser = createMockApplicationUser();
+	public static UserItem saveMockApplicationUser(TestBeanProvider provider) {
+		UserItem mockUser = createMockApplicationUser();
 		//Encrypt password
 		mockUser.setPassword(provider.getBCryptPasswordEncoder().encode(mockUser.getPassword()));
-		return provider.getApplicationUserRepository().save(mockUser);
+		return provider.getApplicationUserRepository().createUser(mockUser);
 	}
 
 }

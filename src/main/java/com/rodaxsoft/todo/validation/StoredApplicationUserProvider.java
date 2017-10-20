@@ -12,12 +12,12 @@ package com.rodaxsoft.todo.validation;
 
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
-import com.rodaxsoft.todo.domain.ApplicationUser;
+import com.rodaxsoft.todo.domain.UserItem;
 
 /**
  * StoredApplicationUserProvider interface
  */
 public interface StoredApplicationUserProvider {
-	ApplicationUser storedApplicationUserForEmail(String email);
+	UserItem storedApplicationUserForEmail(String email);
 	BCryptPasswordEncoder getBCryptPasswordEncoder();
 }

@@ -16,7 +16,7 @@ import org.springframework.validation.Errors;
 import org.springframework.validation.ValidationUtils;
 import org.springframework.validation.Validator;
 
-import com.rodaxsoft.todo.domain.ApplicationUser;
+import com.rodaxsoft.todo.domain.UserItem;
 
 /**
  * ApplicationUserSignupValidator class
@@ -36,7 +36,7 @@ public class ApplicationUserSignupValidator implements Validator {
 
 	@Override
 	public boolean supports(Class<?> clazz) {
-		return ApplicationUser.class.isAssignableFrom(clazz);
+		return UserItem.class.isAssignableFrom(clazz);
 	}
 
 	@Override
@@ -45,7 +45,7 @@ public class ApplicationUserSignupValidator implements Validator {
 		ValidationUtils.rejectIfEmptyOrWhitespace(errors, "name", FIELD_REQUIRED_CODE);
 		ValidationUtils.rejectIfEmptyOrWhitespace(errors, "password", FIELD_REQUIRED_CODE);
 		
-		ApplicationUser user = (ApplicationUser) target;
+		UserItem user = (UserItem) target;
 		if(!EMAIL_VALIDATOR.isValid(user.getEmail())) {
 			errors.rejectValue("email", "email.invalid");			
 		}

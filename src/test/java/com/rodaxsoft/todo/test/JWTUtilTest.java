@@ -21,7 +21,7 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.test.context.junit4.SpringRunner;
 
-import com.rodaxsoft.todo.domain.ApplicationUser;
+import com.rodaxsoft.todo.domain.UserItem;
 import com.rodaxsoft.todo.security.JSONWebToken;
 
 import io.jsonwebtoken.Claims;
@@ -43,7 +43,7 @@ public class JWTUtilTest  {
 		final String accessToken = webToken.getAccessToken();
 		String username = parseToken(accessToken).getUsername();
 		
-		final ApplicationUser mockUser = createMockApplicationUser();
+		final UserItem mockUser = createMockApplicationUser();
 		Assert.assertTrue(username.equals(mockUser.getUsername()));
 		
 		final String refreshToken = webToken.getRefreshToken();
@@ -63,7 +63,7 @@ public class JWTUtilTest  {
 		final String accessToken = webToken.getAccessToken();
 		String username = parseToken(accessToken).getUsername();
 		
-		final ApplicationUser mockUser = createMockApplicationUser();
+		final UserItem mockUser = createMockApplicationUser();
 		Assert.assertTrue(username.equals(mockUser.getUsername()));
 		
 		final String refreshToken = webToken.getRefreshToken();
@@ -78,7 +78,7 @@ public class JWTUtilTest  {
 		String accessToken = webToken.getAccessToken();
 		String username = parseToken(accessToken).getUsername();
 		
-		final ApplicationUser mockUser = createMockApplicationUser();
+		final UserItem mockUser = createMockApplicationUser();
 		Assert.assertTrue(username.equals(mockUser.getUsername()));
 		
 		final String refreshToken = webToken.getRefreshToken();
@@ -97,8 +97,5 @@ public class JWTUtilTest  {
 		username = parseToken(accessToken).getUsername();
 		Assert.assertTrue(username.equals(mockUser.getUsername()));
 	}
-	
-	
-	
 
 }

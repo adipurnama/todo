@@ -44,10 +44,9 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.type.CollectionType;
 import com.fasterxml.jackson.databind.type.TypeFactory;
 import com.rodaxsoft.todo.TaskApplication;
-import com.rodaxsoft.todo.data.ApplicationUserRepository;
-import com.rodaxsoft.todo.data.TaskRepository;
-import com.rodaxsoft.todo.domain.ApplicationUser;
-import com.rodaxsoft.todo.domain.Task;
+import com.rodaxsoft.todo.data.DynamoDBUserMapper;
+import com.rodaxsoft.todo.domain.TaskItem;
+import com.rodaxsoft.todo.domain.UserItem;
 import com.rodaxsoft.todo.security.JWTToken;
 import com.rodaxsoft.todo.service.ApplicationUserService;
 import com.rodaxsoft.todo.service.TaskService;
@@ -73,34 +72,35 @@ public class TaskControllerTest {
 	private MockHttpServletResponse response;
 	
 	@Autowired
-	private TaskRepository taskRepository;
-	
-	@Autowired
 	private TaskService taskService;
 	
 	@Autowired
-	private ApplicationUserRepository userRepository;
+	private ApplicationUserService userService;
 	
 	@Autowired
-	private ApplicationUserService userService;
+	private DynamoDBUserMapper userMapper;
 
 	private JWTToken token;
-	
-	@After
-	public void cleanup() {
-		userRepository.deleteAll();
-		taskRepository.deleteAll();
-	}
+
+	private UserItem user;
 	
 	@Before
 	public void setUp() {
 		
 		try {
-			ApplicationUser user = TaskTestUtils.createMockApplicationUser();
+			//Need to check for user, login or signup
+			user = TaskTestUtils.createMockApplicationUser();
 			String json = new ObjectMapper().writeValueAsString(user);
 			MvcResult result;
 			
-			result = mvc.perform(post("/users")
+			String endPoint;
+			if(userMapper.exists(user)) {
+				endPoint = "/access-tokens";
+			} else {
+				endPoint = "/users";
+			}
+            
+			result = mvc.perform(post(endPoint)
 					     .contentType(MediaType.APPLICATION_JSON)
 					     .content(json))
 					   .andExpect(status().isOk())
@@ -113,14 +113,26 @@ public class TaskControllerTest {
 		} catch (Exception e) {
 			Assert.fail(e.getMessage());
 		}
+	}
+	
+	@After
+	public void tearDown() {		
 		
+		if(taskService.hasTasks(user.getEmail())) {
+			List<TaskItem> tasks = taskService.getTasks(user.getEmail());
+			for (TaskItem taskItem : tasks) {
+				taskService.deleteTask(taskItem.getId());
+			}
+		}
+		
+		userMapper.deleteUser(user);
 	}
 	
 	@Test
 	public void testCreateTask() {
 		try {
 			
-			Task task = TaskTestUtils.createMockTask();
+			TaskItem task = TaskTestUtils.createMockTask(user.getEmail());
 			String json = new ObjectMapper().writeValueAsString(task);
 			MvcResult result = mvc.perform(post(TASKS_ENDPOINT)
 					                .contentType(MediaType.APPLICATION_JSON)
@@ -144,7 +156,7 @@ public class TaskControllerTest {
 	
 	@Test
 	public void testDeleteTask() {
-		Task task = TaskTestUtils.createMockTask();
+		TaskItem task = TaskTestUtils.createMockTask(user.getEmail());
 		task = taskService.createTask(task);
 
 		
@@ -165,9 +177,9 @@ public class TaskControllerTest {
 	
 	@Test
 	public void testGetTasks() {
-		List<Task> tasks = TaskTestUtils.create100Tasks();
+		List<TaskItem> tasks = TaskTestUtils.create100Tasks(user.getEmail());
 		String userId = userService.getUserIdForToken(token.getAccessToken());
-		for (Task task : tasks) {
+		for (TaskItem task : tasks) {
 			task.setUserId(userId);
 			taskService.createTask(task);
 		}
@@ -191,7 +203,7 @@ public class TaskControllerTest {
 			
 			ObjectMapper mapper = new ObjectMapper();
 			TypeFactory factory = mapper.getTypeFactory();
-			CollectionType type = factory.constructCollectionType(List.class, Task.class);
+			CollectionType type = factory.constructCollectionType(List.class, TaskItem.class);
 			String json = response.getContentAsString();
 			tasks = mapper.readValue(json, type);
 			
@@ -204,7 +216,7 @@ public class TaskControllerTest {
 	
 	@Test
 	public void testUpdateTask() {
-		Task task = TaskTestUtils.createMockTask();
+		TaskItem task = TaskTestUtils.createMockTask(user.getEmail());
 		task = taskService.createTask(task);
 		task.setDescription("All new description");
 		task.setTitle("My brand new title");

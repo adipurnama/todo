@@ -15,7 +15,7 @@ import org.springframework.validation.Errors;
 import org.springframework.validation.ValidationUtils;
 import org.springframework.validation.Validator;
 
-import com.rodaxsoft.todo.domain.ApplicationUser;
+import com.rodaxsoft.todo.domain.UserItem;
 import com.rodaxsoft.todo.exception.ResourceNotFoundException;
 
 /**
@@ -34,7 +34,7 @@ public class ApplicationUserLoginValidator implements Validator {
 
 	@Override
 	public boolean supports(Class<?> clazz) {
-		return ApplicationUser.class.isAssignableFrom(clazz);
+		return UserItem.class.isAssignableFrom(clazz);
 	}
 
 	@Override
@@ -42,10 +42,10 @@ public class ApplicationUserLoginValidator implements Validator {
 		ValidationUtils.rejectIfEmptyOrWhitespace(errors, "email", FIELD_REQUIRED_CODE, FIELD_REQUIRED_MSG);
 		ValidationUtils.rejectIfEmptyOrWhitespace(errors, "password", FIELD_REQUIRED_CODE, FIELD_REQUIRED_MSG);
 
-		ApplicationUser user = (ApplicationUser) target;
+		UserItem user = (UserItem) target;
 
 		String email = user.getEmail();
-		ApplicationUser storedUser = storedApplicationUserProvider.storedApplicationUserForEmail(email);
+		UserItem storedUser = storedApplicationUserProvider.storedApplicationUserForEmail(email);
 		if(null == storedUser) {
 			throw new ResourceNotFoundException("Email address not found: " + email);
 		} else {
